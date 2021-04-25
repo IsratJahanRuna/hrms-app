@@ -24,7 +24,7 @@ class CreateEmployeesTable extends Migration
             $table->string('contact');
             $table->string('address');
             // $table->string('password');
-            // $table->string('status')->default('active')
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

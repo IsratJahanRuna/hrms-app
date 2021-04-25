@@ -4,7 +4,7 @@
 
 
  <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ <button type="button" class="btn mt-5 mx-3 text-white fw-bold" style="background-color: rgb(40, 48, 119); height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Register New Employee
   </button>
 
@@ -48,7 +48,7 @@
             <td>{{$request->employeeDetail->email}}</td>
             <td>{{$request->contact}}</td>
             <td>{{$request->address}}</td>
-            <td>...</td>
+            <td>{{$request->status}}</td>
             <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('employeeDelete', $request->id)}}"> Delete</a>

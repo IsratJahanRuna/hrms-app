@@ -16,6 +16,7 @@ class EmployeeManageController extends Controller
     $departments=Department::all();
     $designations=Department::all();
     $employees=Employee::paginate(5);
+
     return view('backend.content.employeeManage',compact('employees','departments','designations'));
 
    }
@@ -68,6 +69,7 @@ class EmployeeManageController extends Controller
         //    'email'=>$request->email,
            'contact'=>$request->contact,
            'address'=>$request->address,
+        //    'status' =>$request->status,
         //    'password'=>bcrypt($request->password)
            ]);
 

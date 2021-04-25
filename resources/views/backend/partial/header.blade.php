@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light d-flex  shadow p-2 mb-5 rounded" style="background-color:rgb(187, 228, 241)">
 
-    <h5><img style="width: 50px; height:40px" src="logo.png" alt=""><b> Bit-Map</b></h5>
+    <h5><img style="width: 50px; height:40px" src="/resources/views/backend/partial/images/logo.png" alt=""><b> Bit-Map</b></h5>
     {{-- <form class="form-inline"> --}}
         <ul class="navbar-nav px-3">
      {{-- <a href={{route('signIn')}} class="btn btn-primary">Sign In</a> --}}

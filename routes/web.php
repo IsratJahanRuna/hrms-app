@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DepartmentController;
 use App\Http\Controllers\Backend\AttendanceRecordController;
 use  App\Http\Controllers\Backend\PersonalDetailsController;
 use App\Http\Controllers\Backend\ApplicationController;
+use App\Http\Controllers\Backend\DesignationController;
 use App\Http\Controllers\Backend\signInController;
 use App\Http\Controllers\Backend\UserController;
 
@@ -70,6 +71,9 @@ Route::get('/admin/departmentManage',[DepartmentController::class,'departmentMan
 
 //AdminPanel.departmentManage.showDetails
 Route::post('/admin/departmentManage',[DepartmentController::class,'departmentCreate'])->name('departmentCreate');
+
+//AdminPanel.designationManage
+Route::get('/admin/designationManage',[DesignationController::class,'designationManage'])->name('designationManage');
 
 //AdminPanel.attendanceRecord
 Route::get('/admin/attendanceRecord',[AttendanceRecordController::class,'attendanceRecord'])->name('attendanceRecord');
