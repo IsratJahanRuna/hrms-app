@@ -88,4 +88,39 @@ class EmployeeManageController extends Controller
 
        return redirect()->back();
    }
+
+   public function employeeEdit($id)
+   {
+
+    $user = Employee::with('employeeDetail')->find($id);
+    // dd($user);
+    return view('backend.content.edit',compact('user'));
+
+   }
+   public function employeeUpdate(Request $request,$id)
+   {
+    // dd($request->all());
+    $user = Employee::find($id);
+
+    $user->employeeDetail()->update([
+          'name'=>$request->input('name'),
+          'email'=>$request->input('email'),
+    ]);
+
+    $user->update([
+        //   'file'=>$request->input('picture'),
+          'designation'=>$request->input('designation'),
+          'contact'=>$request->input('contact'),
+          'address'=>$request->input('address'),
+          'status'=>$request->input('status'),
+
+    ]);
+//     $user = Employee::with('department')->find($id);
+//     $user->department()->update([
+//         'department'=>$request->input('department'),
+
+//   ]);
+
+    return redirect()->route('employeeManage')->with('success','Employee Updated Successfully');
+   }
 }

@@ -2,11 +2,6 @@
     <form class="form-inline">
         <ul class="nav flex-row">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
-                  Dashboard
-                </a>
-              </li>
-            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href={{route('personalDetails')}}>
                 <span data-feather="home"></span>
                 Personal Details

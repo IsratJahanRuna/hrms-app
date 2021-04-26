@@ -39,9 +39,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form >
+        <form method="post" action={{route('attendance')}}>
 
-
+@csrf
 
         <div class="modal-body">
             <div class="form-group">

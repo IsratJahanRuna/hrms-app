@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DepartmentController;
 use App\Http\Controllers\Backend\AttendanceRecordController;
 use  App\Http\Controllers\Backend\PersonalDetailsController;
 use App\Http\Controllers\Backend\ApplicationController;
+use App\Http\Controllers\backend\attendanceController;
 use App\Http\Controllers\Backend\DesignationController;
 use App\Http\Controllers\Backend\signInController;
 use App\Http\Controllers\Backend\UserController;
@@ -39,6 +40,9 @@ Route::post('/authenticate',[UserController::class,'authenticate'])->name('authe
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
+//attendance
+Route::post('/attendance',[attendanceController::class,'attendance'])->name('attendance');
+
 
 Route::group(['middleware'=>'employee-auth'],function(){
 //employee panel
@@ -62,6 +66,12 @@ Route::get('/admin/employeeManage',[EmployeeManageController::class,'employeeMan
 
 //AdminPanel.employeeManage.employeeCreate
 Route::post('/admin/employeeCreate',[EmployeeManageController::class,'employeeCreate'])->name('employeeCreate');
+
+//AdminPanel.employeeManage.employeeEdit
+Route::get('/admin/employeeEdit/{id}',[EmployeeManageController::class,'employeeEdit'])->name('employeeEdit');
+
+//AdminPanel.employeeManage.employeeEdit
+Route::post('/admin/employeeUpdate/{id}',[EmployeeManageController::class,'employeeUpdate'])->name('employeeUpdate');
 
 //AdminPanel.employeeManage.employeeDelete
 Route::get('/admin/employeeDelete/{id}',[EmployeeManageController::class,'employeeDelete'])->name('employeeDelete');

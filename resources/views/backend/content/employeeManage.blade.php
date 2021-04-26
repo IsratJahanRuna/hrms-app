@@ -9,7 +9,8 @@
   </button>
 
   @if(session()->has('success'))
-  <div class="alert alert-sucess">
+
+  <div class="alert alert-success mt-4">
         {{session()->get('success')}}
   </div>
   @endif
@@ -50,7 +51,7 @@
             <td>{{$request->address}}</td>
             <td>{{$request->status}}</td>
             <td>
-                <button type="button" class="btn btn-info text-white">Edit</button>
+                <a class="btn btn-info text-light" href="{{route('employeeEdit', $request->id)}}">Edit</a>
                 <a class="btn btn-danger" href="{{route('employeeDelete', $request->id)}}"> Delete</a>
 
             </td>

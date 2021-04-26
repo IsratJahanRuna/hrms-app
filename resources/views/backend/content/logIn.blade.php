@@ -11,6 +11,19 @@
 
 @include('backend.partial.header')
 
+
+@if(session()->has('error'))
+<div class="alert alert-danger">
+      {{session()->get('error')}}
+</div>
+@endif
+@if(session()->has('success'))
+<div class="alert alert-success">
+      {{session()->get('success')}}
+</div>
+@endif
+
+
 <form action={{route('authenticate')}} method="POST" class="container w-50 p-5 border shadow p-3 mb-5 rounded-3" style="background-color: rgb(188, 223, 235); margin-top:130px">
 
 
