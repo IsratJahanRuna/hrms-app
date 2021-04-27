@@ -5,7 +5,7 @@
 
  <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Add Department
+    Add Salary
   </button>
 
 
@@ -15,22 +15,24 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Department</th>
-        <th scope="col">Email</th>
-        <th scope="col">Contact No.</th>
+        <th scope="col">Employment Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Month</th>
+        <th scope="col">Bonus</th>
         <th scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
-        @foreach($departments as $key=>$request)
+         @foreach($salaries as $key=>$request)
 
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <td>{{$request->department}}</td>
-            <td>{{$request->email}}</td>
-            <td>{{$request->contact}}</td>
+            <td>{{$request->employment}}</td>
+            <td>{{$request->amount}}</td>
+            <td>{{$request->month}}</td>
+            <td>{{$request->bonus}}</td>
             <td>
-                <a class="btn btn-info text-light" href="{{route('departmentEdit', $request->id)}}">Edit</a>
+                <button type="button" class="btn btn-info text-white">Edit</button>
 
 
             </td>
@@ -54,18 +56,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Add Department</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Add Salary</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form method="post" action={{route('departmentCreate')}}>
+        <form method="post" action="{{route('salaryCreate')}}">
 
             @csrf
 
         <div class="modal-body">
             <div class="form-group">
-                <label for="exampleInputDepartment">Department</label>
-                <input name="department" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name">
+                <label for="exampleInputDepartment">Employment Type</label>
+                <input name="employment" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name">
 
             </div>
             {{-- <div class="form-group">
@@ -74,13 +76,18 @@
 
             </div> --}}
             <div class="form-group">
-                <label for="exampleInputEmail1">Email</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address">
+                <label for="exampleInputEmail1">Amount</label>
+                <input name="amount" type="decimal" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address">
 
             </div>
             <div class="form-group">
-                <label for="exampleInputPhone">Contact No.</label>
-                <input name="contact" type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number">
+                <label for="exampleInputPhone">Month</label>
+                <input name="month" type="month" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPhone">Bonus</label>
+                <input name="bonus" type="decimal" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number">
 
             </div>
         </div>

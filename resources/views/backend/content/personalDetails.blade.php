@@ -29,7 +29,7 @@
         <td> {{$employee->employeeDetail->name}}</td>
         <td>dssf </td>
         <td> {{$employee->department->department}}</td>
-        <td> {{$employee->designation}}</td>
+        <td> {{$employee->designation->designation}}</td>
         <td> {{$employee->employeeDetail->email}}</td>
         <td> {{$employee->contact}}</td>
         <td> {{$employee->address}}</td>

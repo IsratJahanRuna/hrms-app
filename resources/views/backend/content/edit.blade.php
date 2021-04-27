@@ -21,7 +21,7 @@
     </div> --}}
     <div class="form-group">
         <label for="exampleInputName">Designation</label>
-        <input name="designation" type="text" value="{{$user->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Department" required>
+        <input name="designation" type="text" value="{{$user->designation->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Department" required>
 
     </div>
     <div class="form-group">

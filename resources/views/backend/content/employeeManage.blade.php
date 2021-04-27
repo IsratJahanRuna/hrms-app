@@ -45,7 +45,7 @@
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->employeeDetail->name}}</td>
             <td>{{$request->department->department}}</td>
-            <td>{{$request->designation}}</td>
+            <td>{{$request->designation->designation}}</td>
             <td>{{$request->employeeDetail->email}}</td>
             <td>{{$request->contact}}</td>
             <td>{{$request->address}}</td>
@@ -118,20 +118,11 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Designation</label>
-                <select class="form-select" name="designation" required>
-                    <option selected>Select Designation </option>
-                    <option >CIO</option>
-                    <option >CTO</option>
-                    <option >Director</option>
-                    <option >Manager</option>
-                    <option >Assistant Manager</option>
-                    <option >Coordination</option>
-                    <option >Developer</option>
-                    <option> Junior Developer</option>
-                    <option >Trinee</option>
-                    {{-- @foreach ($designations as $request)
+                <select class="form-select" name="designation_id" required>
+                    <option selected>Select Department</option>
+                    @foreach ($designations as $request)
                         <option value="{{ $request->id }}">{{ $request->designation}}</option>
-                    @endforeach --}}
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">

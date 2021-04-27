@@ -37,6 +37,12 @@
               </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-light" href="{{route('salaryManage')}}">
+                  <span ></span>
+                  Salary Manage
+                </a>
+              </li>
+            <li class="nav-item">
                 <a class="nav-link text-light" href="#">
                   <span ></span>
                   Notification

@@ -19,12 +19,12 @@ class CreateEmployeesTable extends Migration
             $table->text('file')->nullable();
             // $table->string('name',250);
             $table->integer('department_id');
-            $table->string('designation');
+            $table->integer('designation_id');
             // $table->string('email')->unique();
             $table->string('contact');
             $table->string('address');
             // $table->string('password');
-            $table->string('status')->default('active');
+            $table->string('status')->default('Active');
             $table->timestamps();
         });
     }

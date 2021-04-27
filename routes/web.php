@@ -10,6 +10,7 @@ use  App\Http\Controllers\Backend\PersonalDetailsController;
 use App\Http\Controllers\Backend\ApplicationController;
 use App\Http\Controllers\backend\attendanceController;
 use App\Http\Controllers\Backend\DesignationController;
+use App\Http\Controllers\Backend\SalaryManageController;
 use App\Http\Controllers\Backend\signInController;
 use App\Http\Controllers\Backend\UserController;
 
@@ -53,6 +54,9 @@ Route::get('/employee/personalDetails',[PersonalDetailsController::class,'person
 
 //employee panel.application
 Route::get('/employee/application',[ApplicationController::class,'application'])->name('application');
+
+//employee panel.applicationCreate
+Route::post('/employee/application/create',[ApplicationController::class,'applicationCreate'])->name('applicationCreate');
 });
 
 
@@ -70,7 +74,7 @@ Route::post('/admin/employeeCreate',[EmployeeManageController::class,'employeeCr
 //AdminPanel.employeeManage.employeeEdit
 Route::get('/admin/employeeEdit/{id}',[EmployeeManageController::class,'employeeEdit'])->name('employeeEdit');
 
-//AdminPanel.employeeManage.employeeEdit
+//AdminPanel.employeeManage.employeeUpdate
 Route::post('/admin/employeeUpdate/{id}',[EmployeeManageController::class,'employeeUpdate'])->name('employeeUpdate');
 
 //AdminPanel.employeeManage.employeeDelete
@@ -80,10 +84,31 @@ Route::get('/admin/employeeDelete/{id}',[EmployeeManageController::class,'employ
 Route::get('/admin/departmentManage',[DepartmentController::class,'departmentManage'])->name('departmentManage');
 
 //AdminPanel.departmentManage.showDetails
-Route::post('/admin/departmentManage',[DepartmentController::class,'departmentCreate'])->name('departmentCreate');
+Route::post('/admin/departmentCreate',[DepartmentController::class,'departmentCreate'])->name('departmentCreate');
+
+//AdminPanel.departmentManage.departmentEdit
+Route::get('/admin/departmentEdit/{id}',[DepartmentController::class,'departmentEdit'])->name('departmentEdit');
+
+//AdminPanel.departmentManage.departmentUpdate
+Route::post('/admin/departmentUpdate/{id}',[DepartmentController::class,'departmentUpdate'])->name('departmentUpdate');
 
 //AdminPanel.designationManage
 Route::get('/admin/designationManage',[DesignationController::class,'designationManage'])->name('designationManage');
+
+//AdminPanel.designationManage.showDetails
+Route::post('/admin/designationCreate',[DesignationController::class,'designationCreate'])->name('designationCreate');
+
+//AdminPanel.designationManage.designationEdit
+Route::get('/admin/designationEdit/{id}',[DesignationController::class,'designationEdit'])->name('designationEdit');
+
+//AdminPanel.designationManage.designationUpdate
+Route::post('/admin/designationUpdate/{id}',[DesignationController::class,'designationUpdate'])->name('designationUpdate');
+
+//AdminPanel.salaryManage
+Route::get('/admin/salaryManage',[SalaryManageController::class,'salaryManage'])->name('salaryManage');
+
+//AdminPanel.salaryManage.shoeDetails
+Route::post('/admin/salaryCreate',[SalaryManageController::class,'salaryCreate'])->name('salaryCreate');
 
 //AdminPanel.attendanceRecord
 Route::get('/admin/attendanceRecord',[AttendanceRecordController::class,'attendanceRecord'])->name('attendanceRecord');

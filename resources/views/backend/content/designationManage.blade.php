@@ -16,22 +16,24 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Designations</th>
-        <th scope="col">Edit/Delete</th>
+        <th scope="col">Status</th>
+        <th scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
-        {{-- @foreach($departments as $key=>$request)
+        @foreach($designations as $key=>$request)
 
         <tr>
             <th scope="row">{{$key+1}}</th>
             <td>{{$request->designation}}</td>
+            <td>{{$request->status}}</td>
             <td>
-                <button type="button" class="btn btn-info text-white">Edit</button>
-                <a class="btn btn-danger" href="{{route('employeeDelete', $request->id)}}"> Delete</a>
+                <a class="btn btn-info text-light" href="{{route('designationEdit', $request->id)}}">Edit</a>
+
 
             </td>
         </tr>
-        @endforeach --}}
+        @endforeach
         </tbody>
 
   </table>
@@ -54,7 +56,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form method="post" action={{route('departmentCreate')}}>
+        <form method="post" action={{route('designationCreate')}}>
 
             @csrf
 

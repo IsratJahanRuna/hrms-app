@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department;
+use App\Models\Designation;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class EmployeeManageController extends Controller
    {
 
     $departments=Department::all();
-    $designations=Department::all();
+    $designations=Designation::all();
     $employees=Employee::paginate(5);
 
     return view('backend.content.employeeManage',compact('employees','departments','designations'));
@@ -65,7 +66,7 @@ class EmployeeManageController extends Controller
            'file' => $file_name,
         //    'name'=>$request->name,
            'department_id' => $request->department_id,
-           'designation'=>$request->designation,
+           'designation_id'=>$request->designation_id,
         //    'email'=>$request->email,
            'contact'=>$request->contact,
            'address'=>$request->address,

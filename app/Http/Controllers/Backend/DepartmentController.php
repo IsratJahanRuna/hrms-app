@@ -26,4 +26,27 @@ class DepartmentController extends Controller
 
             return redirect()->back();
     }
+    public function departmentEdit($id)
+    {
+
+     $user = Department::find($id);
+     // dd($user);
+     return view('backend.content.editDepartment',compact('user'));
+
+    }
+    public function departmentUpdate(Request $request,$id)
+    {
+     // dd($request->all());
+     $user = Department::find($id);
+
+
+     $user->update([
+           'department'=>$request->input('department'),
+           'contact'=>$request->input('contact'),
+           'email'=>$request->input('email'),
+
+     ]);
+
+     return redirect()->route('departmentManage')->with('success','Details Updated Successfully');
+    }
 }
