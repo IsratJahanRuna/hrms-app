@@ -56,7 +56,7 @@ Route::get('/employee/personalDetails',[PersonalDetailsController::class,'person
 Route::get('/employee/application',[ApplicationController::class,'application'])->name('application');
 
 //employee panel.applicationCreate
-Route::post('/employee/application/create',[ApplicationController::class,'applicationCreate'])->name('applicationCreate');
+Route::post('/employee/applicationCreate',[ApplicationController::class,'applicationCreate'])->name('applicationCreate');
 });
 
 

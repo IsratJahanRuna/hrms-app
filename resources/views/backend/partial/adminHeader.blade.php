@@ -44,7 +44,7 @@
               </li>
             <li class="nav-item">
                 <a class="nav-link text-light" href="#">
-                  <span ></span>
+                  <span class="badge badge-light">{{$application_count}}</span>
                   Notification
                 </a>
               </li>

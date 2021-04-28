@@ -8,6 +8,20 @@
     Add Salary
   </button>
 
+  @if(session()->has('success'))
+
+  <div class="alert alert-success mt-4">
+        {{session()->get('success')}}
+  </div>
+  @endif
+  @if(session()->has('error'))
+
+  <div class="alert alert-danger mt-4">
+        {{session()->get('error')}}
+  </div>
+  @endif
+
+
 
 
 {{-- Employee Details table --}}
@@ -15,6 +29,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Employee Name</th>
         <th scope="col">Employment Type</th>
         <th scope="col">Amount</th>
         <th scope="col">Month</th>
@@ -27,6 +42,7 @@
 
         <tr>
             <th scope="row">{{$key+1}}</th>
+            <td>{{$request->employee->employeeDetail->name}}</td>
             <td>{{$request->employment}}</td>
             <td>{{$request->amount}}</td>
             <td>{{$request->month}}</td>
@@ -63,8 +79,17 @@
         <form method="post" action="{{route('salaryCreate')}}">
 
             @csrf
-
+{{-- @dd($salaries) --}}
         <div class="modal-body">
+            <div class="form-group">
+                <label for="exampleInputDepartment">Employee Name</label>
+                <select class="form-select" name="employee_id" required>
+                    <option selected>Select Department</option>
+                    @foreach ($employee as $request)
+                        <option value="{{ $request->id }}">{{ $request->employeeDetail->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group">
                 <label for="exampleInputDepartment">Employment Type</label>
                 <input name="employment" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name">

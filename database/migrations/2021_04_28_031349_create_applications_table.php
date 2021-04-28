@@ -22,6 +22,7 @@ class CreateApplicationsTable extends Migration
             $table->date('from');
             $table->date('to');
             $table->text('about');
+            $table->text('status')->default('Pending');
             $table->timestamps();
         });
     }

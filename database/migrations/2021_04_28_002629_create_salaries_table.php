@@ -15,9 +15,10 @@ class CreateSalariesTable extends Migration
     {
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
+            $table->integer('employee_id');
             $table->string('employment');
             $table->decimal('amount');
-            $table->date('month');
+            $table->string('month');
             $table->decimal('bonus');
             $table->timestamps();
         });

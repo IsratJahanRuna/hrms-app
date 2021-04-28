@@ -17,6 +17,10 @@ class Employee extends Model
         return $this -> belongsTo(Designation::class,'designation_id','id');
     }
 
+    // public function salary(){
+    //     return $this -> belongsTo(Salary::class,'salary_id','id');
+    // }
+
     public function employeeDetail(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

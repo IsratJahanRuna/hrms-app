@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Application;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $applicationCount = Application::where('status','Pending')->count();
+        view()->share('application_count',$applicationCount);
     }
 }
