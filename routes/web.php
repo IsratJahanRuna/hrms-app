@@ -10,6 +10,7 @@ use  App\Http\Controllers\Backend\PersonalDetailsController;
 use App\Http\Controllers\Backend\ApplicationController;
 use App\Http\Controllers\backend\attendanceController;
 use App\Http\Controllers\Backend\DesignationController;
+use App\Http\Controllers\Backend\NotificationController;
 use App\Http\Controllers\Backend\SalaryManageController;
 use App\Http\Controllers\Backend\signInController;
 use App\Http\Controllers\Backend\UserController;
@@ -112,5 +113,8 @@ Route::post('/admin/salaryCreate',[SalaryManageController::class,'salaryCreate']
 
 //AdminPanel.attendanceRecord
 Route::get('/admin/attendanceRecord',[AttendanceRecordController::class,'attendanceRecord'])->name('attendanceRecord');
+
+//AdminPanel.notification
+Route::get('/admin/notification',[NotificationController::class,'notification'])->name('notification');
 
 });

@@ -43,7 +43,7 @@
                 </a>
               </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">
+                <a class="nav-link text-light" href={{route('notification')}}>
                   <span class="badge badge-light">{{$application_count}}</span>
                   Notification
                 </a>
