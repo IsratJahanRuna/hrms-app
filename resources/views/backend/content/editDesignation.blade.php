@@ -8,12 +8,12 @@
 
     @csrf
 
-<div class="modal-body">
+{{-- <div class="modal-body">
     <div class="form-group">
         <label for="exampleInputName">Designation</label>
         <input name="designation" type="text" value="{{$user->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
-
-    </div>
+        </select>
+    </div> --}}
 
     <div class="form-group">
         <label for="exampleInputEmail1">Status</label>

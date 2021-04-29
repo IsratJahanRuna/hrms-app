@@ -33,7 +33,7 @@
             <td>{{$request->about}}</td>
             <td>{{$request->status}}</td>
             <td>
-                <a class="btn btn-success text-light" href="{{route('leaveAccept'),$request->id}}">Accept</a>
+                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',$request->id)}}">Accept</a>
                 <a class="btn btn-danger text-light" href="#">Decline</a>
 
 

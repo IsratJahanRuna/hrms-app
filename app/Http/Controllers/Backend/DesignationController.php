@@ -26,10 +26,10 @@ class DesignationController extends Controller
 
     public function designationEdit($id)
     {
-
+     $designations=Designation::all();
      $user = Designation::find($id);
      // dd($user);
-     return view('backend.content.editDesignation',compact('user'));
+     return view('backend.content.editDesignation',compact('user','designations'));
 
     }
     public function designationUpdate(Request $request,$id)
@@ -39,7 +39,7 @@ class DesignationController extends Controller
 
 
      $user->update([
-           'designation'=>$request->input('designation'),
+        //    'designation'=>$request->input('designation'),
            'status'=>$request->input('status'),
 
      ]);

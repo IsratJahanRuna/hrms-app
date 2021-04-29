@@ -19,10 +19,14 @@
         <input name="department" type="text" value="{{$user->department->department}}" class="form-control" id="exampleInputName" placeholder="Enter Department" required>
 
     </div> --}}
+    {{-- value="{{$user->designation->designation}}" --}}
     <div class="form-group">
         <label for="exampleInputName">Designation</label>
-        <input name="designation" type="text" value="{{$user->designation->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Department" required>
-
+        <select class="form-select" name="designation_id"  required>
+            @foreach ($designations as $request)
+                <option {{$user->designation_id == $request->id ? 'selected': ''}} value="{{ $request->id }}">{{ $request->designation}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>

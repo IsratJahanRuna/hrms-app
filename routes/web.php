@@ -117,4 +117,7 @@ Route::get('/admin/attendanceRecord',[AttendanceRecordController::class,'attenda
 //AdminPanel.notification
 Route::get('/admin/notification',[NotificationController::class,'notification'])->name('notification');
 
+//AdminPanel.ApplicationAccept
+Route::get('/admin/applicationAccept/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationAccept');
+
 });

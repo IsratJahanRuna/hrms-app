@@ -34,7 +34,7 @@
         <th scope="col">Amount</th>
         <th scope="col">Month</th>
         <th scope="col">Bonus</th>
-        <th scope="col">Edit</th>
+
       </tr>
     </thead>
     <tbody>
@@ -47,11 +47,7 @@
             <td>{{$request->amount}}</td>
             <td>{{$request->month}}</td>
             <td>{{$request->bonus}}</td>
-            <td>
-                <button type="button" class="btn btn-info text-white">Edit</button>
 
-
-            </td>
         </tr>
         @endforeach
         </tbody>
@@ -92,7 +88,12 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputDepartment">Employment Type</label>
-                <input name="employment" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name">
+                <select class="form-select" name="employee_id" required>
+                    <option selected>Select type</option>
+                    <option >Half-Time</option>
+                    <option >Full-Time</option>
+
+                </select>
 
             </div>
             {{-- <div class="form-group">

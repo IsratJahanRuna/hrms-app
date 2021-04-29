@@ -14,6 +14,13 @@ class NotificationController extends Controller
         $notifications = Application::all();
         return view('backend.content.notification',compact('notifications'));
     }
+    public function applicationAccept($id)
+    {
+
+     $notifications = Application::find($id);
+     return view('backend.content.applicationAccept',compact('notifications'));
+
+    }
 
 
 }

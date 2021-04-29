@@ -94,8 +94,9 @@ class EmployeeManageController extends Controller
    {
 
     $user = Employee::with('employeeDetail')->find($id);
+    $designations=Designation::all();
     // dd($user);
-    return view('backend.content.edit',compact('user'));
+    return view('backend.content.edit',compact('user','designations'));
 
    }
    public function employeeUpdate(Request $request,$id)
@@ -110,17 +111,13 @@ class EmployeeManageController extends Controller
 
     $user->update([
         //   'file'=>$request->input('picture'),
-          'designation'=>$request->input('designation'),
+          'designation_id'=>$request->input('designation_id'),
           'contact'=>$request->input('contact'),
           'address'=>$request->input('address'),
           'status'=>$request->input('status'),
 
     ]);
-//     $user = Employee::with('department')->find($id);
-//     $user->department()->update([
-//         'department'=>$request->input('department'),
 
-//   ]);
 
     return redirect()->route('employeeManage')->with('success','Employee Updated Successfully');
    }
