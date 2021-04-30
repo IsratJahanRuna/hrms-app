@@ -10,6 +10,7 @@ use  App\Http\Controllers\Backend\PersonalDetailsController;
 use App\Http\Controllers\Backend\ApplicationController;
 use App\Http\Controllers\backend\attendanceController;
 use App\Http\Controllers\Backend\DesignationController;
+use App\Http\Controllers\Backend\LeaveManageCOntroller;
 use App\Http\Controllers\Backend\NotificationController;
 use App\Http\Controllers\Backend\SalaryManageController;
 use App\Http\Controllers\Backend\signInController;
@@ -58,16 +59,27 @@ Route::get('/employee/application',[ApplicationController::class,'application'])
 
 //employee panel.applicationCreate
 Route::post('/employee/applicationCreate',[ApplicationController::class,'applicationCreate'])->name('applicationCreate');
+
+
 });
 
 
 
 Route::group(['middleware'=>'admin-auth'],function(){
+
+
+Route::post('/employee/accept/application/{id}',[ApplicationController::class,'handleStatus'])->name('acceptApplication');
+
+// Route::post('/employee/decline/application/{id}',[ApplicationController::class,'handleStatusDecline'])->name('declineApplication');
+
 //Admin panel
 Route::get('/admin',[AdminController::class,'admin'])->name('admin');
 
 //AdminPanel.employeeManage.showDetails
 Route::get('/admin/employeeManage',[EmployeeManageController::class,'employeeManage'])->name('employeeManage');
+
+//AdminPanel.employeeManage.search
+Route::get('/admin/employeeManage/search',[EmployeeManageController::class,'search'])->name('employees.search');
 
 //AdminPanel.employeeManage.employeeCreate
 Route::post('/admin/employeeCreate',[EmployeeManageController::class,'employeeCreate'])->name('employeeCreate');
@@ -119,5 +131,11 @@ Route::get('/admin/notification',[NotificationController::class,'notification'])
 
 //AdminPanel.ApplicationAccept
 Route::get('/admin/applicationAccept/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationAccept');
+
+//AdminPanel.ApplicationDecline
+Route::get('/admin/applicationDecline/{id}',[NotificationController::class,'applicationDecline'])->name('ApplicationDecline');
+
+//AdminPanel.LeaveManage
+Route::get('/admin/leaveManage',[LeaveManageCOntroller::class,'leaveManage'])->name('LeaveManage');
 
 });

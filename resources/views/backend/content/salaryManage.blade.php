@@ -88,7 +88,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputDepartment">Employment Type</label>
-                <select class="form-select" name="employee_id" required>
+                <select class="form-select" name="employment" required>
                     <option selected>Select type</option>
                     <option >Half-Time</option>
                     <option >Full-Time</option>

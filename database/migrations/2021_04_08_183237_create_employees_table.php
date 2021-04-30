@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('user_id');
             $table->text('file')->nullable();
             // $table->string('name',250);
+            $table->string('employee_id');
             $table->integer('department_id');
             $table->integer('designation_id');
             // $table->string('email')->unique();

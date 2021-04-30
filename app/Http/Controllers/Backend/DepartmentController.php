@@ -41,7 +41,7 @@ class DepartmentController extends Controller
 
 
      $user->update([
-           'department'=>$request->input('department'),
+        //    'department'=>$request->input('department'),
            'contact'=>$request->input('contact'),
            'email'=>$request->input('email'),
 

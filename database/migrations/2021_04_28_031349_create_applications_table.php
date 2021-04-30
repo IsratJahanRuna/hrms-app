@@ -15,12 +15,14 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('department');
+            $table->integer('user_id');
+            // $table->string('email');
+            $table->integer('department_id');
             $table->string('type');
             $table->date('from');
             $table->date('to');
+            $table->date('accept_from')->nullable();
+            $table->date('accept_to')->nullable();
             $table->text('about');
             $table->text('status')->default('Pending');
             $table->timestamps();

@@ -31,7 +31,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">
+              <a class="nav-link text-light" href={{route('LeaveManage')}}>
                 <span ></span>
                 Leave Manage
               </a>

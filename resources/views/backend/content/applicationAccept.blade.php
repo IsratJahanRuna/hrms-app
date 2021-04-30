@@ -4,20 +4,20 @@
 @section('contents')
 
 
-<form class="container w-50 " style="margin-top:150px">
+<form action="{{route('acceptApplication',$notifications->id)}}" method="post" class="container w-50 " style="margin-top:150px">
 
     @csrf
 
 <div class="modal-body">
     <div class="form-group">
         <label for="exampleInputName">From_Date</label>
-        <input name="form" type="date" class="form-control" value="{{$notifications->from}}" id="exampleInputName" placeholder="Enter Employee Name" required>
+        <input name="accept_from" type="date" class="form-control" value="{{$notifications->from}}" id="exampleInputName" placeholder="Enter Employee Name" required>
 
     </div>
 
     <div class="form-group">
         <label for="exampleInputEmail1">To_Date</label>
-        <input name="to" type="date" class="form-control" value="{{$notifications->to}}" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
+        <input name="accept_to" type="date" class="form-control" value="{{$notifications->to}}" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
 
     </div>
 

@@ -3,6 +3,13 @@
 @section('contents')
 
 
+@if(session()->has('success'))
+
+<div class="alert alert-success mt-4">
+      {{session()->get('success')}}
+</div>
+@endif
+
 <table class="table my-3 " style="margin-right: 200px;">
     <thead>
       <tr>
@@ -21,23 +28,24 @@
     </thead>
     <tbody>
         @foreach($notifications as $key=>$request)
-
+        {{-- @dd($request) --}}
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <td>{{$request->name}}</td>
-            <td>{{$request->email}}</td>
-            <td>{{$request->department}}</td>
+            <td>{{$request->employeeDetail->name}}</td>
+            <td>{{$request->employeeDetail->email}}</td>
+            <td>{{$request->department->department}}</td>
             <td>{{$request->type}}</td>
             <td>{{$request->from}}</td>
             <td>{{$request->to}}</td>
             <td>{{$request->about}}</td>
             <td>{{$request->status}}</td>
             <td>
-                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',$request->id)}}">Accept</a>
-                <a class="btn btn-danger text-light" href="#">Decline</a>
-
-
+                @if($request->status !=='decline')
+                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',['id'=>$request->id,'status'=>'accept'])}}">Accept</a>
+                <a class="btn btn-danger text-light" href="{{route('ApplicationAccept',['id'=>$request->id,'status'=>'decline'])}}">Decline</a>
+                @endif
             </td>
         </tr>
         @endforeach
         </tbody>
+        @endsection

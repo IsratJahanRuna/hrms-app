@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\EmployeeRegistration;
 use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeeManageController extends Controller
 {
@@ -22,9 +24,28 @@ class EmployeeManageController extends Controller
 
    }
 
+   public function search(Request $request)
+    {
+        $departments=Department::all();
+        $designations=Designation::all();
+        $search=$request->search;
+        if($search){
+            $employees=Employee::where('employee_id','like','%'.$search.'%')->paginate(5);
+                            // ->orWhere('category','like','%'.$search.'%')
+        }else
+        {
+            $employees=Employee::paginate(5);
+        }
+
+        // where(name=%search%)
+        $title="Search result";
+        return view('backend.content.employeeManage',compact('employees','search','departments','designations'));
+    }
+
+
    public function employeeCreate(Request $request)
    {
-
+    $employee=Employee::paginate(5);
 
     // dd($request->all());
     $file_name='';
@@ -68,11 +89,16 @@ class EmployeeManageController extends Controller
            'department_id' => $request->department_id,
            'designation_id'=>$request->designation_id,
         //    'email'=>$request->email,
+           'employee_id'=>$request->employee_id,
            'contact'=>$request->contact,
            'address'=>$request->address,
         //    'status' =>$request->status,
         //    'password'=>bcrypt($request->password)
            ]);
+
+
+           //send email to user
+           Mail::to($users->email)->send(new EmployeeRegistration($employee));
 
            return redirect()->back()->with('success','Employee Registration Successful');
    }

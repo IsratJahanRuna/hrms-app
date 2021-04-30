@@ -8,6 +8,8 @@ use App\Models\Department;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class ApplicationController extends Controller
 {
     public function application()
@@ -20,10 +22,14 @@ class ApplicationController extends Controller
 
     public function applicationCreate(Request $request)
     {
+        // $department = Department::find($request->department_id);
+
+        // dd($request->all());
+
         Application::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'department'=>$request->department,
+            'user_id' => auth()->user()->id,
+            // 'email'=>$request->email,
+            'department_id'=>$request->department_id,
             'type'=>$request->type,
             'from'=>$request->from,
             'to'=>$request->to,
@@ -32,6 +38,23 @@ class ApplicationController extends Controller
 
             return redirect()->back();
     }
+
+
+
+    public function handleStatus (Request $request,$id){
+
+        $notifications = Application::find($id);
+
+            $notifications->update([
+                'accept_from'=>$request->input('accept_from'),
+                'accept_to'=>$request->input('accept_to'),
+                'status'=>'accept'
+                ]);
+            return redirect()->route('notification')->with('success','Leave application accepted');
+
+    }
+
+
 
 
 

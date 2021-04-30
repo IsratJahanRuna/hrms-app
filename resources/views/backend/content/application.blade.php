@@ -14,19 +14,20 @@
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input type="email" name="email" value="{{$application->employeeDetail->email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       </div>
+      {{-- @dd($application) --}}
       <div class="mb-2">
         <label for="exampleInputDepartment" class="form-label">Department</label>
-        <select class="form-select" name="department" required>
-            <option selected>{{$application->department->department}}</option>
+        <select class="form-select" name="department_id" required>
+            <option value="{{$application->department->id }}" selected>{{$application->department->department}}</option>
             @foreach ($departments as $request)
-                <option value="{{$request->deparment }}">{{ $request->department }}</option>
+                <option {{$application->department_id == $request->id ? 'selected': ''}} value="{{ $request->id }}">{{ $request->department }}</option>
             @endforeach
         </select>      </div>
       <div class="form-group">
         <label for="exampleInputName">Type</label>
         <select class="form-select mb-3" type="text" name="type">
             <option selected>Select Application type </option>
-            <option >Leave</option>
+            {{-- <option >Leave</option> --}}
             <option >Business Leave</option>
             <option >Maternity Leave</option>
             <option >Other</option>

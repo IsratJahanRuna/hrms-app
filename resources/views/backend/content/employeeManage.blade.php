@@ -7,6 +7,21 @@
  <button type="button" class="btn mt-5 mx-3 text-white fw-bold" style="background-color: rgb(40, 48, 119); height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Register New Employee
   </button>
+  <div>
+    <form action="{{route('employees.search')}}" method="get">
+
+        <div class="form-group">
+            <input type="text" name="search" placeholder="Enter employee id" class="form-control">
+            <button class="btn btn-primary position-right">Search</button>
+        </div>
+
+    </form>
+</div>
+@if(isset($search))
+<p>
+<span class="alert alert-success"> you are searching for '{{$search}}' , found ({{count($employees)}})</span>
+</p>
+@endif
 
   @if(session()->has('success'))
 
@@ -28,6 +43,7 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Name</th>
+        <th scope="col">Employee_Id</th>
         <th scope="col">Department</th>
         <th scope="col">Designation</th>
         <th scope="col">Email</th>
@@ -44,6 +60,7 @@
             <th scope="row">{{$key+1}}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->employeeDetail->name}}</td>
+            <td>{{$request->employee_id}}</td>
             <td>{{$request->department->department}}</td>
             <td>{{$request->designation->designation}}</td>
             <td>{{$request->employeeDetail->email}}</td>
@@ -106,6 +123,12 @@
                 <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
 
             </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputName">Employee_ID</label>
+                    <input name="employee_id" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
+
+                </div>
             <div class="form-group">
                 <label for="exampleInputName">Department</label>
                 <select class="form-select" name="department_id" required>
