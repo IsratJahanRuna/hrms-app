@@ -40,5 +40,10 @@ class NotificationController extends Controller
 
     }
 
+    public function employeeNotification()
+    {
+        return view('backend.content.employeeNotification');
+    }
+
 
 }

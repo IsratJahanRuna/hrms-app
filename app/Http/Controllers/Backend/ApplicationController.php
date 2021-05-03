@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ApplicationAccepted;
 use App\Models\Application;
 use App\Models\Department;
 use App\Models\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use function GuzzleHttp\Promise\all;
 
@@ -82,6 +84,8 @@ class ApplicationController extends Controller
                 'status'=>'accept'
                 ]);
 
+//send email to user
+Mail::to($employee->email)->send(new ApplicationAccepted($notifications));
 
      return redirect()->route('notification')->with('success','Leave application accepted');
 

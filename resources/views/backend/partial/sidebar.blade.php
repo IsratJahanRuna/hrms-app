@@ -126,13 +126,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">
+            <a class="nav-link text-light" href={{route('accountDetails')}}>
               <span ></span>
               Account Details
             </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link text-light"  href="#">
+              <a class="nav-link text-light"  href={{route('employeeNotification')}}>
                 <span ></span>
                 Notification
               </a>
@@ -174,12 +174,18 @@
                     Salary Manage
                   </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href={{route('report')}}>
+                     Report Generation
+                    </a>
+                  </li>
               <li class="nav-item">
                   <a class="nav-link text-light" href={{route('notification')}}>
                     <span class="badge badge-light">{{$application_count}}</span>
                     Notification
                   </a>
                 </li>
+
                 @endif
 
       </ul>

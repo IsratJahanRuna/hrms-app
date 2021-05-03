@@ -60,11 +60,17 @@ Route::get('/employee/application',[ApplicationController::class,'application'])
 //employee panel.applicationCreate
 Route::post('/employee/applicationCreate',[ApplicationController::class,'applicationCreate'])->name('applicationCreate');
 
+//employee Panel.accountDetails
+Route::get('/employee/accountDetails',[SalaryManageController::class,'accountDetails'])->name('accountDetails');
+
 //employee panel.attendanceRecord
 Route::get('/employee/attendanceRecord',[AttendanceRecordController::class,'employeeAttendance'])->name('employeeAttendance');
 
+//employee panel.leaveDetails
+Route::get('/employee/leaveDetails',[NotificationController::class,'leaveDetails'])->name('leaveDetails');
+
 //employee panel.notification
-Route::get('/employee/notification',[NotificationController::class,'leaveDetails'])->name('leaveDetails');
+Route::get('/employee/notification',[NotificationController::class,'employeeNotification'])->name('employeeNotification');
 });
 
 
@@ -141,5 +147,9 @@ Route::get('/admin/applicationDecline/{id}',[NotificationController::class,'appl
 
 //AdminPanel.LeaveManage
 Route::get('/admin/leaveManage',[LeaveManageCOntroller::class,'leaveManage'])->name('LeaveManage');
+
+
+//AdminPanel.report
+Route::get('/admin/report',[AttendanceRecordController::class,'report'])->name('report');
 
 });

@@ -19,4 +19,9 @@ class AttendanceRecordController extends Controller
         // dd($attendance);
         return view('backend.content.employeeAttendance',compact('attendance'));
     }
+
+    public function report(){
+        $attendance = Attendance::all();
+        return view('backend.content.report',compact('attendance'));
+    }
 }
