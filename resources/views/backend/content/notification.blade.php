@@ -2,7 +2,7 @@
 
 @section('contents')
 
-
+<h2 class="mt-5 text-center text-decoration-underline">Notification</h2>
 @if(session()->has('success'))
 
 <div class="alert alert-success mt-4">
@@ -31,6 +31,7 @@
         {{-- @dd($request) --}}
         <tr>
             <th scope="row">{{$key+1}}</th>
+
             <td>{{$request->employeeDetail->name}}</td>
             <td>{{$request->employeeDetail->email}}</td>
             <td>{{$request->department->department}}</td>
@@ -41,7 +42,7 @@
             <td>{{$request->status}}</td>
             <td>
                 @if($request->status !=='decline')
-                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',['id'=>$request->id,'status'=>'accept'])}}">Accept</a>
+                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',['id'=>$request->id,'status'=>'accept','user_id'=>$request->employeeDetail->id])}}">Accept</a>
                 <a class="btn btn-danger text-light" href="{{route('ApplicationAccept',['id'=>$request->id,'status'=>'decline'])}}">Decline</a>
                 @endif
             </td>

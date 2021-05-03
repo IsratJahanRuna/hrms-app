@@ -1,7 +1,7 @@
-<nav class="navbar navbar-light bg-light d-flex flex-row-reverse me-3">
+<nav class="navbar navbar-light \ d-flex flex-row-reverse me-3" style="background-color: rgb(34, 34, 121)">
     <form class="form-inline">
         <ul class="nav flex-row">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link active" aria-current="page" href={{route('personalDetails')}}>
                 <span data-feather="home"></span>
                 Personal Details
@@ -36,7 +36,7 @@
                   <span ></span>
                   Notification
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item text-nowrap">
                 @auth()
                     <span style="color:white;" data-feather="user"></span>

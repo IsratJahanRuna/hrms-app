@@ -2,7 +2,7 @@
 
 @section('contents')
 
-
+<h2 class="mt-5 text-center text-decoration-underline">Department Manage</h2>
  <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add Department

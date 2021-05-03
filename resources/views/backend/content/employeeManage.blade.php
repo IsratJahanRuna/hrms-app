@@ -2,7 +2,7 @@
 
 @section('contents')
 
-
+<h2 class="mt-5 text-center text-decoration-underline">Employee Manage</h2>
  <!-- Button trigger modal -->
  <button type="button" class="btn mt-5 mx-3 text-white fw-bold" style="background-color: rgb(40, 48, 119); height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Register New Employee
@@ -44,6 +44,7 @@
         <th scope="col">Picture</th>
         <th scope="col">Name</th>
         <th scope="col">Employee_Id</th>
+        <th scope="col">Gender</th>
         <th scope="col">Department</th>
         <th scope="col">Designation</th>
         <th scope="col">Email</th>
@@ -61,6 +62,7 @@
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->employeeDetail->name}}</td>
             <td>{{$request->employee_id}}</td>
+            <td>{{$request->gender}}</td>
             <td>{{$request->department->department}}</td>
             <td>{{$request->designation->designation}}</td>
             <td>{{$request->employeeDetail->email}}</td>
@@ -129,6 +131,12 @@
                     <input name="employee_id" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
 
                 </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputName">Gender</label>
+                        <input name="gender" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
+
+                    </div>
             <div class="form-group">
                 <label for="exampleInputName">Department</label>
                 <select class="form-select" name="department_id" required>
@@ -162,6 +170,11 @@
         <div class="form-group">
             <label for="exampleInputAddress">Address</label>
             <input name="address" type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address" required>
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAddress">Salary</label>
+            <input name="salary" type="decimal" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address" required>
 
         </div>
             {{-- <div class="form-group">

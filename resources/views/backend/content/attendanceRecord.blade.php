@@ -3,6 +3,8 @@
 
 @section('contents')
 
+<h2 class="m-5 text-center text-decoration-underline">Employee Attendance Record</h2>
+
 {{-- Employee Attendance Record Table --}}
 <table class="table my-3 " style="margin-right: 200px;">
     <thead>

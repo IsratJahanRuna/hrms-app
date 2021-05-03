@@ -18,6 +18,7 @@ class CreateAttendancesTable extends Migration
             $table->integer('user_id');
             $table->dateTime('in_time');
             $table->dateTime('out_time')->nullable();
+            $table->string('status')->default('Absent');
             $table->timestamps();
         });
     }

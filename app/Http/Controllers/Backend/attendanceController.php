@@ -34,7 +34,8 @@ class attendanceController extends Controller
        if($alreadyExist){
            if(Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->whereNull('out_time')->exists()){
             Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->update([
-                'out_time' => now()
+                'out_time' => now(),
+                'status' => 'Present'
             ]);
             return redirect()->route('logIn')->with('success','You have logged-out.');
 

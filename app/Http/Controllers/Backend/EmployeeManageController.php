@@ -90,6 +90,8 @@ class EmployeeManageController extends Controller
            'designation_id'=>$request->designation_id,
         //    'email'=>$request->email,
            'employee_id'=>$request->employee_id,
+           'salary'=>$request->salary,
+           'gender'=>$request->gender,
            'contact'=>$request->contact,
            'address'=>$request->address,
         //    'status' =>$request->status,

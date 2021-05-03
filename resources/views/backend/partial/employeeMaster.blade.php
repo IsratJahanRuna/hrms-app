@@ -52,13 +52,19 @@
 
 @include('backend.partial.employeeHeader')
 
-
-    <main >
+<div class="container-fluid">
+    <div class="row">
+<div class="col-md-3">
+@include('backend.partial.sidebar')
+</div>
+    <main class="col-md-9">
 
 
         @yield('contents')
 
     </main>
+</div>
+</div>
 
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\Department;
 use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\Promise\all;
@@ -41,16 +42,48 @@ class ApplicationController extends Controller
 
 
 
-    public function handleStatus (Request $request,$id){
+    public function handleStatus(Request $request,$id){
 
         $notifications = Application::find($id);
+        // dd($notifications);
+        // dd($request->all());
+
+         $employee = Employee::where('user_id',$request->input('user_id'))->first();
+
+
+
+         if($notifications->type == 'Casual Leave'){
+
+            // dd($request->accept_from, $request->accept_to);
+            $start = Carbon::parse($request->accept_from);
+            $end =  Carbon::parse($request->accept_to);
+            // dd($start,$end);
+
+
+             $days = $end->diffInDays($start);
+            //  dd($days);
+            $employee->update([
+                'total_casual_leave'=> $employee->total_casual_leave + $days
+            ]);
+         }
+         if($notifications->type == 'Sick Leave'){
+            $start = Carbon::parse($request->accept_from);
+            $end =  Carbon::parse($request->accept_to);
+            $days = $end->diffInDays($start);
+            $employee->update([
+                'total_sick_leave'=> $employee->total_sick_leave + $days
+            ]);
+         }
+
 
             $notifications->update([
                 'accept_from'=>$request->input('accept_from'),
                 'accept_to'=>$request->input('accept_to'),
                 'status'=>'accept'
                 ]);
-            return redirect()->route('notification')->with('success','Leave application accepted');
+
+
+     return redirect()->route('notification')->with('success','Leave application accepted');
 
     }
 

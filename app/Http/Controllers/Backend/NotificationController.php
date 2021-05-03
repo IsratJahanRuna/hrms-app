@@ -16,7 +16,14 @@ class NotificationController extends Controller
         $notifications = Application::where('status','!=','accept')->get();
         return view('backend.content.notification',compact('notifications'));
     }
-    public function applicationAccept($id)
+
+    public function leaveDetails()
+    {
+        $notifications = Application::where('user_id','=',auth()->user()->id)->get();
+        return view('backend.content.leaveDetails',compact('notifications'));
+    }
+
+    public function applicationAccept($id,$user_id)
     {
         // $application = Employee::with(['employeeDetail'])->where('user_id',auth()->user()->id)->sole();
         // $departments=Department::all();
@@ -29,7 +36,7 @@ class NotificationController extends Controller
             return redirect()->back();
         }
 
-     return view('backend.content.applicationAccept',compact('notifications'));
+     return view('backend.content.applicationAccept',compact('notifications','user_id'));
 
     }
 

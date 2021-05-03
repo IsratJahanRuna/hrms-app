@@ -3,7 +3,7 @@
 @section('contents')
 
 
-
+<h2 class="m-5 text-center text-decoration-underline">Leave Manage</h2>
 
 <table class="table my-3 " style="margin-right: 200px;">
     <thead>

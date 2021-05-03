@@ -22,8 +22,13 @@ class CreateEmployeesTable extends Migration
             $table->integer('department_id');
             $table->integer('designation_id');
             // $table->string('email')->unique();
+            $table->string('gender');
             $table->string('contact');
             $table->string('address');
+            $table->string('total_casual_leave')->nullable();
+            $table->string('total_annual_leave')->nullable();
+            $table->string('total_sick_leave')->nullable();
+            $table->decimal('salary');
             // $table->string('password');
             $table->string('status')->default('Active');
             $table->timestamps();

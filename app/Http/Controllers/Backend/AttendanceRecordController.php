@@ -12,4 +12,11 @@ class AttendanceRecordController extends Controller
         $attendance = Attendance::all();
         return view('backend.content.attendanceRecord',compact('attendance'));
     }
+
+    public function employeeAttendance(){
+        $attendance = Attendance::where('user_id',auth()->user()->id)->get();
+
+        // dd($attendance);
+        return view('backend.content.employeeAttendance',compact('attendance'));
+    }
 }

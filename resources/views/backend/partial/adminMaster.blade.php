@@ -52,13 +52,20 @@
 
 @include('backend.partial.adminHeader')
 
+<div class="container-fluid">
+    <div class="row">
 
-    {{-- <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> --}}
+@include('backend.partial.sidebar')
+
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
 
         @yield('contents')
 
-    {{-- </main> --}}
+     </main>
+    </div>
+</div>
 
 
 

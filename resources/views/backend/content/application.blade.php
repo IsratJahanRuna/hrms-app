@@ -1,4 +1,4 @@
-@extends('backend.partial.employeeMaster')
+@extends('backend.partial.adminMaster')
 
 @section('contents')
 
@@ -28,9 +28,9 @@
         <select class="form-select mb-3" type="text" name="type">
             <option selected>Select Application type </option>
             {{-- <option >Leave</option> --}}
-            <option >Business Leave</option>
-            <option >Maternity Leave</option>
-            <option >Other</option>
+            <option >Casual Leave</option>
+            <option >Annual Leave</option>
+            <option >Sick Leave</option>
             {{-- @foreach ($designations as $request)
                 <option value="{{ $request->id }}">{{ $request->designation}}</option>
             @endforeach --}}

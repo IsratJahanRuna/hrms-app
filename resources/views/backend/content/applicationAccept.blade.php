@@ -8,6 +8,8 @@
 
     @csrf
 
+    <input type="hidden" name="user_id" value="{{$user_id}}">
+
 <div class="modal-body">
     <div class="form-group">
         <label for="exampleInputName">From_Date</label>
