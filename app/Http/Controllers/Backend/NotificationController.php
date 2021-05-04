@@ -23,7 +23,7 @@ class NotificationController extends Controller
         return view('backend.content.leaveDetails',compact('notifications'));
     }
 
-    public function applicationAccept($id,$user_id)
+    public function applicationAccept($id)
     {
         // $application = Employee::with(['employeeDetail'])->where('user_id',auth()->user()->id)->sole();
         // $departments=Department::all();
@@ -32,11 +32,14 @@ class NotificationController extends Controller
         $notifications = Application::find($id);
 
         if(request('status') == 'decline'){
-            $notifications->update(['status'=>'decline']);
-            return redirect()->back();
+
+
+            return view('backend.content.applicationDecline',compact('notifications'));
+            // $notifications->update(['status'=>'decline']);
+            // return redirect()->back();
         }
 
-     return view('backend.content.applicationAccept',compact('notifications','user_id'));
+     return view('backend.content.applicationAccept',compact('notifications'));
 
     }
 

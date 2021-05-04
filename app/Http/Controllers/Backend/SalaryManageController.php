@@ -76,11 +76,14 @@ class SalaryManageController extends Controller
         else{
 
             $employee = Employee::find($request->employee_id);
+            //  dd($employee->total_sick_leave);
 
-
+            $totalLeave= 36 - ($employee->total_sick_leave + $employee->total_annual_leave + $employee->total_casual_leave);
 
             $salary = $employee->salary;
             $attendanceCount = Attendance::where('user_id',$request->employee_id)->where('status','=','absent')->count('id');
+
+            $attendanceCount =  $attendanceCount - $totalLeave;
 
             $per_day_salary =  $salary / 30;
 

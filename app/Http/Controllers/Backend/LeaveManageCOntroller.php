@@ -11,7 +11,7 @@ class LeaveManageCOntroller extends Controller
     public function leaveManage()
     {
 
-            $notifications = Application::where('status','=','accept')->get();
+            $notifications = Application::all();
             return view('backend.content.leaveManage',compact('notifications'));
 
     }

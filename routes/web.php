@@ -80,6 +80,8 @@ Route::group(['middleware'=>'admin-auth'],function(){
 
 Route::post('/employee/accept/application/{id}',[ApplicationController::class,'handleStatus'])->name('acceptApplication');
 
+Route::post('/employee/decline/application/{id}',[ApplicationController::class,'handleStatusDecline'])->name('declineApplication');
+
 // Route::post('/employee/decline/application/{id}',[ApplicationController::class,'handleStatusDecline'])->name('declineApplication');
 
 //Admin panel

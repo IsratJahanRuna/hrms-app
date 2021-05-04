@@ -28,9 +28,9 @@
         <select class="form-select mb-3" type="text" name="type">
             <option selected>Select Application type </option>
             {{-- <option >Leave</option> --}}
-            <option value="cl" >Casual Leave ({{$application->total_casual_leave}})</option>
-            <option value="al">Annual Leave ({{$application->total_annual_leave}})</option>
-            <option value="sl">Sick Leave ({{$application->total_sick_leave}})</option>
+            <option value="Casual Leave" >Casual Leave ({{$application->total_casual_leave}})</option>
+            <option value="Annual Leave">Annual Leave ({{$application->total_annual_leave}})</option>
+            <option value="Sick Leave">Sick Leave ({{$application->total_sick_leave}})</option>
             {{-- @foreach ($designations as $request)
                 <option value="{{ $request->id }}">{{ $request->designation}}</option>
             @endforeach --}}

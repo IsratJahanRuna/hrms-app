@@ -131,12 +131,7 @@
               Account Details
             </a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link text-light"  href={{route('employeeNotification')}}>
-                <span ></span>
-                Notification
-              </a>
-            </li>
+
             @else
             <li class="nav-item ">
                 <a class="nav-link active text-light" aria-current="page" href={{route('employeeManage')}}>

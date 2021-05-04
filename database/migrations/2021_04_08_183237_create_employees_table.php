@@ -25,9 +25,9 @@ class CreateEmployeesTable extends Migration
             $table->string('gender');
             $table->string('contact');
             $table->string('address');
-            $table->string('total_casual_leave')->nullable();
-            $table->string('total_annual_leave')->nullable();
-            $table->string('total_sick_leave')->nullable();
+            $table->string('total_casual_leave')->default(10);
+            $table->string('total_annual_leave')->default(14);
+            $table->string('total_sick_leave')->default(12);
             $table->decimal('salary');
             // $table->string('password');
             $table->string('status')->default('Active');

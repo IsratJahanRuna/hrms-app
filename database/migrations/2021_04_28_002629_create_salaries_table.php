@@ -18,9 +18,9 @@ class CreateSalariesTable extends Migration
             // $table->integer('user_id');
             $table->integer('employee_id');
             $table->string('employment');
-            $table->decimal('amount');
-            $table->string('month');
-            $table->decimal('bonus');
+            $table->decimal('amount')->nullable();
+            $table->string('month')->nullable();
+            $table->decimal('bonus')->nullable();
             $table->timestamps();
         });
     }
