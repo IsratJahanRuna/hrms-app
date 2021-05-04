@@ -63,7 +63,7 @@ class ApplicationController extends Controller
 
 
              $days = $end->diffInDays($start);
-            //  dd($days);
+            //  dd($days);x`
             $employee->update([
                 'total_casual_leave'=> $employee->total_casual_leave + $days
             ]);
@@ -85,7 +85,8 @@ class ApplicationController extends Controller
                 ]);
 
 //send email to user
-Mail::to($employee->email)->send(new ApplicationAccepted($notifications));
+// dd($employee);
+Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
 
      return redirect()->route('notification')->with('success','Leave application accepted');
 

@@ -22,7 +22,7 @@ class SalaryManageController extends Controller
     {
         $employee = Employee::where('user_id',auth()->user()->id)->get();
 // dd($employee);
-        $salaries = Salary::where('employee_id',auth()->user()->id)->get();
+        $salaries = Salary::where('employee_id',auth()->user()->employee->id)->get();
         // dd($salaries);
         return view('backend.content.accountDetails',compact('salaries','employee'));
     }
@@ -34,9 +34,9 @@ class SalaryManageController extends Controller
         // $employee = Employee::with('employeeDetail')->first();
         // dd($employee);
         $user = Employee::with('employeeDetail')->get();
-        dd($user);
+        // dd($user);
 
-        if(Carbon::parse($request->input('month'))->format('Y-m') !== now()->format('Y-m')){
+        if(Carbon::parse($request->input('month'))->format('Y-m') !== now()->subMonth()->format('Y-m')){
             return redirect()->route('salaryManage')->with('error','Salary had already given ad.');
 
         }
