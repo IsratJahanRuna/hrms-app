@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendance;
 use App\Models\Employee;
 use App\Models\Salary;
 use Carbon\Carbon;
@@ -21,9 +22,27 @@ class SalaryManageController extends Controller
     public function accountDetails()
     {
         $employee = Employee::where('user_id',auth()->user()->id)->get();
-// dd($employee);
+        // dd($employee);
         $salaries = Salary::where('employee_id',auth()->user()->employee->id)->get();
         // dd($salaries);
+
+        $attendanceCount = Attendance::where('user_id',auth()->user()->id)->where('status','=','absent')->get();
+        $count = $attendanceCount->count();
+        // dd($count);
+
+        $salary = Salary::all();
+        foreach($salary as $salary)
+        {
+            $amount = $salary->amount;
+        }
+        // dd($amount);
+        $oneDaySalary = $amount / 30;
+        // dd($oneDaySalary);
+
+        $salary_deduction = $count * $oneDaySalary;
+        // dd($salary_deduction);
+
+
         return view('backend.content.accountDetails',compact('salaries','employee'));
     }
 
@@ -37,9 +56,15 @@ class SalaryManageController extends Controller
         // dd($user);
 
         if(Carbon::parse($request->input('month'))->format('Y-m') !== now()->subMonth()->format('Y-m')){
-            return redirect()->route('salaryManage')->with('error','Salary had already given ad.');
+            return redirect()->route('salaryManage')->with('error','You can not give advance & previous salary');
 
         }
+
+
+        // if(Carbon::parse($request->input('month'))->format('Y-m') == now()->format('Y-m')){
+        //     return redirect()->route('salaryManage')->with('error','You can not give advance salary');
+
+        // }
 
         $alreadyExist = Salary::where('employee_id',$request->employee_id)->whereDate('month',now()->format('Y-m'))->exists();
 
@@ -49,15 +74,28 @@ class SalaryManageController extends Controller
 
         }
         else{
+
+            $employee = Employee::find($request->employee_id);
+
+
+
+            $salary = $employee->salary;
+            $attendanceCount = Attendance::where('user_id',$request->employee_id)->where('status','=','absent')->count('id');
+
+            $per_day_salary =  $salary / 30;
+
+            $payable_salary = $salary - ($per_day_salary * $attendanceCount);
+
+
             Salary::create([
                 'employee_id'=>$request->employee_id,
                 'employment'=>$request->employment,
-                'amount'=>$request->amount,
+                'amount'=>$payable_salary,
                 'month'=>$request->month,
                 'bonus'=>$request->bonus,
                 ]);
 
-                return redirect()->back()->with('success','Salary updated.');
+             return redirect()->back()->with('success','Salary updated.');
 
     }
 }

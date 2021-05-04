@@ -13,13 +13,13 @@
 <div class="modal-body">
     <div class="form-group">
         <label for="exampleInputName">From_Date</label>
-        <input name="accept_from" type="date" class="form-control" value="{{$notifications->from}}" id="exampleInputName" placeholder="Enter Employee Name" required>
+        <input name="accept_from" type="date" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" value="{{$notifications->from}}" id="exampleInputName" placeholder="Enter Employee Name" required>
 
     </div>
 
     <div class="form-group">
         <label for="exampleInputEmail1">To_Date</label>
-        <input name="accept_to" type="date" class="form-control" value="{{$notifications->to}}" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
+        <input name="accept_to" type="date" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" value="{{$notifications->to}}" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
 
     </div>
 

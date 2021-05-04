@@ -28,9 +28,9 @@
         <select class="form-select mb-3" type="text" name="type">
             <option selected>Select Application type </option>
             {{-- <option >Leave</option> --}}
-            <option value="Casual Leave" >Casual Leave ({{$application->total_casual_leave}})</option>
-            <option value="Casual Leave">Annual Leave ({{$application->total_annual_leave}})</option>
-            <option value="Casual Leave">Sick Leave ({{$application->total_sick_leave}})</option>
+            <option value="cl" >Casual Leave ({{$application->total_casual_leave}})</option>
+            <option value="al">Annual Leave ({{$application->total_annual_leave}})</option>
+            <option value="sl">Sick Leave ({{$application->total_sick_leave}})</option>
             {{-- @foreach ($designations as $request)
                 <option value="{{ $request->id }}">{{ $request->designation}}</option>
             @endforeach --}}
@@ -38,11 +38,11 @@
     </div>
     <div class="mb-2">
         <label for="exampleInputFrom" class="form-label">From</label>
-        <input type="date" name="from"  class="form-control" id="exampleInputFrom" aria-describedby="FromHelp">
+        <input type="date" name="from" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" id="exampleInputFrom" aria-describedby="FromHelp">
       </div>
       <div class="mb-2">
         <label for="exampleInputTo" class="form-label">To</label>
-        <input type="date" name="to" class="form-control" id="exampleInputTo" aria-describedby="ToHelp">
+        <input type="date" name="to" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" id="exampleInputTo" aria-describedby="ToHelp">
       </div>
       <div class="mb-3">
         <label for="exampleInputDepartment" class="form-label">Write Leave Description</label>

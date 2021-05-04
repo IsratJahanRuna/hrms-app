@@ -11,8 +11,7 @@
 <div class="modal-body">
     <div class="form-group">
         <label for="exampleInputName">Decline_Reason</label>
-        <input name="reason" type="date" class="form-control"  id="exampleInputName" placeholder="Enter Employee Name" required>
-
+        <textarea type="text" name="reason" class="form-control" id="exampleInputDepartment" aria-describedby="DepartmentHelp"></textarea>
     </div>
 
 
@@ -22,7 +21,7 @@
 </div>
 <div class="modal-footer">
   {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-  <button type="submit" class="btn btn-info m-auto text-light" style="margin-right: 385px;">Accept</button>
+  <button type="submit" class="btn btn-info m-auto text-light" style="margin-right: 385px;">Decline</button>
 </div>
 
 </form>

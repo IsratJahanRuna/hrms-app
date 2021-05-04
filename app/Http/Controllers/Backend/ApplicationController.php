@@ -27,8 +27,31 @@ class ApplicationController extends Controller
     {
         // $department = Department::find($request->department_id);
 
-        // dd($request->all());
+       $userLeave=Employee::where('user_id',auth()->user()->id)->first();
+        $balance=false;
+        $start = Carbon::parse($request->from);
+            $end =  Carbon::parse($request->to);
+            $days = $end->diffInDays($start);
 
+       if($request->type=='cl')
+       {
+           if((int)$userLeave->total_casual_leave>=(int)$days)
+           {
+            $balance=true;
+           }
+
+       }
+       if($request->type=='al')
+       {
+           if((int)$userLeave->total_annual_leave>=(int)$days)
+           {
+            $balance=true;
+           }
+
+       }
+
+       if($balance)
+       {
         Application::create([
             'user_id' => auth()->user()->id,
             // 'email'=>$request->email,
@@ -40,6 +63,9 @@ class ApplicationController extends Controller
             ]);
 
             return redirect()->back();
+       }
+       return redirect()->back()->with('message','You don\'t have enough Leave');
+
     }
 
 
