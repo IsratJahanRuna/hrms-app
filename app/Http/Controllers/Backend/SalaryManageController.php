@@ -26,20 +26,20 @@ class SalaryManageController extends Controller
         $salaries = Salary::where('employee_id',auth()->user()->employee->id)->get();
         // dd($salaries);
 
-        $attendanceCount = Attendance::where('user_id',auth()->user()->id)->where('status','=','absent')->get();
-        $count = $attendanceCount->count();
+        // $attendanceCount = Attendance::where('user_id',auth()->user()->id)->where('status','=','absent')->get();
+        // $count = $attendanceCount->count();
         // dd($count);
 
-        $salary = Salary::all();
-        foreach($salary as $salary)
-        {
-            $amount = $salary->amount;
-        }
+        // $salary = Salary::all();
+        // foreach($salary as $salary)
+        // {
+            // $amount = $salary->amount;
+
         // dd($amount);
-        $oneDaySalary = $amount / 30;
+        // $oneDaySalary = $amount / 30;
         // dd($oneDaySalary);
 
-        $salary_deduction = $count * $oneDaySalary;
+        // $salary_deduction = $count * $oneDaySalary;
         // dd($salary_deduction);
 
 
