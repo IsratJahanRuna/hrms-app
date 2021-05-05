@@ -32,8 +32,8 @@
             <td>{{$request->employeeDetail->email}}</td>
             <td>{{$request->department->department}}</td> --}}
             <td>{{$request->type}}</td>
-            <td>{{$request->accept_from}}</td>
-            <td>{{$request->accept_to}}</td>
+            <td>{{$request->from}}</td>
+            <td>{{$request->to}}</td>
             <td>{{$request->about}}</td>
             <td>{{$request->reason}}</td>
             <td>{{$request->status}}</td>

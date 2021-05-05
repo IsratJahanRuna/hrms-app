@@ -15,8 +15,8 @@
         <th scope="col">Leave_Type</th>
         {{-- <th scope="col">From_Date</th>
         <th scope="col">To_Date</th> --}}
-        <th scope="col">Accepted_From_Date</th>
-        <th scope="col">Accepted_To_Date</th>
+        <th scope="col">From_Date</th>
+        <th scope="col">To_Date</th>
         <th scope="col">Reason</th>
         <th scope="col">About</th>
       </tr>
@@ -32,8 +32,8 @@
             <td>{{$request->type}}</td>
             {{-- <td>{{$request->from}}</td>
             <td>{{$request->to}}</td> --}}
-            <td>{{$request->accept_from}}</td>
-            <td>{{$request->accept_to}}</td>
+            <td>{{$request->from}}</td>
+            <td>{{$request->to}}</td>
             <td>{{$request->reason}}</td>
             <td>{{$request->about}}</td>
 

@@ -141,11 +141,11 @@ Route::get('/admin/attendanceRecord',[AttendanceRecordController::class,'attenda
 //AdminPanel.notification
 Route::get('/admin/notification',[NotificationController::class,'notification'])->name('notification');
 
-//AdminPanel.ApplicationAccept
-Route::get('/admin/applicationAccept/{id}/{user_id?}',[NotificationController::class,'applicationAccept'])->name('ApplicationAccept');
+// //AdminPanel.ApplicationAccept
+Route::get('/admin/applicationAccept/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationAccept');
 
 //AdminPanel.ApplicationDecline
-Route::get('/admin/applicationDecline/{id}',[NotificationController::class,'applicationDecline'])->name('ApplicationDecline');
+Route::get('/admin/applicationDecline/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationDecline');
 
 //AdminPanel.LeaveManage
 Route::get('/admin/leaveManage',[LeaveManageCOntroller::class,'leaveManage'])->name('LeaveManage');

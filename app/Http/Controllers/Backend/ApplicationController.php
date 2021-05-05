@@ -120,11 +120,9 @@ class ApplicationController extends Controller
          }
 
 
-            $notifications->update([
-                'accept_from'=>$request->input('accept_from'),
-                'accept_to'=>$request->input('accept_to'),
-                'status'=>'accept'
-                ]);
+            // $notifications->update([
+            //     'status'=>'accept'
+            //     ]);
 
 //send email to user
 // dd($employee);

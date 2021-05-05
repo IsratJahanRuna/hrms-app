@@ -13,7 +13,7 @@ class NotificationController extends Controller
 {
     public function notification()
     {
-        $notifications = Application::where('status','!=','accept')->get();
+        $notifications = Application::where('status','=','pending')->get();
         return view('backend.content.notification',compact('notifications'));
     }
 
@@ -31,15 +31,13 @@ class NotificationController extends Controller
 
         $notifications = Application::find($id);
 
-        if(request('status') == 'decline'){
-
-
-            return view('backend.content.applicationDecline',compact('notifications'));
-            // $notifications->update(['status'=>'decline']);
-            // return redirect()->back();
+        if(request('status') == 'accept'){
+            // return view('backend.content.applicationDecline',compact('notifications'));
+            $notifications->update(['status'=>'accept']);
+            return redirect()->back();
         }
 
-     return view('backend.content.applicationAccept',compact('notifications'));
+     return view('backend.content.applicationDecline',compact('notifications'));
 
     }
 
