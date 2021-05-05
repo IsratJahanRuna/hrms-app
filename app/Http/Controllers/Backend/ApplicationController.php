@@ -78,70 +78,72 @@ class ApplicationController extends Controller
 
 
 
-    public function handleStatus(Request $request,$id){
+//     public function handleStatus(Request $request,$id){
 
-        $notifications = Application::find($id);
-        // dd($notifications);
-        // dd($request->all());
+//         $notifications = Application::find($id);
+//         // dd($notifications);
+//         // dd($request->all());
 
-         $employee = Employee::where('user_id',$request->input('user_id'))->first();
-
-
-
-         if($notifications->type == 'Casual Leave'){
-
-            // dd($request->accept_from, $request->accept_to);
-            $start = Carbon::parse($request->accept_from);
-            $end =  Carbon::parse($request->accept_to);
-            // dd($start,$end);
+//          $employee = Employee::where('user_id',$request->input('user_id'))->first();
 
 
-             $days = $end->diffInDays($start);
-            //  dd($days);x`
-            $employee->update([
-                'total_casual_leave'=> $employee->total_casual_leave - $days
-            ]);
-         }
-         if($notifications->type == 'Sick Leave'){
-            $start = Carbon::parse($request->accept_from);
-            $end =  Carbon::parse($request->accept_to);
-            $days = $end->diffInDays($start);
-            $employee->update([
-                'total_sick_leave'=> $employee->total_sick_leave - $days
-            ]);
-         }
-         if($notifications->type == 'Annual Leave'){
-            $start = Carbon::parse($request->accept_from);
-            $end =  Carbon::parse($request->accept_to);
-            $days = $end->diffInDays($start);
-            $employee->update([
-                'total_annual_leave'=> $employee->total_annual_leave - $days
-            ]);
-         }
+
+//          if($notifications->type == 'Casual Leave'){
+
+//             // dd($request->from, $request->to);
+//             $start = Carbon::parse($request->from);
+//             $end =  Carbon::parse($request->to);
+//             // dd($start,$end);
 
 
-            // $notifications->update([
-            //     'status'=>'accept'
-            //     ]);
+//              $days = $end->diffInDays($start);
+//             //  dd($days);x`
+//             dd($employee->total_casual_leave - $days);
+//             $employee->update([
+//                 'total_casual_leave'=> $employee->total_casual_leave - $days
+//             ]);
+//          }
+//          if($notifications->type == 'Sick Leave'){
+//             $start = Carbon::parse($request->from);
+//             $end =  Carbon::parse($request->to);
+//             $days = $end->diffInDays($start);
+//             $employee->update([
+//                 'total_sick_leave'=> $employee->total_sick_leave - $days
+//             ]);
+//          }
+//          if($notifications->type == 'Annual Leave'){
+//             $start = Carbon::parse($request->from);
+//             $end =  Carbon::parse($request->to);
+//             $days = $end->diffInDays($start);
+//             $employee->update([
+//                 'total_annual_leave'=> $employee->total_annual_leave - $days
+//             ]);
+//          }
 
-//send email to user
-// dd($employee);
-Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
 
-     return redirect()->route('notification')->with('success','Leave application accepted');
+//             // $notifications->update([
+//             //     'status'=>'accept'
+//             //     ]);
 
-    }
+// //send email to user
+// // dd($employee);
+// Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
 
-public function handleStatusDecline(Request $request,$id)
+//      return redirect()->route('notification')->with('success','Leave application accepted');
+
+//     }
+
+public function handleStatusDecline($id)
 {
     $notifications = Application::find($id);
 
-    $notifications->update([
-        'reason' => $request->input('reason'),
-        'status'=>'decline'
-        ]);
+    // $notifications->update([
+    //     'reason' => $request->input('reason'),
+    //     'status'=>'decline'
+    //     ]);
 
-        return redirect()->route('notification')->with('success','Leave application not accepted');
+    //     return redirect()->route('notification')->with('success','Leave application not accepted');
+    return view('backend.content.applicationDecline',compact('notifications'));
 
 }
 

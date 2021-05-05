@@ -78,9 +78,9 @@ Route::get('/employee/notification',[NotificationController::class,'employeeNoti
 Route::group(['middleware'=>'admin-auth'],function(){
 
 
-Route::post('/employee/accept/application/{id}',[ApplicationController::class,'handleStatus'])->name('acceptApplication');
+// Route::post('/employee/accept/application/{id}',[ApplicationController::class,'handleStatus'])->name('acceptApplication');
 
-Route::post('/employee/decline/application/{id}',[ApplicationController::class,'handleStatusDecline'])->name('declineApplication');
+Route::get('/employee/decline/{id}',[ApplicationController::class,'handleStatusDecline'])->name('declineApplication');
 
 // Route::post('/employee/decline/application/{id}',[ApplicationController::class,'handleStatusDecline'])->name('declineApplication');
 
@@ -142,10 +142,10 @@ Route::get('/admin/attendanceRecord',[AttendanceRecordController::class,'attenda
 Route::get('/admin/notification',[NotificationController::class,'notification'])->name('notification');
 
 // //AdminPanel.ApplicationAccept
-Route::get('/admin/applicationAccept/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationAccept');
+Route::get('/admin/applicationAccept/request/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationAccept');
 
 //AdminPanel.ApplicationDecline
-Route::get('/admin/applicationDecline/{id}',[NotificationController::class,'applicationAccept'])->name('ApplicationDecline');
+Route::post('/admin/applicationDecline/{id}',[NotificationController::class,'applicationDecline'])->name('ApplicationDecline');
 
 //AdminPanel.LeaveManage
 Route::get('/admin/leaveManage',[LeaveManageCOntroller::class,'leaveManage'])->name('LeaveManage');

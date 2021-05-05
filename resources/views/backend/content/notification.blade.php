@@ -43,8 +43,8 @@
             <td>
 
                 @if($request->status !=='decline')
-                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',['id'=>$request->id,'status'=>'accept'])}}"  >Accept</a>
-                <a class="btn btn-danger text-light" href="{{route('ApplicationDecline',['id'=>$request->id,'status'=>'decline'])}}">Decline</a>
+                <a class="btn btn-success text-light" href="{{route('ApplicationAccept',$request->id)}}">Accept</a>
+                <a class="btn btn-danger text-light" href="{{route('declineApplication',$request->id)}}">Decline</a>
                 @endif
             </td>
         </tr>

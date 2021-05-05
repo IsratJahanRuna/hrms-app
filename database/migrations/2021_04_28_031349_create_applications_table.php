@@ -21,8 +21,6 @@ class CreateApplicationsTable extends Migration
             $table->string('type');
             $table->date('from');
             $table->date('to');
-            $table->date('accept_from')->nullable();
-            $table->date('accept_to')->nullable();
             $table->text('reason')->nullable();
             $table->text('about');
             $table->text('status')->default('Pending');
