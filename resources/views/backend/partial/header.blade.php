@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light d-flex  shadow p-2 mb-5 rounded" style="background-color:rgb(187, 228, 241)">
+<nav class="navbar navbar-light d-flex  shadow p-2 mb-5 rounded" style="background: linear-gradient(to right, #00ffcc 0%, #3399ff 100%);>
 
     <h5><img style="width: 50px; height:40px" src="/resources/views/backend/partial/images/logo.png" alt=""><b> Bit-Map</b></h5>
     {{-- <form class="form-inline"> --}}

@@ -125,13 +125,13 @@
                 <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
 
             </div>
-            <div class="modal-body">
+
                 <div class="form-group">
                     <label for="exampleInputName">Employee_ID</label>
                     <input name="employee_id" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
 
                 </div>
-                <div class="modal-body">
+
                     <div class="form-group">
                         <label for="exampleInputName">Gender</label>
                         <input name="gender" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
@@ -193,12 +193,13 @@
           {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
           <button type="submit" class="btn btn-primary" style="margin-right: 385px;">Register</button>
         </div>
-
+    </div>
     </form>
 
       </div>
     </div>
   </div>
+
 
 
 

@@ -10,6 +10,7 @@ use  App\Http\Controllers\Backend\PersonalDetailsController;
 use App\Http\Controllers\Backend\ApplicationController;
 use App\Http\Controllers\backend\attendanceController;
 use App\Http\Controllers\Backend\DesignationController;
+use App\Http\Controllers\Backend\HolidaySetupController;
 use App\Http\Controllers\Backend\LeaveManageCOntroller;
 use App\Http\Controllers\Backend\NotificationController;
 use App\Http\Controllers\Backend\SalaryManageController;
@@ -150,6 +151,11 @@ Route::post('/admin/applicationDecline/{id}',[NotificationController::class,'app
 //AdminPanel.LeaveManage
 Route::get('/admin/leaveManage',[LeaveManageCOntroller::class,'leaveManage'])->name('LeaveManage');
 
+//AdminPanel.holidaySetup
+Route::get('/admin/holidaySetup',[HolidaySetupController::class,'holidaySetup'])->name('holidaySetup');
+
+//AdminPanel.holidayCreate
+Route::post('/admin/holidayCreate',[HolidaySetupController::class,'holidayCreate'])->name('holidayCreate');
 
 //AdminPanel.report
 Route::get('/admin/report',[AttendanceRecordController::class,'report'])->name('report');

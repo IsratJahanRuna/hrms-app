@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light \ d-flex flex-row-reverse me-3" style="background-color: rgb(34, 34, 121)">
+<nav class="navbar navbar-light \ d-flex flex-row-reverse " style="background: linear-gradient(to right, #00ffcc 0%, #3399ff 100%);">
     <form class="form-inline">
         <ul class="nav flex-row">
             {{-- <li class="nav-item">
@@ -44,7 +44,7 @@
               </li>
               <li>
 
-                    <a class="btn btn-danger nav-link" href="{{ route('logout') }}"> Logout</a>
+                    <a class="btn btn-danger nav-link " style="color:white;" href="{{ route('logout') }}"> Logout</a>
 
                 @else
                     <a class="btn btn-success nav-link"  href="{{ route('logIn') }}">Login</a>

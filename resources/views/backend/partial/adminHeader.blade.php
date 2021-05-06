@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light d-flex flex-row-reverse pe-3" style="background-color: rgb(34, 34, 121)">
+<nav class="navbar navbar-light d-flex flex-row-reverse pe-3 bg-light" >
     <form class="form-inline">
 {{--
             <li class="nav-item ">
@@ -49,7 +49,7 @@
                     {{-- <span style="color:white; margin-top:50px;" data-feather="user"></span> --}}
                   <div class="d-flex ">
                     <div>
-                        <span style="color:white; margin-right: 30px;">  {{ auth()->user()->name }}</span>
+                        <span style="color:black; margin-right: 30px;">  {{ auth()->user()->name }}</span>
                        </div>
                        <div>
                         <a class="btn btn-danger nav-link fw-bold" href="{{ route('logout') }}"> Logout</a>
