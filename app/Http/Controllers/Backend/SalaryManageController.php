@@ -80,9 +80,14 @@ class SalaryManageController extends Controller
 
             $totalLeave= 36 - ($employee->total_sick_leave + $employee->total_annual_leave + $employee->total_casual_leave);
 
-
             $salary = $employee->salary;
-            $attendanceCount = Attendance::where('user_id',$request->employee_id)->where('status','Present')->orWhere('status','holiday')->whereDate('month',now()->format('Y-m'))->count('id');
+            $attendanceCount = Attendance::where('user_id',$request->employee_id)
+            ->where(function($query){
+               $query->where('status','Present')
+                ->orWhere('status','holiday');
+            })->whereMonth('created_at',now()->subMonth()->format('m'))
+            ->count('id');
+            dd($attendanceCount);
             $attendanceCount =  $attendanceCount + $totalLeave;
             $totalAbsent = 30 - $attendanceCount;
 
