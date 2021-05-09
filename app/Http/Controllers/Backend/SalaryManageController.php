@@ -15,7 +15,8 @@ class SalaryManageController extends Controller
     {
         $employee = Employee::with('employeeDetail')->get();
 
-        $salaries = Salary::all();
+        $salaries = Salary::with('employee')->get();
+
         return view('backend.content.salaryManage',compact('salaries','employee'));
     }
 
@@ -75,19 +76,20 @@ class SalaryManageController extends Controller
         }
         else{
 
-            $employee = Employee::find($request->employee_id);
+            $employee = Employee::where('user_id',$request->employee_id)->first();
             //  dd($employee->total_sick_leave);
 
             $totalLeave= 36 - ($employee->total_sick_leave + $employee->total_annual_leave + $employee->total_casual_leave);
 
             $salary = $employee->salary;
+
             $attendanceCount = Attendance::where('user_id',$request->employee_id)
             ->where(function($query){
-               $query->where('status','Present')
-                ->orWhere('status','holiday');
+               $query->where('status','holiday')
+                ->orWhere('status','Present');
             })->whereMonth('created_at',now()->subMonth()->format('m'))
             ->count('id');
-            dd($attendanceCount);
+            // dd($attendanceCount);
             $attendanceCount =  $attendanceCount + $totalLeave;
             $totalAbsent = 30 - $attendanceCount;
 

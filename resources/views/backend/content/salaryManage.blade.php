@@ -43,7 +43,7 @@
 
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <td>{{$request->employee->employeeDetail->name}}</td>
+            <td>{{$request->employee->name}}</td>
             <td>{{$request->employment}}</td>
             <td>{{$request->amount}}</td>
             <td>{{$request->month}}</td>
@@ -77,14 +77,13 @@
         <form method="post" action="{{route('salaryCreate')}}">
 
             @csrf
-{{-- @dd($salaries) --}}
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputDepartment">Employee Name</label>
                 <select class="form-select" name="employee_id" required>
                     <option selected>Select Department</option>
                     @foreach ($employee as $request)
-                        <option value="{{ $request->id }}">{{ $request->employeeDetail->name }}</option>
+                        <option value="{{ $request->user_id }}">{{ $request->employeeDetail->name }}</option>
                     @endforeach
                 </select>
             </div>
