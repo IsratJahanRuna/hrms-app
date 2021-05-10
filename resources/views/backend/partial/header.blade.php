@@ -1,6 +1,6 @@
-<nav class="navbar navbar-light d-flex  shadow p-2 mb-5 rounded" style="background: linear-gradient(to right, #00ffcc 0%, #3399ff 100%);>
+<nav class="navbar navbar-light d-flex  shadow p-2 mb-5 rounded" style="background: linear-gradient(to right, #77b4f1 0%,  #a1d8f1 100%)">
 
-    <h5><img style="width: 50px; height:40px" src="/resources/views/backend/partial/images/logo.png" alt=""><b> Bit-Map</b></h5>
+    <h5 class="text-light"><b> Bit-Map</b></h5>
     {{-- <form class="form-inline"> --}}
         <ul class="navbar-nav px-3">
      {{-- <a href={{route('signIn')}} class="btn btn-primary">Sign In</a> --}}
@@ -19,8 +19,8 @@
 
        <!-- Button trigger modal -->
 
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Attendance
+    <button type="button" class="btn btn-danger fs-6" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <b>Attendance</b>
       </button>
 </li>
 </ul>

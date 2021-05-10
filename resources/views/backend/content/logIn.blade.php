@@ -23,28 +23,35 @@
 </div>
 @endif
 
-
-<form action={{route('authenticate')}} method="POST" class="container w-50 p-5 border shadow p-3 mb-5 rounded-3" style="background-color: rgb(188, 223, 235); margin-top:130px">
-
-
-    @csrf
-
-
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label fs-5"><b>Email</b></label>
-      <input name="email" type="email" class="form-control" style="height: 50px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email Address">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+<div class="row">
+    <div class="col-md-4 m-auto">
+        <img src="https://www.collegehippo.com/blog/wp-content/uploads/2020/09/human-resource-management-transparent-png-download-for-free-human-resource-management-png-920_582.jpg" style="width:600px;" alt="">
     </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label fs-5"><b>Password</b></label>
-      <input name="password" type="password" class="form-control" style="height: 50px" id="exampleInputPassword1" placeholder="Type Your Password Here">
+    <div class="col-md-8">
+        <form action={{route('authenticate')}} method="POST" class="container w-50 p-5 border shadow p-3 mb-5 rounded-3" style="background: linear-gradient(to right, #619fdd 0%, #a1d8f1 100%); margin-top:100px">
+
+
+            @csrf
+
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label fs-5 text-light"><b>Email</b></label>
+              <input name="email" type="email" class="form-control" style="height: 50px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email Address">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label fs-5 text-light"><b>Password</b></label>
+              <input name="password" type="password" class="form-control" style="height: 50px" id="exampleInputPassword1" placeholder="Type Your Password Here">
+            </div>
+            {{-- <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> --}}
+            <button class="btn btn-primary fs-5"><b>Login</b></button>
+          </form>
     </div>
-    {{-- <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div> --}}
-    <button class="btn btn-primary fs-5"><b>Login</b></button>
-  </form>
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
