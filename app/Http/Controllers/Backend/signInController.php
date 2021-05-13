@@ -23,19 +23,34 @@ class signInController extends Controller
 
     public function authenticate(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+
+
         $credentials = $request->only('email', 'password');
 
-
         if (Auth::attempt($credentials)) {
-           $request->session()->regenerate();
+            $request->session()->regenerate();
 
-         return redirect()->intended('/');
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('admin');
+            }
+
+            elseif (auth()->user()->role == 'employee') {
+
+
+                return redirect()->route('employee');
+            }
+
         }
-
-
-
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Invalid Credentials.',
+            // 'password' => 'Invalid Credentials.'
+
         ]);
-    }
+
+}
 }

@@ -60,6 +60,23 @@ class ApplicationController extends Controller
 
        if($balance)
        {
+
+        $application = Application::where('user_id', auth()->user()->id)->first();
+        // dd($application);
+
+// dd($application->created_at);
+    if( $application->created_at != Carbon::today()->toDateString())
+    {
+        return redirect()->back()->with('success','Your today/s slot is full.');
+    }
+    else{
+        $request->validate([
+            'type' => 'required',
+            'from' => 'required',
+            'to' => 'required',
+            'about' => 'required',
+        ]);
+
         Application::create([
             'user_id' => auth()->user()->id,
             // 'email'=>$request->email,
@@ -70,9 +87,10 @@ class ApplicationController extends Controller
             'about'=>$request->about,
             ]);
 
-            return redirect()->back();
+            return redirect()->back()->with('success','Your application has been submitted.');
        }
        return redirect()->back()->with('message','You don\'t have enough Leave');
+    }
 
     }
 

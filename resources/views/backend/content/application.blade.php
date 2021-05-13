@@ -2,9 +2,31 @@
 
 @section('contents')
 
+@if(session()->has('success'))
+
+  <div class="alert alert-success mt-4">
+        {{session()->get('success')}}
+  </div>
+  @endif
+
+  @if(session()->has('message'))
+
+  <div class="alert alert-danger mt-4">
+        {{session()->get('message')}}
+  </div>
+  @endif
+
+  @if ($errors->any())
+  @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+  @endforeach
+@endif
+
 <form class="container w-50 mt-3 p-3 border " method="post" action="{{route('applicationCreate')}}">
 
     @csrf
+
+
 
     <div class="mb-2">
       <label for="exampleInputName1" class="form-label">Name</label>
@@ -38,15 +60,15 @@
     </div>
     <div class="mb-2">
         <label for="exampleInputFrom" class="form-label">From</label>
-        <input type="date" name="from" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" id="exampleInputFrom" aria-describedby="FromHelp">
+        <input type="date" name="from" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" id="exampleInputFrom" aria-describedby="FromHelp" required>
       </div>
       <div class="mb-2">
         <label for="exampleInputTo" class="form-label">To</label>
-        <input type="date" name="to" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" id="exampleInputTo" aria-describedby="ToHelp">
+        <input type="date" name="to" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}" class="form-control" id="exampleInputTo" aria-describedby="ToHelp" required>
       </div>
       <div class="mb-3">
         <label for="exampleInputDepartment" class="form-label">Write Leave Description</label>
-        <textarea type="text" name="about" class="form-control" id="exampleInputDepartment" aria-describedby="DepartmentHelp"></textarea>
+        <textarea type="text" name="about" class="form-control" id="exampleInputDepartment" aria-describedby="DepartmentHelp" required></textarea>
       </div>
 
     <button type="submit" class="btn btn-primary">Apply</button>

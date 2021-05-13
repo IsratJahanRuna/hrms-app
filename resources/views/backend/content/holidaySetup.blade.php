@@ -8,7 +8,18 @@
     Add Holiday
   </button>
 
+  @if(session()->has('message'))
 
+  <div class="alert alert-success mt-4">
+        {{session()->get('message')}}
+  </div>
+  @endif
+
+  @if ($errors->any())
+  @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+  @endforeach
+@endif
 
 {{-- Employee Details table --}}
 <table class="table my-3 " style="margin-right: 200px;">
@@ -61,7 +72,7 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputDepartment">Title</label>
-                <input name="title" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name">
+                <input name="title" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name" required>
 
             </div>
             {{-- <div class="form-group">
@@ -71,12 +82,12 @@
             </div> --}}
             <div class="form-group">
                 <label for="exampleInputPhone">Date</label>
-                <input name="date" type="date" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number">
+                <input name="date" type="date" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number" required>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Day</label>
-                <input name="day" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address">
+                <input name="day" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address" required>
 
             </div>
 

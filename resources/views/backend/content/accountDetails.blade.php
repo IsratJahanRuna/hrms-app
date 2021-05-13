@@ -35,7 +35,9 @@
       </tr>
     </thead>
     <tbody>
+        {{-- @dd($salaries) --}}
          @foreach($salaries as $key=>$request)
+
 
         <tr>
             <th scope="row">{{$key+1}}</th>

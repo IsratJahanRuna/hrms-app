@@ -4,6 +4,12 @@
 
 <h2 class="mt-5 text-center text-decoration-underline">Salary Manage</h2>
 
+@if ($errors->any())
+  @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+  @endforeach
+@endif
+
  <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add Salary
@@ -79,11 +85,11 @@
             @csrf
         <div class="modal-body">
             <div class="form-group">
-                <label for="exampleInputDepartment">Employee Name</label>
+                <label for="exampleInputDepartment" >Employee Name</label>
                 <select class="form-select" name="employee_id" required>
                     <option selected>Select Department</option>
                     @foreach ($employee as $request)
-                        <option value="{{ $request->user_id }}">{{ $request->employeeDetail->name }}</option>
+                        <option value="{{ $request->user_id }}" >{{ $request->employeeDetail->name }} </option>
                     @endforeach
                 </select>
             </div>
@@ -105,7 +111,7 @@
 
             <div class="form-group">
                 <label for="exampleInputPhone">Month</label>
-                <input name="month" type="month" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number">
+                <input name="month" type="month" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number" required>
 
             </div>
             <div class="form-group">

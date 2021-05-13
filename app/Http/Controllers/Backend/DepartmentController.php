@@ -18,6 +18,14 @@ class DepartmentController extends Controller
 
     public function departmentCreate(Request $request)
     {
+
+        $request->validate([
+            'department' => 'required | unique:departments',
+            'email' => 'required | email | unique:departments',
+            'contact' => 'required | unique:departments',
+        ]);
+
+
         Department::create([
             'department'=>$request->department,
             // 'designation'=>$request->designation,

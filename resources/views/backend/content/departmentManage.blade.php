@@ -8,7 +8,11 @@
     Add Department
   </button>
 
-
+  @if ($errors->any())
+  @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+  @endforeach
+@endif
 
 {{-- Employee Details table --}}
 <table class="table my-3 " style="margin-right: 200px;">
@@ -65,7 +69,7 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputDepartment">Department</label>
-                <input name="department" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name">
+                <input name="department" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name" required>
 
             </div>
             {{-- <div class="form-group">
@@ -75,12 +79,12 @@
             </div> --}}
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address">
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address" required>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputPhone">Contact No.</label>
-                <input name="contact" type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number">
+                <input name="contact" type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number" required>
 
             </div>
         </div>

@@ -24,7 +24,7 @@ class SalaryManageController extends Controller
     {
         $employee = Employee::where('user_id',auth()->user()->id)->get();
         // dd($employee);
-        $salaries = Salary::where('employee_id',auth()->user()->employee->id)->get();
+        $salaries = Salary::where('employee_id',auth()->user()->id)->get();
         // dd($salaries);
 
         // $attendanceCount = Attendance::where('user_id',auth()->user()->id)->where('status','=','absent')->get();
@@ -96,6 +96,13 @@ class SalaryManageController extends Controller
             $per_day_salary =  $salary / 30;
 
             $payable_salary = $salary - ($per_day_salary * $totalAbsent);
+
+            $request->validate([
+                'employee_id' => 'required',
+                'employment' => 'required',
+                'month' => 'required',
+                'bonus' => 'required',
+            ]);
 
 
             Salary::create([

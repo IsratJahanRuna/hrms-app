@@ -17,6 +17,7 @@
         <th scope="col">To_Date</th> --}}
         <th scope="col">From_Date</th>
         <th scope="col">To_Date</th>
+        <th scope="col">Status</th>
         <th scope="col">Reason</th>
         <th scope="col">About</th>
       </tr>
@@ -34,6 +35,7 @@
             <td>{{$request->to}}</td> --}}
             <td>{{$request->from}}</td>
             <td>{{$request->to}}</td>
+            <td>{{$request->status}}</td>
             <td>{{$request->reason}}</td>
             <td>{{$request->about}}</td>
 

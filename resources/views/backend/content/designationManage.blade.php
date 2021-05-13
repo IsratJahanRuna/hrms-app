@@ -8,7 +8,11 @@
     Add Designation
   </button>
 
-
+  @if ($errors->any())
+  @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+  @endforeach
+@endif
 
 {{-- Employee Details table --}}
 <table class="table my-3 " style="margin-right: 200px;">
@@ -64,7 +68,7 @@
 
             <div class="form-group">
                 <label for="exampleInputDesignation">Designation</label>
-                <input name="designation" type="text" class="form-control" id="exampleInputDesignation" placeholder="Enter Designation">
+                <input name="designation" type="text" class="form-control" id="exampleInputDesignation" placeholder="Enter Designation" required>
 
             </div>
         </div>

@@ -17,6 +17,11 @@ class DesignationController extends Controller
 
     public function designationCreate(Request $request)
     {
+        $request->validate([
+            'designation' => 'required | unique:designations',
+
+        ]);
+
         Designation::create([
             'designation'=>$request->designation,
             ]);

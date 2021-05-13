@@ -66,9 +66,10 @@ class EmployeeManageController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'employee_id' => 'required | unique:employees',
             'email' => 'required | email | unique:users',
             'department_id' => 'required',
-            // 'password'=>'required | min:6',
+            'password'=>'required | min:6',
         ]);
 
 

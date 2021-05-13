@@ -38,7 +38,7 @@ class NotificationController extends Controller
 
 
             // return view('backend.content.applicationDecline',compact('notifications'));
-            $notifications->update(['status'=>'accept']);
+            $notifications->update(['status'=>'accepted']);
 
             $notifications = Application::find($id);
             // dd($notifications);
@@ -61,6 +61,7 @@ class NotificationController extends Controller
                 // dd($employee->total_casual_leave - $days);
                 $employee->update([
                     'total_casual_leave'=> $employee->total_casual_leave - $days,
+                    'total' => $days,
                 ]);
              }
              if($notifications->type == 'Sick Leave'){
@@ -69,6 +70,7 @@ class NotificationController extends Controller
                 $days = $end->diffInDays($start);
                 $employee->update([
                     'total_sick_leave'=> $employee->total_sick_leave - $days,
+                    'total' => $days,
                 ]);
              }
              if($notifications->type == 'Annual Leave'){
@@ -77,6 +79,7 @@ class NotificationController extends Controller
                 $days = $end->diffInDays($start);
                 $employee->update([
                     'total_annual_leave'=> $employee->total_annual_leave - $days,
+                    'total' => $days,
                 ]);
              }
              Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
@@ -91,7 +94,7 @@ class NotificationController extends Controller
     {
         $notifications = Application::find($id);
         $notifications->update([
-            'status'=>'decline',
+            'status'=>'declined',
             'reason'=>$request->reason,
         ]);
         return redirect()->route('notification')->with('success','Leave application not accepted');

@@ -4,6 +4,8 @@
 @section('contents')
 
 
+
+
 <form action="{{route('declineApplication',$notifications->id)}}" method="post" class="container w-50 " style="margin-top:150px">
 
     @csrf

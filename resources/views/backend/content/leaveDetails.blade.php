@@ -16,6 +16,7 @@
         <th scope="col">Leave_Type</th>
         <th scope="col">From_Date</th>
         <th scope="col">To_Date</th>
+        <th scope="col">Total</th>
         <th scope="col">Description</th>
         <th scope="col">Reason</th>
         <th scope="col">Status</th>
@@ -33,6 +34,7 @@
             <td>{{$request->department->department}}</td> --}}
             <td>{{$request->type}}</td>
             <td>{{$request->from}}</td>
+            <td>{{$request->to}}</td>
             <td>{{$request->to}}</td>
             <td>{{$request->about}}</td>
             <td>{{$request->reason}}</td>

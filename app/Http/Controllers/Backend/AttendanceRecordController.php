@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AttendanceRecordController extends Controller
 {
     public function attendanceRecord(){
-        $attendance = Attendance::all();
+        $attendance = Attendance::where('status','!=','holiday')->get();
         return view('backend.content.attendanceRecord',compact('attendance'));
     }
 

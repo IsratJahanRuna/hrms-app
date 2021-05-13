@@ -19,7 +19,7 @@ class ApplicationAccepted extends Mailable
     protected $notification;
     public function __construct($notification)
     {
-        //
+        $this -> notification = $notification;
     }
 
     /**

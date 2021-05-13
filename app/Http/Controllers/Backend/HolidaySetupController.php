@@ -20,6 +20,10 @@ class HolidaySetupController extends Controller
     }
     public function holidayCreate(Request $request)
     {
+        $request->validate([
+            'date'=>'required | unique:holidays',
+        ]);
+
         DB::beginTransaction();
         try {
             Holiday::create([
@@ -43,6 +47,6 @@ class HolidaySetupController extends Controller
         }
 
         DB::commit();
-        return redirect()->back();
+        return redirect()->back()->with('message', "Holiday is added");
     }
 }

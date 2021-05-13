@@ -12,28 +12,27 @@
 @include('backend.partial.header')
 
 
-@if(session()->has('error'))
-<div class="alert alert-danger">
-      {{session()->get('error')}}
-</div>
-@endif
-@if(session()->has('success'))
-<div class="alert alert-success">
-      {{session()->get('success')}}
-</div>
-@endif
+@if ($errors->any())
+     @foreach ($errors->all() as $error)
+         <div class="alert alert-danger">{{$error}}</div>
+     @endforeach
+ @endif
 
-<div class="row">
-    <div class="col-md-4 m-auto">
-        <img src="https://www.collegehippo.com/blog/wp-content/uploads/2020/09/human-resource-management-transparent-png-download-for-free-human-resource-management-png-920_582.jpg" style="width:600px;" alt="">
+<div class="row d-flex align-items-center">
+    <div class="col-md-5 ">
+        <img src="https://www.collegehippo.com/blog/wp-content/uploads/2020/09/human-resource-management-transparent-png-download-for-free-human-resource-management-png-920_582.jpg" class="img-fluid w-100 mx-5" alt="">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
         <form action={{route('authenticate')}} method="POST" class="container w-50 p-5 border shadow p-3 mb-5 rounded-3" style="background: linear-gradient(to right, #619fdd 0%, #a1d8f1 100%); margin-top:100px">
 
 
             @csrf
 
-
+            @if(session()->has('loginError'))
+            <div class="alert alert-danger">
+                  {{session()->get('loginError')}}
+            </div>
+            @endif
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label fs-5 text-light"><b>Email</b></label>
               <input name="email" type="email" class="form-control" style="height: 50px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email Address">
