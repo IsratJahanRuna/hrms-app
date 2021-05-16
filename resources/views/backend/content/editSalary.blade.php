@@ -11,13 +11,13 @@
 <div class="modal-body">
     <div class="form-group">
         <label for="exampleInputName">Designation</label>
-        <input name="designation" type="text" value="{{$user->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
+        <input name="designation" type="text" value="{{$user->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Designation" required>
 
     </div>
 
     <div class="form-group">
         <label for="exampleInputEmail1">Status</label>
-        <input name="status" type="text" value="{{$user->status}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
+        <input name="status" type="text" value="{{$user->status}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Status" >
 
     </div>
 

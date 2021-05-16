@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light \ d-flex flex-row-reverse " style="background: linear-gradient(to right, #00ffcc 0%, #3399ff 100%);">
+<nav class="navbar navbar-light \ d-flex flex-row-reverse " style="background: linear-gradient(to right, #0c3c74 0%, #3399ff 100%);">
     <form class="form-inline">
         <ul class="nav flex-row">
             {{-- <li class="nav-item">

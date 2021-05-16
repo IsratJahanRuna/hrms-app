@@ -3,20 +3,26 @@
 @section('contents')
 
 <h2 class="mt-5 text-center text-decoration-underline">Employee Manage</h2>
- <!-- Button trigger modal -->
- <button type="button" class="btn mt-5 mx-3 text-white fw-bold" style="background-color: rgb(40, 48, 119); height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+ <div class="row d-flex">
+     <div class="col-md-6">
+        <!-- Button trigger modal -->
+ <button type="button" class="btn mt-5 mx-3 text-white fw-bold bg-primary" style=" height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Register New Employee
   </button>
-  <div>
-    <form action="{{route('employees.search')}}" method="get">
+     </div>
+<div class="col-md-3"></div>
+     <div class="col-md-3 mt-5">
+        <form action="{{route('employees.search')}}" method="get">
 
-        <div class="form-group">
-            <input type="text" name="search" placeholder="Enter employee id" class="form-control">
-            <button class="btn btn-primary position-right">Search</button>
-        </div>
+            <div class="form-group">
+                <input type="text" name="search" placeholder="Enter employee id" class="form-control">
+                <button class="btn btn-primary position-right mt-2">Search</button>
+            </div>
 
-    </form>
-</div>
+        </form>
+    </div>
+ </div>
 @if(isset($search))
 <p>
 <span class="alert alert-success"> you are searching for '{{$search}}' , found ({{count($employees)}})</span>
@@ -122,19 +128,19 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputName">Name</label>
-                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
+                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Ex: Israt Jahan" required>
 
             </div>
 
                 <div class="form-group">
                     <label for="exampleInputName">Employee_ID</label>
-                    <input name="employee_id" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
+                    <input name="employee_id" type="text" class="form-control" id="exampleInputName" placeholder="Ex: 17203043" required>
 
                 </div>
 
                     <div class="form-group">
                         <label for="exampleInputName">Gender</label>
-                        <input name="gender" type="text" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
+                        <input name="gender" type="text" class="form-control" id="exampleInputName" placeholder="Ex: Female" required>
 
                     </div>
             <div class="form-group">
@@ -158,23 +164,23 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Email Address" required>
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Ex: R@gmail.com" required>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputPhone">Contact No.</label>
-                <input name="contact" type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Employee Phone Number" required>
+                <input name="contact" type="text" class="form-control" id="exampleInputPhone" placeholder="Ex: 017243*****" required>
 
             </div>
 
         <div class="form-group">
             <label for="exampleInputAddress">Address</label>
-            <input name="address" type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address" required>
+            <input name="address" type="text" class="form-control" id="exampleInputAddress" placeholder="Ex: Uttara, Dhaka" required>
 
         </div>
         <div class="form-group">
             <label for="exampleInputAddress">Salary</label>
-            <input name="salary" type="decimal" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address" required>
+            <input name="salary" type="decimal" class="form-control" id="exampleInputAddress" placeholder="Ex: 20,***" required>
 
         </div>
             {{-- <div class="form-group">
@@ -184,7 +190,7 @@
             </div> --}}
             <div class="form-group">
                 <label for="exampleInputRePicture">Upload Picture</label>
-                <input name="picture" type="file" class="form-control" id="exampleInputRePicture" placeholder="Enter Employee Password Again" required>
+                <input name="picture" type="file" class="form-control" id="exampleInputRePicture"  required>
 
             </div>
 

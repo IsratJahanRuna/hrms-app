@@ -11,7 +11,7 @@ class EmployeeController extends Controller
     public function employee()
     {
 
-        return view('backend.partial.employeeMaster');
+        return view('backend.partial.employeeDashboard');
     }
     public function employeeDetails()
     {

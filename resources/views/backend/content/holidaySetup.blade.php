@@ -72,7 +72,7 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputDepartment">Title</label>
-                <input name="title" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Department Name" required>
+                <input name="title" type="text" class="form-control" id="exampleInputDepartment" placeholder="Enter Holiday Title" required>
 
             </div>
             {{-- <div class="form-group">
@@ -82,12 +82,12 @@
             </div> --}}
             <div class="form-group">
                 <label for="exampleInputPhone">Date</label>
-                <input name="date" type="date" class="form-control" id="exampleInputPhone" placeholder="Enter Department Phone Number" required>
+                <input name="date" type="date" class="form-control" id="exampleInputPhone"  required>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Day</label>
-                <input name="day" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Department Email Address" required>
+                <input name="day" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Day" required>
 
             </div>
 

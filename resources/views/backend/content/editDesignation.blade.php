@@ -17,7 +17,7 @@
 
     <div class="form-group">
         <label for="exampleInputEmail1">Status</label>
-        <input name="status" type="text" value="{{$user->status}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
+        <input name="status" type="text" value="{{$user->status}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Designation Status" >
 
     </div>
 

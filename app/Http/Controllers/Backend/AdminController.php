@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function admin()
     {
 
-        return view('backend.partial.adminMaster');
+        return view('backend.partial.adminDashboard');
     }
 
 

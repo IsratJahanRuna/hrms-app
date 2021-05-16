@@ -94,13 +94,20 @@
 </nav> --}}
 
 
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse " style="background-color:rgb(10, 69, 136); height:670px">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse mt-1" style="background-color:rgb(10, 69, 136); height:663px">
 
 
 
     <div class="position-sticky pt-3">
       <ul class="nav flex-column fs-6">
         @if (auth()->user()->role == 'employee')
+        <li class="nav-item " >
+            <a class="nav-link text-light" aria-current="page" href={{route('employee')}}>
+              <span data-feather="home"></span>
+              <i class="fas fa-home"></i>
+              Dashboard
+            </a>
+          </li>
         <li class="nav-item " >
             <a class="nav-link text-light" aria-current="page" href={{route('personalDetails')}}>
               <span data-feather="home"></span>
@@ -111,39 +118,51 @@
           <li class="nav-item ">
             <a class="nav-link text-light" href={{route('employeeAttendance')}}>
               <span ></span>
+              <i class="fas fa-clipboard-list"></i>
               Attendance Record
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-light" href={{route('application')}}>
               <span ></span>
+              <i class="fas fa-envelope"></i>
              Application
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-light" href={{route('leaveDetails')}}>
               <span ></span>
+              <i class="fas fa-list-alt"></i>
               Leave Details
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link text-light" href={{route('accountDetails')}}>
               <span ></span>
+              <i class="fas fa-file-invoice-dollar"></i>
               Account Details
             </a>
           </li>
 
             @else
             <li class="nav-item mb-2">
+                <a class="nav-link active text-light" aria-current="page" href={{route('admin')}}>
+                  <span data-feather="home"></span>
+                  <i class="fas fa-user-alt"></i>
+                  Dashboard
+                </a>
+              </li>
+            <li class="nav-item mb-2">
                 <a class="nav-link active text-light" aria-current="page" href={{route('employeeManage')}}>
-                  <span data-feather="home"> <i class="fas fa-user-alt"></i></span>
-
+                  <span data-feather="home"> </span>
+                  <i class="fas fa-user-alt"></i>
                   Employee Manage
                 </a>
               </li>
               <li class="nav-item mb-2">
                   <a class="nav-link text-light" href={{route('departmentManage')}}>
                     <span ></span>
+                    <i class="fas fa-user-alt"></i>
                     Department Manage
                   </a>
                 </li>
@@ -153,6 +172,17 @@
                     Designation Manage
                   </a>
                 </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-light" href="{{route('salaryManage')}}">
+                      <span ></span>
+                      Salary Manage
+                    </a>
+                  </li>
+                  <li class="nav-item mb-2">
+                    <a class="nav-link text-light" href={{route('holidaySetup')}}>
+                    Holiday Setup
+                    </a>
+                  </li>
               <li class="nav-item mb-2">
                 <a class="nav-link text-light" href={{route('attendanceRecord')}}>
                   <span ></span>
@@ -162,25 +192,16 @@
               <li class="nav-item mb-2">
                 <a class="nav-link text-light" href={{route('LeaveManage')}}>
                   <span ></span>
-                  Leave Manage
+                  Leave Record
                 </a>
               </li>
-              <li class="nav-item mb-2">
-                  <a class="nav-link text-light" href="{{route('salaryManage')}}">
-                    <span ></span>
-                    Salary Manage
-                  </a>
-                </li>
+
                 <li class="nav-item mb-2">
                     <a class="nav-link text-light" href={{route('report')}}>
                      Report Generation
                     </a>
                   </li>
-                  <li class="nav-item mb-2">
-                    <a class="nav-link text-light" href={{route('holidaySetup')}}>
-                    Holiday Setup
-                    </a>
-                  </li>
+
               <li class="nav-item">
                   <a class="nav-link text-light" href={{route('notification')}}>
                     <span class="badge badge-light">{{$application_count}}</span>
