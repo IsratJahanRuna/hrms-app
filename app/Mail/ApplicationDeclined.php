@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ApplicationAccepted extends Mailable
+class ApplicationDeclined extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,6 +29,6 @@ class ApplicationAccepted extends Mailable
      */
     public function build()
     {
-        return $this->view('backend.content.acceptEmail')->with(['employeeData'=>$this -> notification]);
+        return $this->view('backend.content.declineEmail')->with(['employeeData'=>$this -> notification]);
     }
 }

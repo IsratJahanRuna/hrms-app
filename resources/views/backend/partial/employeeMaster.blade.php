@@ -10,7 +10,8 @@
     <title>Human Resource Management System</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
 
 
     <!-- Bootstrap core CSS -->

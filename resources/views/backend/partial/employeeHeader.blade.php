@@ -39,12 +39,12 @@
               </li> --}}
               <li class="nav-item text-nowrap">
                 @auth()
-                    <span style="color:white;" data-feather="user"></span>
-                    <span style="color:white; margin-right: 30px;">  {{ auth()->user()->name }}</span>
+                    <span  style="color:white;" data-feather="user"></span>
+                    <span  style="color:white; margin-right: 30px;"> <b> {{ auth()->user()->name }}</b></span>
               </li>
               <li>
 
-                    <a class="btn btn-danger nav-link " style="color:white;" href="{{ route('logout') }}"> Logout</a>
+                    <a class="btn btn-danger nav-link me-2" style="color:white;" href="{{ route('logout') }}"> <b>Logout</b></a>
 
                 @else
                     <a class="btn btn-success nav-link"  href="{{ route('logIn') }}">Login</a>

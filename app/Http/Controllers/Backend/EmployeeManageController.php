@@ -18,7 +18,7 @@ class EmployeeManageController extends Controller
 
         $departments = Department::all();
         $designations = Designation::all();
-        $employees = Employee::paginate(5);
+        $employees = Employee::paginate(3);
 
         return view('backend.content.employeeManage', compact('employees', 'departments', 'designations'));
     }
@@ -32,7 +32,7 @@ class EmployeeManageController extends Controller
             $employees = Employee::where('employee_id', 'like', '%' . $search . '%')->paginate(5);
             // ->orWhere('category','like','%'.$search.'%')
         } else {
-            $employees = Employee::paginate(5);
+            $employees = Employee::paginate(3);
         }
 
         // where(name=%search%)
@@ -69,7 +69,7 @@ class EmployeeManageController extends Controller
             'employee_id' => 'required | unique:employees',
             'email' => 'required | email | unique:users',
             'department_id' => 'required',
-            'password'=>'required | min:6',
+
         ]);
 
 
@@ -145,4 +145,15 @@ class EmployeeManageController extends Controller
 
         return redirect()->route('employeeManage')->with('success', 'Employee Updated Successfully');
     }
+
+    public function employees()
+    {
+
+        $departments = Department::all();
+        $designations = Designation::all();
+        $employees = Employee::paginate(6);
+
+        return view('backend.content.employees', compact('employees', 'departments', 'designations'));
+    }
+
 }

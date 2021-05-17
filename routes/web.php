@@ -52,6 +52,9 @@ Route::group(['middleware'=>'employee-auth'],function(){
 //employee panel
 Route::get('/employee',[EmployeeController::class,'employee'])->name('employee');
 
+//employee panel.employees
+Route::get('/employee/employees',[EmployeeManageController::class,'employees'])->name('employees');
+
 //employee panel.personalDetails
 Route::get('/employee/personalDetails',[PersonalDetailsController::class,'personalDetails'])->name('personalDetails');
 

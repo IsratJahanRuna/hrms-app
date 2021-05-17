@@ -101,11 +101,24 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column fs-6">
         @if (auth()->user()->role == 'employee')
+
+        <div class="avatar m-auto">
+            <img src="{{ url('/files/photo/' . auth()->user()->employee->file) }}"
+                alt="..." class="img-fluid rounded-circle w-100 h-100">
+        </div>
+
         <li class="nav-item " >
             <a class="nav-link text-light" aria-current="page" href={{route('employee')}}>
               <span data-feather="home"></span>
               <i class="fas fa-home"></i>
               Dashboard
+            </a>
+          </li>
+          <li class="nav-item " >
+            <a class="nav-link text-light" aria-current="page" href={{route('employees')}}>
+              <span data-feather="home"></span>
+              <i class="fas fa-user-alt"></i>
+              Employees
             </a>
           </li>
         <li class="nav-item " >
@@ -204,8 +217,10 @@
 
               <li class="nav-item">
                   <a class="nav-link text-light" href={{route('notification')}}>
-                    <span class="badge badge-light">{{$application_count}}</span>
+
                     Notification
+
+                    <span class="badge bg-danger rounded-pill">{{$application_count}}</span>
                   </a>
                 </li>
 

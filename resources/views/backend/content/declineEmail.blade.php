@@ -11,9 +11,9 @@
 
 <body>
     <div class="border shadow w-75">
-        <h1 style="background-color: green; width: 350px">Congratualations!...</h1>
-        <h3>Your Employee Registertion is successfully done in Bit-Map Limited</h3>
-        <h5>Thank you. Keep up with us.</h5>
+        <h1 style="background-color: rgb(228, 23, 23); width: 350px">"Declined"</h1>
+        <h3>Sorry.....Your Leave Application is Not Accepted. Try some other time.</h3>
+        <h5>Better Luck Next Time.</h5>
     </div>
 </body>
 

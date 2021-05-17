@@ -92,11 +92,17 @@ class NotificationController extends Controller
 
     public function applicationDecline(Request $request, $id)
     {
+
+
         $notifications = Application::find($id);
+
+        $employee = Employee::where('user_id',$notifications->user_id)->first();
+
         $notifications->update([
             'status'=>'declined',
             'reason'=>$request->reason,
         ]);
+        Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
         return redirect()->route('notification')->with('success','Leave application not accepted');
     }
 

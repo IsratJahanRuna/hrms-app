@@ -5,7 +5,7 @@
 <h2 class="mt-5 text-center text-decoration-underline">Notification</h2>
 @if(session()->has('success'))
 
-<div class="alert alert-success mt-4">
+<div class="alert alert-danger mt-4">
       {{session()->get('success')}}
 </div>
 @endif
