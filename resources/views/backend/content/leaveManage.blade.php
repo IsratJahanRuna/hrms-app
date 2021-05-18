@@ -3,23 +3,23 @@
 @section('contents')
 
 
-<h2 class="m-5 text-center text-decoration-underline">Leave Manage</h2>
+<h2 class="my-3 text-center text-decoration-underline">Leave Manage</h2>
 
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-4 rounded shadow " style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Department</th>
-        <th scope="col">Leave_Type</th>
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Name</th>
+        <th class="py-4" scope="col">Email</th>
+        <th class="py-4" scope="col">Department</th>
+        <th class="py-4" scope="col">Leave_Type</th>
         {{-- <th scope="col">From_Date</th>
         <th scope="col">To_Date</th> --}}
-        <th scope="col">From_Date</th>
-        <th scope="col">To_Date</th>
-        <th scope="col">Status</th>
-        <th scope="col">Reason</th>
-        <th scope="col">About</th>
+        <th class="py-4" scope="col">From_Date</th>
+        <th class="py-4" scope="col">To_Date</th>
+        <th class="py-4" scope="col">Status</th>
+        <th class="py-4" scope="col">Reason</th>
+        <th class="py-4" scope="col">About</th>
       </tr>
     </thead>
     <tbody>
@@ -45,4 +45,7 @@
         </tbody>
 
   </table>
+
+  {{$notifications->links()}}
+
   @endsection

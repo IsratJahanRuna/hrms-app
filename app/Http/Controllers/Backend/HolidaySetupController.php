@@ -15,7 +15,7 @@ class HolidaySetupController extends Controller
 {
     public function holidaySetup()
     {
-        $holidays = Holiday::all();
+        $holidays = Holiday::paginate(8);
         return view('backend.content.holidaySetup', compact('holidays'));
     }
     public function holidayCreate(Request $request)

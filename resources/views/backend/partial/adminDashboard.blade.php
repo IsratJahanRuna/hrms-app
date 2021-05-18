@@ -16,7 +16,7 @@
                                     <i class="fe fe-users"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3>10</h3>
+                                    <h3>{{$totalEmployee}}</h3>
                                     {{-- {{$doctor_count}} --}}
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                     <i class="fe fe-credit-card"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3> 20</h3>
+                                    <h3>{{$totalDepartment}}</h3>
                                     {{-- {{$patient_count}} --}}
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                     <i class="fe fe-credit-card"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3> 20</h3>
+                                    <h3> {{$totalAttendance}}</h3>
                                     {{-- {{$patient_count}} --}}
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     <i class="fe fe-credit-card"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3> 20</h3>
+                                    <h3> {{$totalLeave}}</h3>
                                     {{-- {{$patient_count}} --}}
                                 </div>
                             </div>

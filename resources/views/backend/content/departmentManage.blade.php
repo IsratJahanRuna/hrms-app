@@ -2,9 +2,9 @@
 
 @section('contents')
 
-<h2 class="mt-5 text-center text-decoration-underline">Department Manage</h2>
+<h2 class="mt-3 text-center text-decoration-underline">Department Manage</h2>
  <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ <button type="button" class="btn btn-primary mt-3 mb-1 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add Department
   </button>
 
@@ -15,14 +15,14 @@
 @endif
 
 {{-- Employee Details table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-4 rounded shadow" style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Department</th>
-        <th scope="col">Email</th>
-        <th scope="col">Contact No.</th>
-        <th scope="col">Edit</th>
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Department</th>
+        <th class="py-4" scope="col">Email</th>
+        <th class="py-4" scope="col">Contact No.</th>
+        <th class="py-4" scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -45,7 +45,7 @@
   </table>
 
 
-  {{-- {{$departments->links()}} --}}
+  {{$departments->links()}}
 
 
 

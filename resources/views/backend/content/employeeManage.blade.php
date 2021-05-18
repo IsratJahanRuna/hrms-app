@@ -2,22 +2,22 @@
 
 @section('contents')
 
-<h2 class="mt-5 text-center text-decoration-underline">Employee Manage</h2>
+<h2 class="mt-3 text-center text-decoration-underline">Employee Manage</h2>
 
- <div class="row d-flex">
+ <div class="row d-flex mb-4">
      <div class="col-md-6">
         <!-- Button trigger modal -->
- <button type="button" class="btn mt-5 mx-3 text-white fw-bold bg-primary" style=" height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ <button type="button" class="btn mt-3 mx-3 text-white fw-bold bg-primary" style=" height:50px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Register New Employee
   </button>
      </div>
 <div class="col-md-3"></div>
-     <div class="col-md-3 mt-5">
+     <div class="col-md-3 mt-4">
         <form action="{{route('employees.search')}}" method="get">
 
-            <div class="form-group">
+            <div class="form-group d-flex">
                 <input type="text" name="search" placeholder="Enter employee id" class="form-control">
-                <button class="btn btn-primary position-right mt-2">Search</button>
+                <button class="btn btn-primary position-right mx-2">Search</button>
             </div>
 
         </form>
@@ -43,21 +43,21 @@
  @endif
 
 {{-- Employee Details table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-3 rounded shadow mb-4" style="margin-right: 200px;">
     <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Picture</th>
-        <th scope="col">Name</th>
-        <th scope="col">Employee_Id</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Department</th>
-        <th scope="col">Designation</th>
-        <th scope="col">Email</th>
-        <th scope="col">Contact No.</th>
-        <th scope="col">Address</th>
-        <th scope="col">Status</th>
-        <th scope="col">Edit/Delete</th>
+      <tr >
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Picture</th>
+        <th class="py-4" scope="col">Name</th>
+        <th class="py-4" scope="col">Employee_Id</th>
+        <th class="py-4" scope="col">Gender</th>
+        <th class="py-4" scope="col">Department</th>
+        <th class="py-4" scope="col">Designation</th>
+        <th class="py-4" scope="col">Email</th>
+        <th class="py-4" scope="col">Contact No.</th>
+        <th class="py-4" scope="col">Address</th>
+        <th class="py-4" scope="col">Status</th>
+        <th class="py-4" scope="col">Edit/Delete</th>
       </tr>
     </thead>
     <tbody>

@@ -18,7 +18,7 @@ class EmployeeManageController extends Controller
 
         $departments = Department::all();
         $designations = Designation::all();
-        $employees = Employee::paginate(3);
+        $employees = Employee::paginate(4);
 
         return view('backend.content.employeeManage', compact('employees', 'departments', 'designations'));
     }

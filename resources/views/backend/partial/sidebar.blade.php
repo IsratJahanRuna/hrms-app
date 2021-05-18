@@ -161,63 +161,69 @@
             <li class="nav-item mb-2">
                 <a class="nav-link active text-light" aria-current="page" href={{route('admin')}}>
                   <span data-feather="home"></span>
-                  <i class="fas fa-user-alt"></i>
+                  <i class="fas fa-home"></i>
                   Dashboard
                 </a>
               </li>
             <li class="nav-item mb-2">
                 <a class="nav-link active text-light" aria-current="page" href={{route('employeeManage')}}>
                   <span data-feather="home"> </span>
-                  <i class="fas fa-user-alt"></i>
+                  <i class="fas fa-users"></i>
                   Employee Manage
                 </a>
               </li>
               <li class="nav-item mb-2">
                   <a class="nav-link text-light" href={{route('departmentManage')}}>
                     <span ></span>
-                    <i class="fas fa-user-alt"></i>
+                    <i class="fas fa-portrait"></i>
                     Department Manage
                   </a>
                 </li>
                 <li class="nav-item mb-2">
                   <a class="nav-link text-light" href={{route('designationManage')}}>
                     <span ></span>
+                    <i class="fas fa-chair"></i>
                     Designation Manage
                   </a>
                 </li>
                 <li class="nav-item mb-2">
                     <a class="nav-link text-light" href="{{route('salaryManage')}}">
                       <span ></span>
+                      <i class="fas fa-coins"></i>
                       Salary Manage
                     </a>
                   </li>
                   <li class="nav-item mb-2">
                     <a class="nav-link text-light" href={{route('holidaySetup')}}>
+                        <i class="fas fa-calendar-day"></i>
                     Holiday Setup
                     </a>
                   </li>
               <li class="nav-item mb-2">
                 <a class="nav-link text-light" href={{route('attendanceRecord')}}>
                   <span ></span>
+                  <i class="fas fa-clipboard-list"></i>
                   Attendance Record
                 </a>
               </li>
               <li class="nav-item mb-2">
                 <a class="nav-link text-light" href={{route('LeaveManage')}}>
                   <span ></span>
+                  <i class="fas fa-sign-out-alt"></i>
                   Leave Record
                 </a>
               </li>
 
                 <li class="nav-item mb-2">
                     <a class="nav-link text-light" href={{route('report')}}>
+                        <i class="fas fa-list-alt"></i>
                      Report Generation
                     </a>
                   </li>
 
               <li class="nav-item">
                   <a class="nav-link text-light" href={{route('notification')}}>
-
+                    <i class="fas fa-bell"></i>
                     Notification
 
                     <span class="badge bg-danger rounded-pill">{{$application_count}}</span>

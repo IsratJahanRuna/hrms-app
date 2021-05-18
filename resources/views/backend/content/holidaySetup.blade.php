@@ -2,9 +2,9 @@
 
 @section('contents')
 
-<h2 class="mt-5 text-center text-decoration-underline">Holiday Setup</h2>
+<h2 class="mt-3 text-center text-decoration-underline">Holiday Setup</h2>
  <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ <button type="button" class="btn btn-primary mt-3 mb-1 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add Holiday
   </button>
 
@@ -22,13 +22,13 @@
 @endif
 
 {{-- Employee Details table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-4 rounded shadow" style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Date</th>
-        <th scope="col">Day</th>
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Title</th>
+        <th class="py-4" scope="col">Date</th>
+        <th class="py-4" scope="col">Day</th>
       </tr>
     </thead>
     <tbody>
@@ -47,7 +47,7 @@
   </table>
 
 
-  {{-- {{$departments->links()}} --}}
+  {{$holidays->links()}}
 
 
 

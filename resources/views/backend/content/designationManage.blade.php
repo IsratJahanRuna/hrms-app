@@ -2,9 +2,9 @@
 
 @section('contents')
 
-    <h2 class="mt-5 text-center text-decoration-underline">Designation Manage</h2>
+    <h2 class="mt-3 text-center text-decoration-underline">Designation Manage</h2>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-primary mb-1 mt-3 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Add Designation
     </button>
 
@@ -15,13 +15,13 @@
     @endif
 
     {{-- Employee Details table --}}
-    <table class="table my-3 " style="margin-right: 200px;">
+    <table class="table my-4 rounded shadow" style="margin-right: 200px;">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Designations</th>
-                <th scope="col">Status</th>
-                <th scope="col">Edit</th>
+                <th class="py-4" scope="col">#</th>
+                <th class="py-4" scope="col">Designations</th>
+                <th class="py-4" scope="col">Status</th>
+                <th class="py-4" scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@
     </table>
 
 
-    {{-- {{$departments->links()}} --}}
+    {{$designations->links()}}
 
 
 

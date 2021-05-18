@@ -25,14 +25,20 @@ class AttendanceRecordController extends Controller
 
     public function report()
     {
-
-        $fromDate = $_GET['from_date'];
-        $toDate = $_GET['to_date'];
-
-        dd($toDate);
-
-
         $attendance = Attendance::where('status', '!=', 'holiday')->get();
+
+
+        if (isset($_GET['from_date'])) {
+            $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
+            $toDate = date('Y-m-d', strtotime($_GET['to_date']));
+
+            // dd($toDate);
+
+            $attendance = Attendance::where('status', '!=', 'holiday')->whereBetween('created_at',[$fromDate,$toDate])->get();
+        }
+
+
+
         // dd($attendance);
         return view('backend.content.report', compact('attendance'));
     }

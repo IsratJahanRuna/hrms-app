@@ -12,7 +12,7 @@ class LeaveManageCOntroller extends Controller
     public function leaveManage()
     {
 
-            $notifications = Application::all();
+            $notifications = Application::paginate(10);
 
 
 

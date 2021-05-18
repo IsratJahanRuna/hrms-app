@@ -2,7 +2,7 @@
 
 @section('contents')
 
-<h2 class="mt-5 text-center text-decoration-underline">Salary Manage</h2>
+<h2 class="mt-3 text-center text-decoration-underline">Salary Manage</h2>
 
 @if ($errors->any())
   @foreach ($errors->all() as $error)
@@ -11,7 +11,7 @@
 @endif
 
  <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ <button type="button" class="btn btn-primary mb-1 mt-3 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add Salary
   </button>
 
@@ -32,15 +32,15 @@
 
 
 {{-- Employee Details table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-4 rounded shadow" style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Employee Name</th>
-        <th scope="col">Employment Type</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Month</th>
-        <th scope="col">Bonus</th>
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Employee Name</th>
+        <th class="py-4" scope="col">Employment Type</th>
+        <th class="py-4" scope="col">Amount</th>
+        <th class="py-4" scope="col">Month</th>
+        <th class="py-4" scope="col">Bonus</th>
 
       </tr>
     </thead>
