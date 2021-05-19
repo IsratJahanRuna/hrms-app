@@ -10,7 +10,7 @@ class AttendanceRecordController extends Controller
 {
     public function attendanceRecord()
     {
-        $attendance = Attendance::where('status', '!=', 'holiday')->get();
+        $attendance = Attendance::where('status', '!=', 'holiday')->paginate(8);
         return view('backend.content.attendanceRecord', compact('attendance'));
     }
 

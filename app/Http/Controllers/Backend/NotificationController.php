@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ApplicationAccepted;
+use App\Mail\ApplicationDeclined;
 use App\Models\Application;
 use App\Models\Department;
 use App\Models\Employee;
@@ -16,7 +17,7 @@ class NotificationController extends Controller
 {
     public function notification()
     {
-        $notifications = Application::where('status','=','pending')->get();
+        $notifications = Application::where('status','=','pending')->paginate(8);
         return view('backend.content.notification',compact('notifications'));
     }
 
@@ -102,7 +103,7 @@ class NotificationController extends Controller
             'status'=>'declined',
             'reason'=>$request->reason,
         ]);
-        Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
+        Mail::to($employee->employeeDetail->email)->send(new ApplicationDeclined($notifications));
         return redirect()->route('notification')->with('success','Leave application not accepted');
     }
 

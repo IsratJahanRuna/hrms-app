@@ -11,12 +11,17 @@
 
 @include('backend.partial.header')
 
+@if(session()->has('error'))
+<div class="alert alert-danger">
+      {{session()->get('error')}}
+</div>
+@endif
+@if(session()->has('success'))
+<div class="alert alert-success">
+      {{session()->get('success')}}
+</div>
+@endif
 
-@if ($errors->any())
-     @foreach ($errors->all() as $error)
-         <div class="alert alert-danger">{{$error}}</div>
-     @endforeach
- @endif
 
 <div class="row d-flex align-items-center">
     <div class="col-md-5 ">
@@ -27,12 +32,17 @@
 
 
             @csrf
-
+            @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
+        @endif
             @if(session()->has('loginError'))
             <div class="alert alert-danger">
                   {{session()->get('loginError')}}
             </div>
             @endif
+
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label fs-5 text-light"><b>Email</b></label>
               <input name="email" type="email" class="form-control" style="height: 50px" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Your Email Address">

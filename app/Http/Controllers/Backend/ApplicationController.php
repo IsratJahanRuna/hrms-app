@@ -31,7 +31,7 @@ class ApplicationController extends Controller
         $balance=false;
         $start = Carbon::parse($request->from);
             $end =  Carbon::parse($request->to);
-            $days = $end->diffInDays($start);
+            $days = $end->diffInDays($start)+1;
 
        if($request->type=='Casual Leave')
        {
@@ -65,11 +65,11 @@ class ApplicationController extends Controller
         // dd($application);
 
 // dd($application->created_at);
-    if( $application->created_at != Carbon::today()->toDateString())
-    {
-        return redirect()->back()->with('success','Your today/s slot is full.');
-    }
-    else{
+    // if( $application->created_at != Carbon::today()->toDateString())
+    // {
+    //     return redirect()->back()->with('message','Your today/s slot is full.');
+    // }
+    // else{
         $request->validate([
             'type' => 'required',
             'from' => 'required',
@@ -88,9 +88,9 @@ class ApplicationController extends Controller
             ]);
 
             return redirect()->back()->with('success','Your application has been submitted.');
-       }
+     }
        return redirect()->back()->with('message','You don\'t have enough Leave');
-    }
+    // }
 
     }
 
