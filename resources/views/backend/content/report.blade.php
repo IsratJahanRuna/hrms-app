@@ -3,7 +3,7 @@
 
 @section('contents')
 
-    <h2 class="m-5 text-center text-decoration-underline">Employee Attendance Report</h2>
+    <h2 class="m-4 text-center text-decoration-underline">Employee Attendance Report</h2>
 
     <form action={{ route('report') }} method="GET">
 
@@ -25,49 +25,67 @@
             </div>
             <div class="col-md-4 mt-4 d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary">Search</button>
-                <button type="submit" class="btn btn-success mx-3">Print</button>
+                <button type="button" onclick="printDiv()" class="btn btn-success mx-3">Print</button>
             </div>
         </div>
     </form>
 
-    {{-- Employee Attendance Record Table --}}
-    <table class="table my-4 rounded shadow " style="margin-right: 200px;">
-        <thead>
-            <tr>
-                <th class="py-4" scope="col">#</th>
-                <th class="py-4" scope="col">Employee_Name</th>
-                <th class="py-4" scope="col">Logged_In_Email</th>
-                <th class="py-4" scope="col">Entry_Time</th>
-                <th class="py-4" scope="col">Out_Time</th>
-            </tr>
-        </thead>
-        <tbody>
 
-            @if ($attendance->count() > 0)
+    <div id="printArea">
 
-                @foreach ($attendance as $key => $request)
+        {{-- Employee Attendance Record Table --}}
+        <table class="table my-4 rounded shadow " style="margin-right: 200px;">
+            <thead>
+                <tr>
+                    <th class="py-4" scope="col">#</th>
+                    <th class="py-4" scope="col">Employee_Name</th>
+                    <th class="py-4" scope="col">Logged_In_Email</th>
+                    <th class="py-4" scope="col">Entry_Time</th>
+                    <th class="py-4" scope="col">Out_Time</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                    <tr>
-                        <th scope="row">{{ $key + 1 }}</th>
-                        <td>{{ $request->attendanceUser->name }}</td>
-                        <td>{{ $request->attendanceUser->email }}</td>
-                        <td>{{ $request->in_time }}</td>
-                        <td>{{ $request->out_time }}</td>
-                    </tr>
-                @endforeach
+                @if ($attendance->count() > 0)
 
+                    @foreach ($attendance as $key => $request)
 
-            @else
-
-                <td>
-                    <h4>No Data Found!</h4>
-                </td>
+                        <tr>
+                            <th scope="row">{{ $key + 1 }}</th>
+                            <td>{{ $request->attendanceUser->name }}</td>
+                            <td>{{ $request->attendanceUser->email }}</td>
+                            <td>{{ $request->in_time }}</td>
+                            <td>{{ $request->out_time }}</td>
+                        </tr>
+                    @endforeach
 
 
-            @endif
-        </tbody>
+                @else
 
-    </table>
+                    <td>
+                        <h4>No Data Found!</h4>
+                    </td>
+
+
+                @endif
+            </tbody>
+
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function printDiv() {
+            var printContents = document.getElementById("printArea").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+    </script>
 
 
 @endsection
