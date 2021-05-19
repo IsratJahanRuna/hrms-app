@@ -38,7 +38,7 @@
 
 
 
-    <div class="col-12 col-md-6">
+    {{-- <div class="col-12 col-md-6">
         <div class="form-group">
             <label>Blood Group</label>
             <select class="form-control select" name="blood_group">
@@ -52,7 +52,7 @@
                 <option>O+</option>
             </select>
         </div>
-    </div>
+    </div> --}}
     <div class="col-12 col-md-6">
         <div class="form-group">
             <label>Email ID</label>

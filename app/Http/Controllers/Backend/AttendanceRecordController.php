@@ -16,7 +16,7 @@ class AttendanceRecordController extends Controller
 
     public function employeeAttendance()
     {
-        $attendance = Attendance::where('user_id', auth()->user()->id)->get();
+        $attendance = Attendance::where('user_id', auth()->user()->id)->where('status', '!=', 'holiday')->paginate(10);
 
         // $attendanceCount = Attendance::where('user_id',auth()->user()->id)->where('status','=','absent')->get();
         // $count = $attendanceCount->count();

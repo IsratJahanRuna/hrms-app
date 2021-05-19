@@ -3,18 +3,18 @@
 
 @section('contents')
 
-<h2 class="m-5 text-center text-decoration-underline">Attendance Record</h2>
+<h2 class="m-4 text-center text-decoration-underline">Attendance Record</h2>
 
 {{-- Employee Attendance Record Table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-3 rounded shadow" style="margin: 60px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Employee_Name</th>
-        <th scope="col">Logged_In_Email</th>
-        <th scope="col">Entry_Time</th>
-        <th scope="col">Out_Time</th>
-        <th scope="col">Status</th>
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Employee_Name</th>
+        <th class="py-4" scope="col">Logged_In_Email</th>
+        <th class="py-4" scope="col">Entry_Time</th>
+        <th class="py-4" scope="col">Out_Time</th>
+        <th class="py-4" scope="col">Status</th>
 
       </tr>
     </thead>
@@ -33,6 +33,6 @@
         </tbody>
 
   </table>
-
+  {{$attendance->links()}}
 
 @endsection

@@ -23,14 +23,14 @@
 
 
 {{-- Employee Details table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-3 rounded shadow" style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Month</th>
-        <th scope="col">Bonus</th>
-        <th scope="col">Total</th>
+        <th class="py-4" scope="col">#</th>
+        <th class="py-4" scope="col">Amount</th>
+        <th class="py-4" scope="col">Month</th>
+        <th class="py-4" scope="col">Bonus</th>
+        <th class="py-4" scope="col">Total</th>
 
       </tr>
     </thead>

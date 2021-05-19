@@ -2,10 +2,10 @@
 
 @section('contents')
 
-<h2 class="mt-5 text-center text-decoration-underline">Leave Details</h2>
+<h2 class="m-4 text-center text-decoration-underline">Leave Details</h2>
 
 
-<table class="table my-3 " style="margin-right: 200px;">
+<table class="table my-3 rounded shadow" style="margin-right: 200px;">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -13,13 +13,13 @@
         <th scope="col">Email</th>
         <th scope="col">Department</th> --}}
 
-        <th scope="col">Leave_Type</th>
-        <th scope="col">From_Date</th>
-        <th scope="col">To_Date</th>
-        <th scope="col">Total</th>
-        <th scope="col">Description</th>
-        <th scope="col">Reason</th>
-        <th scope="col">Status</th>
+        <th class="py-4" scope="col">Leave_Type</th>
+        <th class="py-4" scope="col">From_Date</th>
+        <th class="py-4" scope="col">To_Date</th>
+        <th class="py-4" scope="col">Total</th>
+        <th class="py-4" scope="col">Description</th>
+        <th class="py-4" scope="col">Reason</th>
+        <th class="py-4" scope="col">Status</th>
 
       </tr>
     </thead>
