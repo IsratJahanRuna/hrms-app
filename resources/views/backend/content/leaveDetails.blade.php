@@ -35,7 +35,7 @@
             <td>{{$request->type}}</td>
             <td>{{$request->from}}</td>
             <td>{{$request->to}}</td>
-            <td>{{$request->to}}</td>
+            <td>{{$request->total}}</td>
             <td>{{$request->about}}</td>
             <td>{{$request->reason}}</td>
             <td>{{$request->status}}</td>

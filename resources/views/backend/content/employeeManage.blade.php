@@ -35,6 +35,12 @@
         {{session()->get('success')}}
   </div>
   @endif
+  @if(session()->has('message'))
+
+  <div class="alert alert-danger mt-4">
+        {{session()->get('message')}}
+  </div>
+  @endif
 
   @if ($errors->any())
      @foreach ($errors->all() as $error)
@@ -76,8 +82,25 @@
             <td>{{$request->address}}</td>
             <td>{{$request->status}}</td>
             <td>
-                <a class="btn btn-info text-light" href="{{route('employeeEdit', $request->id)}}">Edit</a>
-                <a class="btn btn-danger" href="{{route('employeeDelete', $request->id)}}"> Delete</a>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+
+                        <li class="bg-info"><a class="btn btn-info text-light ml-5" href="{{route('employeeEdit', $request->id)}}"><i class="fas fa-user-edit"></i></a></li>
+                        <li class="bg-danger"><a class="btn btn-danger" href="{{route('employeeDelete', $request->user_id)}}"> <i class="fas fa-trash-alt"></i></a></li>
+
+
+
+                    </ul>
+                </div>
+
+
+            </td>
+            <td>
 
             </td>
         </tr>
@@ -146,7 +169,7 @@
             <div class="form-group">
                 <label for="exampleInputName">Department</label>
                 <select class="form-select" name="department_id" required>
-                    <option selected >Select Department</option>
+                    <option selected  value="">Select Department</option>
                     @foreach ($departments as $request)
                         <option value="{{ $request->id }} ">{{ $request->department }}</option>
                     @endforeach
@@ -156,7 +179,7 @@
             <div class="form-group">
                 <label for="exampleInputName">Designation</label>
                 <select class="form-select" name="designation_id" required>
-                    <option selected>Select Department</option>
+                    <option selected value="">Select Department</option>
                     @foreach ($designations as $request)
                         <option value="{{ $request->id }}">{{ $request->designation}}</option>
                     @endforeach

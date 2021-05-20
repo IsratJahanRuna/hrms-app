@@ -70,6 +70,12 @@ class ApplicationController extends Controller
     //     return redirect()->back()->with('message','Your today/s slot is full.');
     // }
     // else{
+        $alreadyExist = Application::whereDate('created_at',now()->format('Y-m-d'))->exists();
+
+        if($alreadyExist){
+            return redirect()->back()->with('message','Your today/s slot is full.');
+        }
+
         $request->validate([
             'type' => 'required',
             'from' => 'required',

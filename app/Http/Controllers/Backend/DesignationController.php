@@ -26,7 +26,7 @@ class DesignationController extends Controller
             'designation'=>$request->designation,
             ]);
 
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Designation added successfully');
     }
 
     public function designationEdit($id)

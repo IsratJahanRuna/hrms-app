@@ -15,6 +15,8 @@ class AdminController extends Controller
 {
     public function admin()
     {
+        $today=date("Y-m-d",strtotime(now()));
+
         $allEmployees = Employee::where('status', 'active')->get();
         $totalEmployee = $allEmployees->count();
         // dd($totalEmployee);
@@ -25,9 +27,10 @@ class AdminController extends Controller
         $allAttendances = Attendance::where('created_at',now()->format('Y-m-d'))->get();
         $totalAttendance = $allAttendances->count();
 
-        $allLeaves = Application::where('status', 'accepted')->get();
+        $allLeaves = Application::where('status', 'accepted')->whereDate('from','<=',$today)
+                    ->whereDate('to','>=',$today)->get();
         $totalLeave = $allLeaves->count();
-
+// dd($totalLeave);
         return view('backend.partial.adminDashboard',compact('totalEmployee','totalDepartment','totalAttendance','totalLeave'));
     }
 

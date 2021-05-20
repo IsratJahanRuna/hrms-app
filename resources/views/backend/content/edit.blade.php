@@ -30,23 +30,23 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
-        <input name="email" type="email" value="{{$user->employeeDetail->email}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Email Address" >
+        <input name="email" type="email" value="{{$user->employeeDetail->email}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Email Address" required >
 
     </div>
     <div class="form-group">
         <label for="exampleInputPhone">Contact No.</label>
-        <input name="contact" type="text" value="{{$user->contact}}" class="form-control" id="exampleInputPhone" placeholder="Enter Employee Phone Number">
+        <input name="contact" type="text" value="{{$user->contact}}" class="form-control" id="exampleInputPhone" placeholder="Enter Employee Phone Number" required>
 
     </div>
 
 <div class="form-group">
     <label for="exampleInputAddress">Address</label>
-    <input name="address" type="text" value="{{$user->address}}" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address">
+    <input name="address" type="text" value="{{$user->address}}" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address" required>
 
 </div>
 <div class="form-group">
     <label for="exampleInputAddress">Status</label>
-    <input name="status" type="text" value="{{$user->status}}" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Status">
+    <input name="status" type="text" value="{{$user->status}}" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Status" required>
 
 </div>
     {{-- <div class="form-group">

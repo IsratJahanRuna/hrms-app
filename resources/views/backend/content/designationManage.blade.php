@@ -8,6 +8,12 @@
         Add Designation
     </button>
 
+    @if(session()->has('success'))
+
+  <div class="alert alert-success mt-4">
+        {{session()->get('success')}}
+  </div>
+  @endif
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-danger">{{ $error }}</div>
@@ -32,7 +38,7 @@
                     <td>{{ $request->designation }}</td>
                     <td>{{ $request->status }}</td>
                     <td>
-                        <a class="btn btn-info text-light" href="{{ route('designationEdit', $request->id) }}">Edit</a>
+                        <a class="btn btn-info text-light" href="{{ route('designationEdit', $request->id) }}"><i class="fas fa-edit"></i></a>
 
 
                     </td>

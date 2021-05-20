@@ -31,8 +31,7 @@ use App\Http\Controllers\Backend\UserController;
 //home panel
 Route::get('/',[UserController::class,'logIn'])->name('logIn');
 
-//home panel
-Route::get('/employeeDetails',[EmployeeController::class,'employeeDetails'])->name('employeeDetails');
+
 
 //home panel
 Route::get('/signIn',[signInController::class,'signIn'])->name('signIn');
@@ -54,6 +53,9 @@ Route::get('/employee',[EmployeeController::class,'employee'])->name('employee')
 
 //employee panel.employees
 Route::get('/employee/employees',[EmployeeManageController::class,'employees'])->name('employees');
+
+//employee Panel.employees.search
+Route::get('/admin/employees/search',[EmployeeManageController::class,'searchEmployee'])->name('employee.search');
 
 //employee panel.personalDetails
 Route::get('/employee/personalDetails',[PersonalDetailsController::class,'personalDetails'])->name('personalDetails');

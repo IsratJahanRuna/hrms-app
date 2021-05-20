@@ -32,7 +32,7 @@ class DepartmentController extends Controller
             'email'=>$request->email,
             'contact'=>$request->contact]);
 
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Department added successfully');
     }
     public function departmentEdit($id)
     {

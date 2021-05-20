@@ -47,8 +47,8 @@
         </select>      </div>
       <div class="form-group">
         <label for="exampleInputName">Type</label>
-        <select class="form-select mb-3" type="text" name="type">
-            <option selected>Select Application type </option>
+        <select class="form-select mb-3" type="text" name="type" required>
+            <option selected value="">Select Application type </option>
             {{-- <option >Leave</option> --}}
             <option value="Casual Leave" >Casual Leave ({{$application->total_casual_leave}})</option>
             <option value="Annual Leave">Annual Leave ({{$application->total_annual_leave}})</option>

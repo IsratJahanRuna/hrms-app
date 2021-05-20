@@ -8,6 +8,12 @@
     Add Department
   </button>
 
+  @if(session()->has('success'))
+
+  <div class="alert alert-success mt-4">
+        {{session()->get('success')}}
+  </div>
+  @endif
   @if ($errors->any())
   @foreach ($errors->all() as $error)
       <div class="alert alert-danger">{{$error}}</div>
@@ -34,7 +40,7 @@
             <td>{{$request->email}}</td>
             <td>{{$request->contact}}</td>
             <td>
-                <a class="btn btn-info text-light" href="{{route('departmentEdit', $request->id)}}">Edit</a>
+                <a class="btn btn-info text-light" href="{{route('departmentEdit', $request->id)}}"><i class="fas fa-edit"></i></a>
 
 
             </td>

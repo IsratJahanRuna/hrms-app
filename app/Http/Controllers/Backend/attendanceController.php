@@ -15,7 +15,8 @@ class attendanceController extends Controller
     {
         $user = User::where('email',$request->input('email'))->first();
 
-        if($user->role == 'admin')
+
+        if($user && $user->role == 'admin')
         {
             return redirect()->route('logIn')->with('error','You are not applicable for attendance.');
         }

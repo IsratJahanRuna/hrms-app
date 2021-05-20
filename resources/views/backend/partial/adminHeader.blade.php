@@ -47,7 +47,7 @@
 
                 @auth()
                     {{-- <span style="color:white; margin-top:50px;" data-feather="user"></span> --}}
-                  <div class="d-flex ">
+                  <div class="d-flex align-items-center">
                     <div>
                         <span style="color:white; margin-right: 30px;" class="fw-bold">  {{ auth()->user()->name }}</span>
                        </div>

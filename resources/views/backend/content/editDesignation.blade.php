@@ -8,12 +8,12 @@
 
     @csrf
 
-{{-- <div class="modal-body">
-    <div class="form-group">
+ <div class="modal-body">
+    {{-- <div class="form-group">
         <label for="exampleInputName">Designation</label>
         <input name="designation" type="text" value="{{$user->designation}}" class="form-control" id="exampleInputName" placeholder="Enter Employee Name" required>
         </select>
-    </div> --}}
+    </div>  --}}
 
     <div class="form-group">
         <label for="exampleInputEmail1">Status</label>
@@ -25,9 +25,9 @@
 
 </div>
 <div class="modal-footer">
-  {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-  <button type="submit" class="btn btn-info m-auto text-light" style="margin-right: 385px;">Update</button>
-</div>
+    {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+    <button type="submit" class="btn btn-info m-auto text-light" style="margin-right: 385px;">Update</button>
+  </div>
 
 </form>
 @endsection

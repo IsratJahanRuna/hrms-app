@@ -39,6 +39,7 @@
               </li> --}}
               <li class="nav-item text-nowrap">
                 @auth()
+                <div class="d-flex align-items-center">
                     <span  style="color:white;" data-feather="user"></span>
                     <span  style="color:white; margin-right: 30px;"> <b> {{ auth()->user()->name }}</b></span>
               </li>
@@ -49,7 +50,7 @@
                 @else
                     <a class="btn btn-success nav-link"  href="{{ route('logIn') }}">Login</a>
 
-
+                </div>
                 @endauth
               </li>
     </form>

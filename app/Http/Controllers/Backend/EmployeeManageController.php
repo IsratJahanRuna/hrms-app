@@ -18,7 +18,7 @@ class EmployeeManageController extends Controller
 
         $departments = Department::all();
         $designations = Designation::all();
-        $employees = Employee::paginate(4);
+        $employees = Employee::paginate(3);
 
         return view('backend.content.employeeManage', compact('employees', 'departments', 'designations'));
     }
@@ -69,6 +69,7 @@ class EmployeeManageController extends Controller
             'employee_id' => 'required | unique:employees',
             'email' => 'required | email | unique:users',
             'department_id' => 'required',
+            'designation_id' => 'required',
 
         ]);
 
@@ -97,7 +98,7 @@ class EmployeeManageController extends Controller
 
 
         //send email to user
-        Mail::to($users->email)->send(new EmployeeRegistration($employee));
+        // Mail::to($users->email)->send(new EmployeeRegistration($employee));
 
         return redirect()->back()->with('success', 'Employee Registration Successful');
     }
@@ -106,13 +107,15 @@ class EmployeeManageController extends Controller
     {
         // dd($id);
         //first get the product
-        $employees = Employee::find($id);
+        // $employees = Employee::find($id);
+        $users = User::find($id);
 
 
         //then delete it
-        $employees->delete();
+        // $employees->delete();
+        $users->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Employee has been deleted');
     }
 
     public function employeeEdit($id)
@@ -154,6 +157,22 @@ class EmployeeManageController extends Controller
         $employees = Employee::paginate(6);
 
         return view('backend.content.employees', compact('employees', 'departments', 'designations'));
+    }
+    public function searchEmployee(Request $request)
+    {
+        $departments = Department::all();
+        $designations = Designation::all();
+        $search = $request->search;
+        if ($search) {
+            $employees = Employee::where('employee_id', 'like', '%' . $search . '%')->paginate(6);
+            // ->orWhere('category','like','%'.$search.'%')
+        } else {
+            $employees = Employee::paginate(6);
+        }
+
+        // where(name=%search%)
+        $title = "Search result";
+        return view('backend.content.employees', compact('employees', 'search', 'departments', 'designations'));
     }
 
 }

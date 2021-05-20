@@ -9,6 +9,12 @@
             {{ session()->get('success') }}
         </div>
     @endif
+    @if (session()->has('message'))
+
+    <div class="alert alert-success mt-4">
+        {{ session()->get('message') }}
+    </div>
+@endif
 
     <table class="table my-4 rounded shadow " style="margin-right: 200px;">
         <thead>

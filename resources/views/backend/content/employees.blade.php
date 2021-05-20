@@ -3,9 +3,30 @@
 @section('contents')
 
     <h2 class="mt-3 text-center text-decoration-underline">All Employees</h2>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+     <div class="col-md-3 mt-4">
+        <form action="{{route('employee.search')}}" method="get">
+
+            <div class="form-group d-flex">
+                <input type="text" name="search" placeholder="Enter employee id" class="form-control">
+                <button class="btn btn-primary position-right mx-2">Search</button>
+            </div>
+
+        </form>
+    </div>
+ </div>
+
+@if(isset($search))
+<p>
+<span class="alert alert-success mx-5"> you are searching for '{{$search}}' , found ({{count($employees)}})</span>
+</p>
+@endif
 
     {{-- Employee Details table --}}
-    <table class="table my-5 mx-5 rounded shadow">
+    <table class="table my-4 mx-5 rounded shadow">
         <thead>
             <tr>
                 <th scope="col">#</th>
