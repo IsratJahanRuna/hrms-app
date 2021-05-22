@@ -12,14 +12,19 @@
         <div class="row">
             <div class="col-md-8">
                 <div class=" row">
-                    <div class="col-md-6">
-                        <label for="from">Date From:</label>
-                        <input id="from" type="date" class="form-control" name="from_date">
+                    <div class="col-md-4">
+                        <label for="from">Name:</label>
+                        <input id="from" type="text" class="form-control" name="name" placeholder="Search by employee name" required>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <label for="from">Date From:</label>
+                        <input id="from" type="date" class="form-control" name="from_date" required>
+                    </div>
+
+                    <div class="col-md-4">
                         <label for="to">Date To:</label>
-                        <input id="to" type="date" class="form-control" name="to_date">
+                        <input id="to" type="date" class="form-control" name="to_date" required>
                     </div>
                 </div>
             </div>
@@ -33,7 +38,8 @@
 
     <div id="printArea">
 
-        {{-- Employee Attendance Record Table --}}
+        <div style="overflow-x:auto;">
+
         <table class="table my-4 rounded shadow " style="margin-right: 200px;">
             <thead>
                 <tr>
@@ -71,6 +77,7 @@
             </tbody>
 
         </table>
+        </div>
     </div>
 
     <script type="text/javascript">

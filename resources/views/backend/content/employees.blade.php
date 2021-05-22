@@ -25,6 +25,7 @@
 </p>
 @endif
 
+<div style="overflow-x:auto;">
     {{-- Employee Details table --}}
     <table class="table my-4 mx-5 rounded shadow">
         <thead>
@@ -61,6 +62,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
 
     {{ $employees->links() }}
 

@@ -5,7 +5,8 @@
 
 <h2 class="mt-3 text-center text-decoration-underline">Employee Attendance Record</h2>
 
-{{-- Employee Attendance Record Table --}}
+<div style="overflow-x:auto;">
+
 <table class="table my-4 rounded shadow " style="margin-right: 200px;">
     <thead>
       <tr>
@@ -21,15 +22,16 @@
 
         <tr>
             <th scope="row">{{ $key+1}}</th>
-            <td>{{ $request->attendanceUser-> name}}</td>
-            <td>{{ $request->attendanceUser-> email}}</td>
-            <td>{{ $request-> in_time}}</td>
-            <td>{{ $request-> out_time}}</td>
+            <td>{{ $request->attendanceUser->name}}</td>
+            <td>{{ $request->attendanceUser->email}}</td>
+            <td>{{ $request->in_time}}</td>
+            <td>{{ $request->out_time}}</td>
         </tr>
         @endforeach
         </tbody>
 
   </table>
+</div>
 
   {{$attendance->links()}}
 

@@ -3,8 +3,10 @@
 @section('contents')
 
 
-<h2 class="my-3 text-center text-decoration-underline">Leave Manage</h2>
+<h2 class="my-3 text-center text-decoration-underline">Leave Record</h2>
 
+
+<div style="overflow-x:auto;">
 <table class="table my-4 rounded shadow " style="margin-right: 200px;">
     <thead>
       <tr>
@@ -45,6 +47,7 @@
         </tbody>
 
   </table>
+</div>
 
   {{$notifications->links()}}
 

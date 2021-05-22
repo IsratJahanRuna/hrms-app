@@ -7,14 +7,17 @@ use App\Models\Department;
 use App\Models\Designation;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Notice;
 
 class EmployeeController extends Controller
 {
     public function employee()
     {
+        $today=date("Y-m-d",strtotime(now()));
+        $notice=Notice::whereDate('date',$today)
+        ->first();
 
-
-        return view('backend.partial.employeeDashboard');
+        return view('backend.partial.employeeDashboard', compact('notice'));
     }
     // public function employeeDetails()
     // {

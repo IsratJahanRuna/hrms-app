@@ -16,6 +16,7 @@
     </div>
 @endif
 
+<div style="overflow-x:auto;">
     <table class="table my-4 rounded shadow " style="margin-right: 200px;">
         <thead>
             <tr>
@@ -59,6 +60,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
     {{ $notifications->links() }}
 
 @endsection

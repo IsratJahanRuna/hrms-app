@@ -4,7 +4,7 @@
 
 <h2 class="m-4 text-center text-decoration-underline">Leave Details</h2>
 
-
+<div style="overflow-x:auto;">
 <table class="table my-3 rounded shadow" style="margin-right: 200px;">
     <thead>
       <tr>
@@ -43,4 +43,6 @@
         </tr>
         @endforeach
         </tbody>
+</table>
+</div>
         @endsection

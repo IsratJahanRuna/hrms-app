@@ -20,6 +20,7 @@
         @endforeach
     @endif
 
+    <div style="overflow-x:auto;">
     {{-- Employee Details table --}}
     <table class="table my-4 rounded shadow" style="margin-right: 200px;">
         <thead>
@@ -47,6 +48,7 @@
         </tbody>
 
     </table>
+    </div>
 
 
     {{$designations->links()}}

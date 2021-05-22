@@ -48,8 +48,9 @@
      @endforeach
  @endif
 
+ <div style="overflow-x:auto;">
 {{-- Employee Details table --}}
-<table class="table my-3 rounded shadow mb-4" style="margin-right: 200px;">
+<table class="table my-3 rounded shadow mb-4 " style="margin-right: 200px;">
     <thead>
       <tr >
         <th class="py-4" scope="col">#</th>
@@ -111,6 +112,7 @@
       </tr>
     </tbody> --}}
   </table>
+ </div>
 
   {{$employees->links()}}
 
