@@ -91,7 +91,7 @@
             <div class="form-group">
                 <label for="exampleInputDepartment" >Employee Name</label>
                 <select class="form-select" name="employee_id" required>
-                    <option selected>Select Department</option>
+                    <option selected>Select Employee</option>
                     @foreach ($employee as $request)
                         <option value="{{ $request->user_id }}" >{{ $request->employeeDetail->name }} </option>
                     @endforeach

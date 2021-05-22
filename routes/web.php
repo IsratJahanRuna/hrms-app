@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\attendanceController;
 use App\Http\Controllers\Backend\DesignationController;
 use App\Http\Controllers\Backend\HolidaySetupController;
 use App\Http\Controllers\Backend\LeaveManageCOntroller;
+use App\Http\Controllers\Backend\NoticeController;
 use App\Http\Controllers\Backend\NotificationController;
 use App\Http\Controllers\Backend\SalaryManageController;
 use App\Http\Controllers\Backend\signInController;
@@ -164,5 +165,11 @@ Route::post('/admin/holidayCreate',[HolidaySetupController::class,'holidayCreate
 
 //AdminPanel.report
 Route::get('/admin/report',[AttendanceRecordController::class,'report'])->name('report');
+
+//AdminPanel.notice
+Route::get('/admin/noticeManage',[NoticeController::class,'notice'])->name('notice');
+
+//AdminPanel.noticeCreate
+Route::post('/admin/noticeCreate',[NoticeController::class,'noticeCreate'])->name('noticeCreate');
 
 });

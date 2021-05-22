@@ -38,24 +38,10 @@
 
 
 
-    {{-- <div class="col-12 col-md-6">
-        <div class="form-group">
-            <label>Blood Group</label>
-            <select class="form-control select" name="blood_group">
-                <option>A-</option>
-                <option>A+</option>
-                <option>B-</option>
-                <option>B+</option>
-                <option>AB-</option>
-                <option>AB+</option>
-                <option>O-</option>
-                <option>O+</option>
-            </select>
-        </div>
-    </div> --}}
+
     <h2 class="mt-3 text-center text-decoration-underline" style="color:rgb(10, 69, 136);">Personal Details</h2>
     <div class="card m-auto my-5 rounder shadow " style="width: 27rem; height: 30rem;">
-        <div class="m-auto my-4 border shadow">
+        <div class="m-auto my-3 border shadow">
             <img src="{{url('/files/photo/'.$employee->file)}}" style="width:180px; height:150px;" >
         </div>
         <div class="card-body my-1 m-auto text-info fst-italic">
@@ -66,6 +52,8 @@
           <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Email:</b> {{$employee->employeeDetail->email}}</h5>
           <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Contact:</b> {{$employee->contact}}</h5>
           <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Address:</b> {{$employee->address}}</h5>
+          <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Total Leave:</b> {{$employee->total_casual_leave + $employee->total_anual_leave + $employee->total_sick_leave}} days</h5>
+
         </div>
       </div>
 

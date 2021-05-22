@@ -199,6 +199,13 @@
                     Holiday Setup
                     </a>
                   </li>
+                  <li class="nav-item ">
+                    <a class="nav-link text-light" href={{route('notice')}}>
+                      <span ></span>
+                      <i class="fas fa-comment-alt"></i>
+                      Notice Manage
+                    </a>
+                  </li>
               <li class="nav-item mb-2">
                 <a class="nav-link text-light" href={{route('attendanceRecord')}}>
                   <span ></span>

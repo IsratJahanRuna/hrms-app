@@ -83,6 +83,34 @@ class SalaryManageController extends Controller
 
             $salary = $employee->salary;
 
+            $attendance = Attendance::where('user_id',$request->employee_id)->first();
+            // dd($attendance->in_time);
+
+
+            // $in_time = date("H:i",strtotime($attendance->in_time));
+
+            // $out_time = date("H:i",strtotime($attendance->out_time));
+
+            // $total_time = $out_time -  $in_time;
+
+            // dd( $total_time);
+
+            $in_time = Carbon::parse($attendance->in_time);
+            $out_time = Carbon::parse($attendance->out_time);
+
+            $totalDuration =  $in_time->diff($out_time)->format('%H');
+            // dd($totalDuration);
+
+            $halfAttendanceCount = 0;
+
+            if( $totalDuration < 8){
+
+            //     $halfAttendanceCount = Attendance::where('user_id',$request->employee_id)
+            // ->Where('status','Present')->whereMonth('created_at',now()->subMonth()->format('m'))
+            // ->count('id');
+            }
+
+
             $attendanceCount = Attendance::where('user_id',$request->employee_id)
             ->where(function($query){
                $query->where('status','holiday')
@@ -90,12 +118,14 @@ class SalaryManageController extends Controller
             })->whereMonth('created_at',now()->subMonth()->format('m'))
             ->count('id');
             // dd($attendanceCount);
-            $attendanceCount =  $attendanceCount + $totalLeave;
+            $attendanceCount =  $attendanceCount + $totalLeave -  $halfAttendanceCount;
             $totalAbsent = 30 - $attendanceCount;
 
             $per_day_salary =  $salary / 30;
 
-            $payable_salary = $salary - ($per_day_salary * $totalAbsent);
+            $per_halfDay_salary = $per_day_salary / 2;
+
+            $payable_salary = $salary - ($per_day_salary * $totalAbsent) + ($per_halfDay_salary *  $halfAttendanceCount);
 
             $request->validate([
                 'employee_id' => 'required',

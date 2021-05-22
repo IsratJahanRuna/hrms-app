@@ -63,7 +63,7 @@
         <th class="py-4" scope="col">Contact No.</th>
         <th class="py-4" scope="col">Address</th>
         <th class="py-4" scope="col">Status</th>
-        <th class="py-4" scope="col">Edit/Delete</th>
+        <th class="py-4" scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -82,27 +82,11 @@
             <td>{{$request->address}}</td>
             <td>{{$request->status}}</td>
             <td>
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Action
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-
-                        <li class="bg-info"><a class="btn btn-info text-light ml-5" href="{{route('employeeEdit', $request->id)}}"><i class="fas fa-user-edit"></i></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href="{{route('employeeDelete', $request->user_id)}}"> <i class="fas fa-trash-alt"></i></a></li>
-
-
-
-                    </ul>
-                </div>
+                <a class="btn btn-info text-light" href="{{route('employeeEdit', $request->id)}}"><i class="fas fa-user-edit"></i></a>
 
 
             </td>
-            <td>
 
-            </td>
         </tr>
         @endforeach
         </tbody>
@@ -163,8 +147,12 @@
 
                     <div class="form-group">
                         <label for="exampleInputName">Gender</label>
-                        <input name="gender" type="text" class="form-control" id="exampleInputName" placeholder="Ex: Female" required>
+                        <select class="form-select mb-3" type="text" name="gender" required>
+                            <option selected value="">Select Gender</option>
+                            <option >Male</option>
+                            <option >Female</option>
 
+                        </select>
                     </div>
             <div class="form-group">
                 <label for="exampleInputName">Department</label>
@@ -179,7 +167,7 @@
             <div class="form-group">
                 <label for="exampleInputName">Designation</label>
                 <select class="form-select" name="designation_id" required>
-                    <option selected value="">Select Department</option>
+                    <option selected value="">Select Designation</option>
                     @foreach ($designations as $request)
                         <option value="{{ $request->id }}">{{ $request->designation}}</option>
                     @endforeach
