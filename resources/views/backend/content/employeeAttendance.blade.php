@@ -9,7 +9,7 @@
 
     {{-- @csrf --}}
 
-    <div class="row mx-5 my-4">
+    <div class="row  my-4" style="margin-left: 100px;">
         <div class="col-md-8">
             <div class=" row">
                 <div class="col-md-6">
@@ -31,9 +31,9 @@
 </form>
 
 <div id="printArea">
-    <div style="overflow-x:auto;">
+    <div class="d-flex justify-content-center" style="overflow-x:auto;">
 
-<table class="table my-3 rounded shadow" style="margin: 60px;">
+<table  style="margin-left: 100px;" class="table my-3 rounded shadow">
     <thead>
       <tr>
         <th class="py-4" scope="col">#</th>

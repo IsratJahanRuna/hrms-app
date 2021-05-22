@@ -25,9 +25,9 @@
 </p>
 @endif
 
-<div style="overflow-x:auto;">
+<div class="d-flex justify-content-center" style="overflow-x:auto;">
     {{-- Employee Details table --}}
-    <table class="table my-4 mx-5 rounded shadow">
+    <table class="table my-4 rounded shadow" style="margin-left: 100px;">
         <thead>
             <tr>
                 <th scope="col">#</th>

@@ -11,7 +11,18 @@ class AttendanceRecordController extends Controller
 {
     public function attendanceRecord()
     {
-        $attendance = Attendance::where('status', '!=', 'holiday')->paginate(8);
+        $attendance = Attendance::where('status', '!=', 'holiday')->paginate(6);
+
+        if (isset($_GET['name'])) {
+            $name = $_GET['name'];
+            // dd($name);
+            $user = User::where('name', $name)->first();
+            $user_id = $user->id;
+
+            // dd($toDate);
+
+            $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->paginate(6);
+        }
         return view('backend.content.attendanceRecord', compact('attendance'));
     }
 
@@ -27,7 +38,7 @@ class AttendanceRecordController extends Controller
 
             // dd($toDate);
 
-            $attendance = Attendance::where('user_id', auth()->user()->id)->where('status', '!=', 'holiday')->whereBetween('created_at', [$fromDate, $toDate])->paginate(7);
+            $attendance = Attendance::where('user_id', auth()->user()->id)->where('status', '!=', 'holiday')->whereBetween('created_at', [$fromDate, $toDate])->paginate(6);
         }
 
         return view('backend.content.employeeAttendance', compact('attendance'));
@@ -35,7 +46,7 @@ class AttendanceRecordController extends Controller
 
     public function report()
     {
-        $attendance = Attendance::where('status', '!=', 'holiday')->get();
+        $attendance = Attendance::where('status', '!=', 'holiday')->paginate(6);
 
         // $allAttendance = Attendance::all();
         // foreach( $attendance as $request){
@@ -55,7 +66,7 @@ class AttendanceRecordController extends Controller
                 // dd($toDate);
 
                 // dd($attendance );
-                $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->whereBetween('created_at', [$fromDate, $toDate])->get();
+                $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->whereBetween('created_at', [$fromDate, $toDate])->paginate(6);
 
 
         }

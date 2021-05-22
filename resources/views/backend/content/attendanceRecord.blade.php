@@ -5,6 +5,26 @@
 
 <h2 class="mt-3 text-center text-decoration-underline">Employee Attendance Record</h2>
 
+<form action={{ route('attendanceRecord') }} method="GET">
+
+    <div class="row d-flex mb-4">
+        <div class="col-md-6">
+
+        </div>
+   <div class="col-md-3"></div>
+        <div class="col-md-3 mt-4">
+
+
+               <div class="form-group d-flex">
+                   <input type="text" name="name" placeholder="Enter employee name" class="form-control">
+                   <button class="btn btn-primary position-right mx-2">Search</button>
+               </div>
+
+
+       </div>
+    </div>
+</form>
+
 <div style="overflow-x:auto;">
 
 <table class="table my-4 rounded shadow " style="margin-right: 200px;">
@@ -18,6 +38,9 @@
       </tr>
     </thead>
     <tbody>
+
+        @if ($attendance->count() > 0)
+
         @foreach($attendance as $key=> $request)
 
         <tr>
@@ -28,6 +51,15 @@
             <td>{{ $request->out_time}}</td>
         </tr>
         @endforeach
+
+        @else
+
+                    <td colspan="5" class="text-center">
+                        <h4>No Data Found!</h4>
+                    </td>
+
+
+                @endif
         </tbody>
 
   </table>

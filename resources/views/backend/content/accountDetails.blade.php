@@ -1,4 +1,4 @@
-@extends('backend.partial.adminMaster')
+@extends('backend.partial.employeeMaster')
 
 @section('contents')
 
@@ -20,10 +20,10 @@
   @endif
 
 
-
+  <div class="d-flex justify-content-center" style="overflow-x:auto;">
 
 {{-- Employee Details table --}}
-<table class="table my-3 rounded shadow" style="margin-right: 200px;">
+<table class="table my-3 rounded shadow" style="margin-left: 100px;">
     <thead>
       <tr>
         <th class="py-4" scope="col">#</th>
@@ -51,4 +51,5 @@
         </tbody>
 
   </table>
+  </div>
 @endsection

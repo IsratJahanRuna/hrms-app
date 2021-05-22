@@ -14,7 +14,7 @@
                 <div class=" row">
                     <div class="col-md-4">
                         <label for="from">Name:</label>
-                        <input id="from" type="text" class="form-control" name="name" placeholder="Search by employee name" required>
+                        <input id="from" type="text" class="form-control" name="name" placeholder="Enter employee name" required>
                     </div>
 
                     <div class="col-md-4">
@@ -68,9 +68,10 @@
 
                 @else
 
-                    <td>
-                        <h4>No Data Found!</h4>
-                    </td>
+                <td colspan="5" class="text-center">
+                    <h4>No Data Found!</h4>
+                </td>
+
 
 
                 @endif
@@ -79,6 +80,7 @@
         </table>
         </div>
     </div>
+    {{$attendance->links()}}
 
     <script type="text/javascript">
         function printDiv() {

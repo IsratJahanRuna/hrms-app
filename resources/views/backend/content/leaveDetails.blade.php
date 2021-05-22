@@ -1,11 +1,11 @@
-@extends('backend.partial.adminMaster')
+@extends('backend.partial.employeeMaster')
 
 @section('contents')
 
 <h2 class="m-4 text-center text-decoration-underline">Leave Details</h2>
 
-<div style="overflow-x:auto;">
-<table class="table my-3 rounded shadow" style="margin-right: 200px;">
+<div class="d-flex justify-content-center" style="overflow-x:auto;">
+<table class="table my-3 rounded shadow " style="margin-left: 100px;" >
     <thead>
       <tr>
         <th scope="col">#</th>
