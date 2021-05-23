@@ -95,20 +95,20 @@ class SalaryManageController extends Controller
 
             // dd( $total_time);
 
-            $in_time = Carbon::parse($attendance->in_time);
-            $out_time = Carbon::parse($attendance->out_time);
+            // $in_time = Carbon::parse($attendance->in_time);
+            // $out_time = Carbon::parse($attendance->out_time);
 
-            $totalDuration =  $in_time->diff($out_time)->format('%H');
-            // dd($totalDuration);
+            // $totalDuration =  $in_time->diff($out_time)->format('%H');
+            // // dd($totalDuration);
 
-            $halfAttendanceCount = 0;
+            // $halfAttendanceCount = 0;
 
-            if( $totalDuration < 8){
+            // if( $totalDuration < 8){
 
             //     $halfAttendanceCount = Attendance::where('user_id',$request->employee_id)
             // ->Where('status','Present')->whereMonth('created_at',now()->subMonth()->format('m'))
             // ->count('id');
-            }
+            // }
 
 
             $attendanceCount = Attendance::where('user_id',$request->employee_id)
@@ -118,15 +118,13 @@ class SalaryManageController extends Controller
             })->whereMonth('created_at',now()->subMonth()->format('m'))
             ->count('id');
             // dd($attendanceCount);
-            $attendanceCount =  $attendanceCount + $totalLeave -  $halfAttendanceCount;
+            $attendanceCount =  $attendanceCount + $totalLeave;
             $totalAbsent = 30 - $attendanceCount;
 
             $per_day_salary =  $salary / 30;
 
-            $per_halfDay_salary = $per_day_salary / 2;
 
-            $payable_salary = $salary - ($per_day_salary * $totalAbsent) + ($per_halfDay_salary *  $halfAttendanceCount);
-
+            $payable_salary = $salary - ($per_day_salary * $totalAbsent);
             $request->validate([
                 'employee_id' => 'required',
                 'employment' => 'required',

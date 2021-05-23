@@ -64,6 +64,6 @@
     </table>
 </div>
 
-    {{ $employees->links() }}
+   <div style="margin-left:100px;"> {{ $employees->links() }}</div>
 
 @endsection

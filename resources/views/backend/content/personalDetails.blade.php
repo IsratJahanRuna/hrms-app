@@ -21,7 +21,7 @@
           <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Contact:</b> {{$employee->contact}}</h5>
           <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Address:</b> {{$employee->address}}</h5>
           <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Total Leave:</b> {{$employee->total_casual_leave + $employee->total_anual_leave + $employee->total_sick_leave}} days</h5>
-          <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Absent:</b> 5 days</h5>
+          <h5 class="card-text"><b class="" style="color:rgb(10, 69, 136);">Absent:</b> {{$totalAbsent}} days (Provious Month)</h5>
 
         </div>
       </div>

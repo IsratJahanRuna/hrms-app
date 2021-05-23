@@ -43,15 +43,15 @@ class attendanceController extends Controller
                 'out_time' => now(),
                 'status' => 'Present'
             ]);
-            return redirect()->route('logIn')->with('success','You have logged-out.');
+            return redirect()->route('logIn')->with('success','Your Check-Out Done.');
 
            }else{
-            return redirect()->route('logIn')->with('error','You can\'t logout before 6pm');
+            return redirect()->route('logIn')->with('error','You can\'t check-out before 6pm');
            }
 
             }
             else{
-            return redirect()->route('logIn')->with('error','You have already logged-out for today.');
+            return redirect()->route('logIn')->with('error','You have already checked-out for today.');
            }
 
        }
@@ -65,6 +65,6 @@ class attendanceController extends Controller
 
 
 
-               return redirect()->route('logIn')->with('success','Your Attendance done.');
+               return redirect()->route('logIn')->with('success','Your Check-In done.');
     }
 }
