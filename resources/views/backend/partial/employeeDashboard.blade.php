@@ -6,10 +6,17 @@
 
 @if ($notice)
 
+
+
 <div>
 
+
     <marquee class=" mt-1 fs-4"  direction="left" height="50px" width="1245px" style="background-color:rgb(241, 233, 233); color:red;">
-        {{$notice->notice}}
+        @foreach ($notice as $request)
+
+        {{$request->notice}}
+
+        @endforeach
         </marquee>
 
         <img  style="width: 1245px; height:605px;" src="https://ak.picdn.net/shutterstock/videos/20303122/thumb/7.jpg" alt="">
@@ -17,6 +24,7 @@
 
 
 </div>
+
 
 @else
 

@@ -21,6 +21,7 @@ class CreateEmployeesTable extends Migration
             $table->string('employee_id');
             $table->integer('department_id');
             $table->integer('designation_id');
+            $table->integer('attendance_id');
             // $table->string('email')->unique();
             $table->string('gender');
             $table->string('contact');

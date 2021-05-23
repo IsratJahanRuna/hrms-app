@@ -15,7 +15,7 @@ class EmployeeController extends Controller
     {
         $today=date("Y-m-d",strtotime(now()));
         $notice=Notice::whereDate('date',$today)
-        ->first();
+        ->get();
 
         return view('backend.partial.employeeDashboard', compact('notice'));
     }

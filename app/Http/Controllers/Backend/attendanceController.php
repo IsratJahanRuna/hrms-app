@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use phpDocumentor\Reflection\Types\Null_;
@@ -13,6 +14,7 @@ class attendanceController extends Controller
 {
     public function attendance( Request $request)
     {
+
         $user = User::where('email',$request->input('email'))->first();
 
 
@@ -33,12 +35,19 @@ class attendanceController extends Controller
         $alreadyExist = Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->exists();
 // dd(Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->whereNull('out_time')->exists());
        if($alreadyExist){
-           if(Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->whereNull('out_time')->exists()){
+           if(Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->whereNull('out_time')->exists())
+           {
+            if((int)date(Carbon::now()->format('H'))>=18)
+            {
             Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->update([
                 'out_time' => now(),
                 'status' => 'Present'
             ]);
             return redirect()->route('logIn')->with('success','You have logged-out.');
+
+           }else{
+            return redirect()->route('logIn')->with('error','You can\'t logout before 6pm');
+           }
 
             }
             else{

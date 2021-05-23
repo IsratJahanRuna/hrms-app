@@ -24,4 +24,8 @@ class Employee extends Model
     public function employeeDetail(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function employeeAttendance(){
+        return $this->belongsTo(Attendance::class, 'user_id', 'id');
+    }
 }
