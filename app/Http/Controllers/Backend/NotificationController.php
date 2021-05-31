@@ -71,7 +71,7 @@ class NotificationController extends Controller
              if($notifications->type == 'Sick Leave'){
                 $start = Carbon::parse($notifications->from);
                 $end =  Carbon::parse($notifications->to);
-                $days = $end->diffInDays($start);
+                $days = $end->diffInDays($start)+1;
                 $employee->update([
                     'total_sick_leave'=> $employee->total_sick_leave - $days,
 

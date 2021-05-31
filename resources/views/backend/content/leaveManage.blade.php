@@ -17,13 +17,15 @@
 
                <div class="form-group d-flex">
                    <input type="text" name="name" placeholder="Enter employee name" class="form-control">
-                   <button class="btn btn-primary position-right mx-2">Search</button>
+                   <button class="btn btn-primary position-right mx-1">Search</button>
+                   <button type="button" onclick="printDiv()" class="btn btn-success mx-1">Print</button>
                </div>
 
 
        </div>
     </div>
 </form>
+<div id="printArea">
 
 <div style="overflow-x:auto;">
 <table class="table my-4 rounded shadow " style="margin-right: 200px;">
@@ -39,6 +41,7 @@
         <th class="py-4" scope="col">From_Date</th>
         <th class="py-4" scope="col">To_Date</th>
         <th class="py-4" scope="col">Status</th>
+         <th class="py-4" scope="col">Total</th>
         <th class="py-4" scope="col">Reason</th>
         <th class="py-4" scope="col">About</th>
       </tr>
@@ -60,6 +63,7 @@
             <td>{{$request->to}}</td> --}}
             <td>{{$request->from}}</td>
             <td>{{$request->to}}</td>
+             <td>{{$request->total}}</td>
             <td>{{$request->status}}</td>
             <td>{{$request->reason}}</td>
             <td>{{$request->about}}</td>
@@ -81,7 +85,22 @@
 
   </table>
 </div>
+</div>
 
   {{$notifications->links()}}
 
+
+ <script type="text/javascript">
+        function printDiv() {
+            var printContents = document.getElementById("printArea").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+    </script>
   @endsection

@@ -41,7 +41,8 @@ class attendanceController extends Controller
             {
             Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->update([
                 'out_time' => now(),
-                'status' => 'Present'
+                'status' => 'Present',
+                'check_status' => 'Checked_Out',
             ]);
             return redirect()->route('logIn')->with('success','Your Check-Out Done.');
 

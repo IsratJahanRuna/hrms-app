@@ -11,7 +11,7 @@ class DepartmentController extends Controller
     public function departmentManage()
     {
 
-     $departments=Department::paginate(5);
+     $departments=Department::where('status','active')->paginate(5);
      return view('backend.content.departmentManage',compact('departments'));
 
     }

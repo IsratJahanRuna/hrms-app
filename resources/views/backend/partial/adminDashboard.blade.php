@@ -51,6 +51,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- @dd($totalAttendance) --}}
                 <div class="col-xl-4 col-sm-6 col-12 mt-5 me-5">
                     <div class="card">
                         <div class="card-body">

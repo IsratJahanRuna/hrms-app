@@ -19,7 +19,7 @@
 
     <div class="form-group">
         <label for="exampleInputEmail1">Date</label>
-        <input name="date" type="date"  class="form-control" id="exampleInputEmail1" >
+        <input name="date" type="date" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}"  class="form-control" id="exampleInputEmail1" >
 
     </div>
 

@@ -35,6 +35,7 @@
         <th class="py-4" scope="col">Logged_In_Email</th>
         <th class="py-4" scope="col">Entry_Time</th>
         <th class="py-4" scope="col">Out_Time</th>
+         <th class="py-4" scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
@@ -49,6 +50,7 @@
             <td>{{ $request->attendanceUser->email}}</td>
             <td>{{ $request->in_time}}</td>
             <td>{{ $request->out_time}}</td>
+            <td>{{ $request->check_status}}</td>
         </tr>
         @endforeach
 

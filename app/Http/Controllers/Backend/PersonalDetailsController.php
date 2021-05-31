@@ -24,13 +24,12 @@ class PersonalDetailsController extends Controller
         ->count('id');
         // dd($attendanceCount);
 
-        $attendanceCount =  $attendanceCount + $totalLeave;
-        $totalAbsent = 30 - $attendanceCount;
+        
 
         $employee = Employee::with(['employeeDetail'])->where('user_id',auth()->user()->id)->sole();
         // dd($employee);
 
-        return view("backend.content.personalDetails",compact('employee','totalAbsent'));
+        return view("backend.content.personalDetails",compact('employee','attendanceCount'));
     }
 
 }

@@ -24,8 +24,12 @@ class AdminController extends Controller
         $allDepartments = Department::all();
         $totalDepartment = $allDepartments->count();
 
-        $allAttendances = Attendance::where('created_at',now()->format('Y-m-d'))->get();
+        $allAttendances = Attendance::whereDate('created_at',now()->format('Y-m-d'))->get();
         $totalAttendance = $allAttendances->count();
+        // dd( $allAttendances);
+
+        // $allAttendances = Attendance::where('check_status','Checked_In')->get();
+        // $totalAttendance = $allAttendances->count();
 
         $allLeaves = Application::where('status', 'accepted')->whereDate('from','<=',$today)
                     ->whereDate('to','>=',$today)->get();
