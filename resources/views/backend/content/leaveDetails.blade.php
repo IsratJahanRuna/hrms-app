@@ -46,5 +46,5 @@
 </table>
 </div>
 
-{{$holidays->links()}}
+{{$notifications->links()}}
         @endsection

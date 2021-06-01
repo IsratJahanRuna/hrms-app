@@ -37,7 +37,7 @@ class attendanceController extends Controller
        if($alreadyExist){
            if(Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->whereNull('out_time')->exists())
            {
-            if((int)date(Carbon::now()->format('H'))>=18)
+            if((int)date(Carbon::now()->format('H'))>=0)
             {
             Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->update([
                 'out_time' => now(),

@@ -23,7 +23,7 @@ class NotificationController extends Controller
 
     public function leaveDetails()
     {
-        $notifications = Application::where('user_id','=',auth()->user()->id)->get();
+        $notifications = Application::where('user_id','=',auth()->user()->id)->paginate(6);
         return view('backend.content.leaveDetails',compact('notifications'));
     }
 

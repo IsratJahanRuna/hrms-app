@@ -13,9 +13,9 @@ class SalaryManageController extends Controller
 {
     public function salaryManage()
     {
-        $employee = Employee::with('employeeDetail')->get();
+        $employee = Employee::with('employeeDetail')->where('status','active')->get();
 
-        $salaries = Salary::with('employee')->get();
+        $salaries = Salary::with('employee')->orderBy('id','desc')->paginate(6);
 
         return view('backend.content.salaryManage',compact('salaries','employee'));
     }
@@ -67,8 +67,9 @@ class SalaryManageController extends Controller
 
         // }
 
-        $alreadyExist = Salary::where('employee_id',$request->employee_id)->whereDate('month',now()->format('Y-m'))->exists();
-
+        $alreadyExist = Salary::where('employee_id',$request->employee_id)
+        ->where('month',now()->subMonth()->format('Y-m'))->exists();
+// dd($request->employee_id);
         if($alreadyExist){
 
              return redirect()->route('salaryManage')->with('error','Salary had already given.');

@@ -64,7 +64,7 @@
   </div>
 
 
-  {{-- {{$departments->links()}} --}}
+  {{$salaries->links()}}
 
 
 
