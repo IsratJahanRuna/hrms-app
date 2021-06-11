@@ -57,14 +57,14 @@
             <th scope="row">{{$key+1}}</th>
             <td>{{$request->employeeDetail->name}}</td>
             <td>{{$request->employeeDetail->email}}</td>
-            <td>{{$request->department->department}}</td>
+            <td>{{$request->department}}</td>
             <td>{{$request->type}}</td>
             {{-- <td>{{$request->from}}</td>
             <td>{{$request->to}}</td> --}}
             <td>{{$request->from}}</td>
             <td>{{$request->to}}</td>
-             <td>{{$request->total}}</td>
             <td>{{$request->status}}</td>
+            <td>{{$request->total}}</td>
             <td>{{$request->reason}}</td>
             <td>{{$request->about}}</td>
 

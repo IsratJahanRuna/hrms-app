@@ -17,7 +17,7 @@ class NotificationController extends Controller
 {
     public function notification()
     {
-        $notifications = Application::where('status','=','pending')->paginate(8);
+        $notifications = Application::where('status','=','pending')->orderBy('id','desc')->paginate(8);
         return view('backend.content.notification',compact('notifications'));
     }
 
@@ -65,19 +65,19 @@ class NotificationController extends Controller
 
                 ]);
                 $notifications->update([
-                    'total' => $days,
+                    'total' => $days + 1,
                 ]);
              }
              if($notifications->type == 'Sick Leave'){
                 $start = Carbon::parse($notifications->from);
                 $end =  Carbon::parse($notifications->to);
-                $days = $end->diffInDays($start)+1;
+                $days = $end->diffInDays($start);
                 $employee->update([
                     'total_sick_leave'=> $employee->total_sick_leave - $days,
 
                 ]);
                 $notifications->update([
-                    'total' => $days,
+                    'total' => $days + 1,
                 ]);
              }
              if($notifications->type == 'Annual Leave'){
@@ -86,10 +86,10 @@ class NotificationController extends Controller
                 $days = $end->diffInDays($start);
                 $employee->update([
                     'total_annual_leave'=> $employee->total_annual_leave - $days,
-                    'total' => $days,
+
                 ]);
                 $notifications->update([
-                    'total' => $days,
+                    'total' => $days + 1,
                 ]);
              }
             //  Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));

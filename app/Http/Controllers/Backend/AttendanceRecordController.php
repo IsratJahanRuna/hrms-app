@@ -5,13 +5,27 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AttendanceRecordController extends Controller
 {
     public function attendanceRecord()
     {
-        $attendance = Attendance::where('status', '!=', 'holiday')->paginate(6);
+
+        // $attendances = Attendance::where('status', '!=', 'holiday')->get();
+
+        // foreach($attendances as $data){
+        // $in_time = Carbon::parse($data->in_time);
+        //  $out_time = Carbon::parse($data->out_time);
+
+        // $totalDuration =  $in_time->diff($out_time)->format('%H');
+        // // dd($totalDuration);
+        // }
+        $attendance = Attendance::where('status', '!=', 'holiday')->orderBy('id','desc')->paginate(6);
+
+
+
 
         if (isset($_GET['name'])) {
             $name = $_GET['name'];
@@ -23,6 +37,8 @@ class AttendanceRecordController extends Controller
 
             $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->paginate(6);
         }
+
+
         return view('backend.content.attendanceRecord', compact('attendance'));
     }
 
@@ -55,8 +71,14 @@ class AttendanceRecordController extends Controller
         if (isset($_GET['name']) && isset($_GET['from_date'])) {
             $name = $_GET['name'];
             // dd($name);
-            $user = User::where('name', $name)->first();
+            $user = User::where('name', 'like', '%' . $name . '%')->first();
+
+            if(isset($user)){
             $user_id = $user->id;
+        }
+        else{
+            $user_id = 1234567;
+        }
 
                 $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
                 $toDate = date('Y-m-d', strtotime($_GET['to_date']));

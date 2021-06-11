@@ -11,7 +11,7 @@ class DesignationController extends Controller
 
     public function designationManage()
     {
-        $designations=Designation::where('status','active')->paginate(5);
+        $designations=Designation::where('status','active')->orderBy('id','desc')->paginate(5);
         return view('backend.content.designationManage',compact('designations'));
     }
 

@@ -41,7 +41,7 @@
 
                     <td>{{ $request->employeeDetail->name }}</td>
                     <td>{{ $request->employeeDetail->email }}</td>
-                    <td>{{ $request->department->department }}</td>
+                    <td>{{ $request->department }}</td>
                     <td>{{ $request->type }}</td>
                     <td>{{ $request->from }}</td>
                     <td>{{ $request->to }}</td>
@@ -51,9 +51,9 @@
 
                         @if ($request->status !== 'decline')
                             <a class="btn btn-success text-light"
-                                href="{{ route('ApplicationAccept', $request->id) }}">Accept</a>
+                                href="{{ route('ApplicationAccept', $request->id) }} " onclick="return confirm('Are you sure you want to accept this application?')">Accept</a>
                             <a class="btn btn-danger text-light"
-                                href="{{ route('declineApplication', $request->id) }}">Decline</a>
+                                href="{{ route('declineApplication', $request->id) }}" onclick="return confirm('Are you sure you want to decline this application?')">Decline</a>
                         @endif
                     </td>
                 </tr>

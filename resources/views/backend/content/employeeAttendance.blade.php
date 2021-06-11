@@ -41,6 +41,9 @@
         <th class="py-4" scope="col">Logged_In_Email</th>
         <th class="py-4" scope="col">Entry_Time</th>
         <th class="py-4" scope="col">Out_Time</th>
+        <th class="py-4" scope="col">Delay</th>
+        <th class="py-4" scope="col">Working_Hours</th>
+        <th class="py-4" scope="col">Over_Time</th>
         <th class="py-4" scope="col">Status</th>
 
       </tr>
@@ -57,6 +60,9 @@
             <td>{{ $request->attendanceUser-> email}}</td>
             <td>{{ $request-> in_time}}</td>
             <td>{{ $request-> out_time}}</td>
+            <td>{{ $request-> delay}}</td>
+            <td>{{ $request-> working_hours}}</td>
+            <td>{{ $request-> over_time}}</td>
             <td>{{ $request-> status}}</td>
         </tr>
         @endforeach
@@ -64,7 +70,7 @@
 
         @else
 
-        <td>
+        <td colspan="5" class="text-center">
             <h4>No Data Found!</h4>
         </td>
 

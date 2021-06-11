@@ -82,7 +82,8 @@
                                     <i class="fe fe-credit-card"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3> {{$totalEmployee - $totalAttendance + $totalLeave}}</h3>
+                                   {{-- @dd($totalEmployee - $totalAttendance) --}}
+                                    <h3> {{$totalEmployee - ($totalAttendance + $totalLeave)}}</h3>
                                     {{-- {{$patient_count}} --}}
                                 </div>
                             </div>

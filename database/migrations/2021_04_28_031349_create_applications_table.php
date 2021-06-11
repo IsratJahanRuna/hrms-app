@@ -17,7 +17,7 @@ class CreateApplicationsTable extends Migration
             $table->id();
             $table->integer('user_id');
             // $table->string('email');
-            $table->integer('department_id');
+            $table->string('department');
             $table->string('type');
             $table->date('from');
             $table->date('to');

@@ -20,6 +20,9 @@ class CreateAttendancesTable extends Migration
             $table->dateTime('out_time')->nullable();
             $table->string('status')->default('Absent');
             $table->string('check_status')->default('Checked_In');
+            $table->string('delay')->nullable();
+            $table->string('working_hours')->nullable();
+            $table->string('over_time')->nullable();
             $table->timestamps();
         });
     }

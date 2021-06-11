@@ -13,7 +13,7 @@ class SalaryManageController extends Controller
 {
     public function salaryManage()
     {
-        $employee = Employee::with('employeeDetail')->where('status','active')->get();
+        $employee = Employee::with('employeeDetail')->where('status','active')->whereMonth('created_at','!=', now()->format('m'))->get();
 
         $salaries = Salary::with('employee')->orderBy('id','desc')->paginate(6);
 

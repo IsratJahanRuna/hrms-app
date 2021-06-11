@@ -18,7 +18,7 @@ class EmployeeManageController extends Controller
 
         $departments = Department::all();
         $designations = Designation::all();
-        $employees = Employee::where('status','active')->paginate(3);
+        $employees = Employee::where('status','active')->orderBy('id','desc')->paginate(3);
 
         return view('backend.content.employeeManage', compact('employees', 'departments', 'designations'));
     }
@@ -154,7 +154,7 @@ class EmployeeManageController extends Controller
 
         $departments = Department::all();
         $designations = Designation::all();
-        $employees = Employee::where('status','active')->paginate(4);
+        $employees = Employee::where('status','active')->orderBy('id','desc')->paginate(4);
 
         return view('backend.content.employees', compact('employees', 'departments', 'designations'));
     }

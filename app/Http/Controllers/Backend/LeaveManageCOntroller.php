@@ -13,7 +13,7 @@ class LeaveManageCOntroller extends Controller
     public function leaveManage()
     {
 
-            $notifications = Application::paginate(6);
+            $notifications = Application::orderBy('id','desc')->paginate(6);
 
             if (isset($_GET['name'])) {
                 $name = $_GET['name'];

@@ -70,7 +70,7 @@ class ApplicationController extends Controller
     //     return redirect()->back()->with('message','Your today/s slot is full.');
     // }
     // else{
-        $alreadyExist = Application::whereDate('created_at',now()->format('Y-m-d'))->exists();
+        $alreadyExist = Application::where('user_id', auth()->User()->id)->whereDate('created_at',now()->format('Y-m-d'))->exists();
 
         if($alreadyExist){
             return redirect()->back()->with('message','Your today/s slot is full.');
@@ -86,7 +86,7 @@ class ApplicationController extends Controller
         Application::create([
             'user_id' => auth()->user()->id,
             // 'email'=>$request->email,
-            'department_id'=>$request->department_id,
+            'department'=>$request->department,
             'type'=>$request->type,
             'from'=>$request->from,
             'to'=>$request->to,
