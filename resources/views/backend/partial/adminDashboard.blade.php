@@ -23,7 +23,7 @@
                             <div class="dash-widget-info">
                                 <h6 class="text-muted">Employees</h6>
                                 <div class="progress progress-sm">
-                                    <div class="progress-bar bg-primary w-50"></div>
+                                    <div class="progress-bar progress-bar-animated progress-bar-striped bg-primary w-50"></div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
 
                                 <h6 class="text-muted">Departments</h6>
                                 <div class="progress progress-sm">
-                                    <div class="progress-bar bg-info w-50"></div>
+                                    <div class="progress-bar progress-bar-animated progress-bar-striped bg-info w-50"></div>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
 
                                 <h6 class="text-muted">Attend Employees</h6>
                                 <div class="progress progress-sm">
-                                    <div class="progress-bar bg-success w-50"></div>
+                                    <div class="progress-bar progress-bar-animated progress-bar-striped bg-success w-50"></div>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
 
                                 <h6 class="text-muted">Absent Employees</h6>
                                 <div class="progress progress-sm">
-                                    <div class="progress-bar bg-danger w-50"></div>
+                                    <div class="progress-bar progress-bar-animated progress-bar-striped bg-danger w-50"></div>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
 
                                 <h6 class="text-muted">In Leave</h6>
                                 <div class="progress progress-sm">
-                                    <div class="progress-bar bg-warning w-50"></div>
+                                    <div class="progress-bar progress-bar-animated progress-bar-striped bg-warning w-50"></div>
                                 </div>
                             </div>
                         </div>

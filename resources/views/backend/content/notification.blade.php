@@ -5,19 +5,23 @@
     <h2 class="mt-3 text-center text-decoration-underline">Notification</h2>
     @if (session()->has('success'))
 
-        <div class="alert alert-danger mt-4">
+        <div class="alert alert-danger mt-4 d-flex justify-content-between">
             {{ session()->get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
         </div>
     @endif
     @if (session()->has('message'))
 
-    <div class="alert alert-success mt-4">
+    <div class="alert alert-success mt-4 d-flex justify-content-between">
         {{ session()->get('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
     </div>
 @endif
 
 <div style="overflow-x:auto;">
-    <table class="table my-4 rounded shadow " style="margin-right: 200px;">
+    <table class="table my-4 rounded shadow table-bordered" style="margin-right: 200px;">
         <thead>
             <tr>
                 <th class="py-4" scope="col">#</th>

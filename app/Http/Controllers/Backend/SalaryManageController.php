@@ -62,11 +62,7 @@ class SalaryManageController extends Controller
         }
 
 
-        // if(Carbon::parse($request->input('month'))->format('Y-m') == now()->format('Y-m')){
-        //     return redirect()->route('salaryManage')->with('error','You can not give advance salary');
-
-        // }
-
+       
         $alreadyExist = Salary::where('employee_id',$request->employee_id)
         ->where('month',now()->subMonth()->format('Y-m'))->exists();
 // dd($request->employee_id);
@@ -85,31 +81,7 @@ class SalaryManageController extends Controller
             $salary = $employee->salary;
 
             $attendance = Attendance::where('user_id',$request->employee_id)->first();
-            // dd($attendance->in_time);
-
-
-            // $in_time = date("H:i",strtotime($attendance->in_time));
-
-            // $out_time = date("H:i",strtotime($attendance->out_time));
-
-            // $total_time = $out_time -  $in_time;
-
-            // dd( $total_time);
-
-            // $in_time = Carbon::parse($attendance->in_time);
-            // $out_time = Carbon::parse($attendance->out_time);
-
-            // $totalDuration =  $in_time->diff($out_time)->format('%H');
-            // // dd($totalDuration);
-
-            // $halfAttendanceCount = 0;
-
-            // if( $totalDuration < 8){
-
-            //     $halfAttendanceCount = Attendance::where('user_id',$request->employee_id)
-            // ->Where('status','Present')->whereMonth('created_at',now()->subMonth()->format('m'))
-            // ->count('id');
-            // }
+           
 
 
             $attendanceCount = Attendance::where('user_id',$request->employee_id)
@@ -141,6 +113,8 @@ class SalaryManageController extends Controller
                 'month'=>$request->month,
                 'bonus'=>$request->bonus,
                 ]);
+
+            // Mail::to($employee->employeeDetail->email)->send(new SalaryConfirmation($payable_salary);
 
              return redirect()->back()->with('success','Salary updated.');
 

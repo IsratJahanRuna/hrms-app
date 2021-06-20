@@ -27,7 +27,7 @@
 
 <div class="d-flex justify-content-center" style="overflow-x:auto;">
     {{-- Employee Details table --}}
-    <table class="table my-4 rounded shadow" style="margin-left: 100px;">
+    <table class="table my-4 rounded shadow table-bordered" style="margin-left: 100px;">
         <thead>
             <tr>
                 <th scope="col">#</th>

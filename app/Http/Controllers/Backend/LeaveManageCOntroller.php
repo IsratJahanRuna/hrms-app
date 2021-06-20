@@ -19,7 +19,14 @@ class LeaveManageCOntroller extends Controller
                 $name = $_GET['name'];
                 // dd($name);
                 $user = User::where('name', $name)->first();
-                $user_id = $user->id;
+                // $user_id = $user->id;
+
+                if(isset($user)){
+                    $user_id = $user->id;
+                }
+                else{
+                    $user_id = 1234567;
+                }
 
                 // dd($toDate);
 

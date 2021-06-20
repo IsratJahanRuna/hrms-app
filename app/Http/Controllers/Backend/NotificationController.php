@@ -92,7 +92,7 @@ class NotificationController extends Controller
                     'total' => $days + 1,
                 ]);
              }
-            //  Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
+             Mail::to($employee->employeeDetail->email)->send(new ApplicationAccepted($notifications));
             return redirect()->back()->with('message','Leave application accepted');
 
 
@@ -112,7 +112,7 @@ class NotificationController extends Controller
             'status'=>'declined',
             'reason'=>$request->reason,
         ]);
-        // Mail::to($employee->employeeDetail->email)->send(new ApplicationDeclined($notifications));
+        Mail::to($employee->employeeDetail->email)->send(new ApplicationDeclined($notifications));
         return redirect()->route('notification')->with('success','Leave application not accepted');
     }
 

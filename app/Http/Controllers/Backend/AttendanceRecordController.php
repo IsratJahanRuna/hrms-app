@@ -31,8 +31,14 @@ class AttendanceRecordController extends Controller
             $name = $_GET['name'];
             // dd($name);
             $user = User::where('name', $name)->first();
-            $user_id = $user->id;
+            // $user_id = $user->id;
 
+            if(isset($user)){
+                $user_id = $user->id;
+            }
+            else{
+                $user_id = 1234567;
+            }
             // dd($toDate);
 
             $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->paginate(6);
@@ -72,17 +78,20 @@ class AttendanceRecordController extends Controller
             $name = $_GET['name'];
             // dd($name);
             $user = User::where('name', 'like', '%' . $name . '%')->first();
-
+// dd($user);
             if(isset($user)){
             $user_id = $user->id;
         }
         else{
             $user_id = 1234567;
         }
-
+        if (isset($_GET['from_date'])) {
                 $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
                 $toDate = date('Y-m-d', strtotime($_GET['to_date']));
 
+                if ($fromDate > $toDate){
+                    return redirect()->back()->with('message','Invalid date selection.');
+                }
                 // dd($user_id);
 
                 // dd($toDate);
@@ -98,6 +107,9 @@ class AttendanceRecordController extends Controller
 
 
         // dd($attendance);
-        return view('backend.content.report', compact('attendance'));
+        return view('backend.content.report', compact('attendance','fromDate','toDate'));
     }
+
+    return view('backend.content.report',compact('attendance'));
+}
 }

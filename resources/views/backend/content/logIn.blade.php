@@ -14,13 +14,17 @@
 @include('backend.partial.header')
 
 @if(session()->has('error'))
-<div class="alert alert-danger">
+<div class="alert alert-danger d-flex justify-content-between">
       {{session()->get('error')}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
 </div>
 @endif
 @if(session()->has('success'))
-<div class="alert alert-success">
+<div class="alert alert-success d-flex justify-content-between">
       {{session()->get('success')}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
 </div>
 @endif
 
@@ -34,18 +38,22 @@
 
 
 
-        <form action={{route('authenticate')}} method="POST" class="container w-50 p-5 border shadow p-3 mb-5 rounded-3" style="background: linear-gradient(to right, #619fdd 0%, #a1d8f1 100%); margin-top:100px">
+        <form action="{{route('authenticate')}}" method="POST" class="container w-50 p-5 border shadow p-3 mb-5 rounded-3" style="background: linear-gradient(to right, #619fdd 0%, #a1d8f1 100%); margin-top:100px">
 
 
             @csrf
             @if ($errors->any())
             @foreach ($errors->all() as $error)
-                <div class="alert alert-danger">{{$error}}</div>
+                <div class="alert alert-danger d-flex justify-content-between">{{$error}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
             @endforeach
         @endif
             @if(session()->has('loginError'))
-            <div class="alert alert-danger">
+            <div class="alert alert-danger d-flex justify-content-between">
                   {{session()->get('loginError')}}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
             </div>
             @endif
 

@@ -10,19 +10,24 @@
 
   @if(session()->has('success'))
 
-  <div class="alert alert-success mt-4">
+  <div class="alert alert-success mt-4 d-flex justify-content-between">
         {{session()->get('success')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
   </div>
   @endif
   @if ($errors->any())
   @foreach ($errors->all() as $error)
-      <div class="alert alert-danger">{{$error}}</div>
+      <div class="alert alert-danger d-flex justify-content-between">{{$error}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+      </div>
   @endforeach
 @endif
 
 <div style="overflow-x:auto;">
 {{-- Employee Details table --}}
-<table class="table my-4 rounded shadow" style="margin-right: 200px;">
+<table class="table my-4 rounded shadow table-bordered" style="margin-right: 200px;">
     <thead>
       <tr>
         <th class="py-4" scope="col">#</th>

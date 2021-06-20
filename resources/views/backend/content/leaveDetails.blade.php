@@ -5,7 +5,7 @@
 <h2 class="m-4 text-center text-decoration-underline">Leave Details</h2>
 
 <div class="d-flex justify-content-center" style="overflow-x:auto;">
-<table class="table my-3 rounded shadow " style="margin-left: 100px;" >
+<table class="table my-3 rounded shadow table-bordered" style="margin-left: 100px;" >
     <thead>
       <tr>
         <th scope="col">#</th>

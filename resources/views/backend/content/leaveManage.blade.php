@@ -28,7 +28,7 @@
 <div id="printArea">
 
 <div style="overflow-x:auto;">
-<table class="table my-4 rounded shadow " style="margin-right: 200px;">
+<table class="table my-4 rounded shadow table-bordered" style="margin-right: 200px;">
     <thead>
       <tr>
         <th class="py-4" scope="col">#</th>

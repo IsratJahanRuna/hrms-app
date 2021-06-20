@@ -5,6 +5,13 @@
 
     <h2 class="m-4 text-center text-decoration-underline">Employee Attendance Report</h2>
 
+    @if (session()->has('message'))
+        <div class="alert alert-danger d-flex justify-content-between">
+            {{ session()->get('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <form action={{ route('report') }} method="GET">
 
         {{-- @csrf --}}
@@ -19,12 +26,12 @@
 
                     <div class="col-md-4">
                         <label for="from">Date From:</label>
-                        <input id="from" type="date" class="form-control" name="from_date" required>
+                        <input id="from" type="date" value="{{date('Y-m-d')}}" max="{{date('Y-m-d')}}" class="form-control" name="from_date" required>
                     </div>
 
                     <div class="col-md-4">
                         <label for="to">Date To:</label>
-                        <input id="to" type="date" class="form-control" name="to_date" required>
+                        <input id="to" type="date" value="{{date('Y-m-d')}}" max="{{date('Y-m-d')}}" class="form-control" name="to_date" required>
                     </div>
                 </div>
             </div>
@@ -37,10 +44,18 @@
 
 
     <div id="printArea">
+<div class="container mt-5" style="margin-left: 230px;">
+    @if (isset($fromDate)&& $fromDate !="1970-01-01")
+    <div class="container text-success ">
+        <h4><b>Attendance report from: </b> {{ date('M-d, Y', strtotime($fromDate)) }} to {{ date('M-d, Y', strtotime($toDate)) }} </h5>
+        <h5 style="margin-left: 200px;"><b>Number of records: </b> {{ count($attendance) }}</h5>
+    </div>
+    @endif
+    </div>
 
         <div style="overflow-x:auto;">
 
-        <table class="table my-4 rounded shadow " style="margin-right: 200px;">
+        <table class="table my-4 rounded shadow table-bordered" style="margin-right: 200px;">
             <thead>
                 <tr>
                     <th class="py-4" scope="col">#</th>

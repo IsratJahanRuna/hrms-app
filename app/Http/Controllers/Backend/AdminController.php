@@ -26,10 +26,7 @@ class AdminController extends Controller
 
         $allAttendances = Attendance::whereDate('created_at',now()->format('Y-m-d'))->get();
         $totalAttendance = $allAttendances->count();
-        // dd( $allAttendances);
-
-        // $allAttendances = Attendance::where('check_status','Checked_In')->get();
-        // $totalAttendance = $allAttendances->count();
+       
 
         $allLeaves = Application::where('status', 'accepted')->whereDate('from','<=',$today)
                     ->whereDate('to','>=',$today)->get();
@@ -39,27 +36,5 @@ class AdminController extends Controller
     }
 
 
-    // public function check(Request $request){
-
-    //     $user = User::where('email',$request->input('email'))->first();
-
-    //     if(!$user){
-    //         //not found email
-    //     }
-
-    //     if(!Hash::check($request->input('password'), $user->password)){
-    //         //message password dose't
-    //     }
-
-
-    //     //Adtace;;
-    //     //user_id in_time out_time
-
-
-    //     Addtance::create([
-    //         user_id=>auth()->user()->id,
-    //         in_time=> now(),
-    //     ])
-
-    // }
+   
 }
