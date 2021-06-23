@@ -18,9 +18,9 @@ class EmployeeRegistration extends Mailable
      * @return void
      */
     protected $employee;
-    public function __construct($employee)
+    public function __construct($emp)
     {
-       $this -> employee = $employee;
+       $this -> employee = $emp;
     }
 
     /**

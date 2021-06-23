@@ -6,7 +6,7 @@
 
 @if ($errors->any())
   @foreach ($errors->all() as $error)
-      <div class="alert alert-danger">{{$error}}
+      <div class="alert alert-danger d-flex justify-content-between">{{$error}}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
       </div>
@@ -20,7 +20,7 @@
 
   @if(session()->has('success'))
 
-  <div class="alert alert-success mt-4">
+  <div class="alert alert-success mt-4 d-flex justify-content-between">
         {{session()->get('success')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
@@ -28,7 +28,7 @@
   @endif
   @if(session()->has('error'))
 
-  <div class="alert alert-danger mt-4">
+  <div class="alert alert-danger mt-4 d-flex justify-content-between">
         {{session()->get('error')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 

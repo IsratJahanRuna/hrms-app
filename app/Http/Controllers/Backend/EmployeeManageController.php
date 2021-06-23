@@ -80,7 +80,7 @@ class EmployeeManageController extends Controller
             'password' => bcrypt('123456')
         ]);
 
-        $employeeData= Employee::create([
+        $emp= Employee::create([
             'user_id' => $users->id,
             'file' => $file_name,
             //    'name'=>$request->name,
@@ -98,7 +98,7 @@ class EmployeeManageController extends Controller
 
 
         //send email to user
-        Mail::to($users->email)->send(new EmployeeRegistration($employeeData));
+        Mail::to($users->email)->send(new EmployeeRegistration($emp));
 
         return redirect()->back()->with('success', 'Employee Registration Successful');
     }

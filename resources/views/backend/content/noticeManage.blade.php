@@ -5,7 +5,7 @@
 
 @if(session()->has('success'))
 
-<div class="alert alert-success mt-4">
+<div class="alert alert-success mt-4 d-flex justify-content-between">
       {{session()->get('success')}}
 </div>
 @endif

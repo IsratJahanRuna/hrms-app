@@ -5,7 +5,7 @@
 
 <h2 class="mt-3 text-center text-decoration-underline">Leave Record</h2>
 
-<form action={{ route('LeaveManage') }} method="GET">
+<form action="{{ route('LeaveManage') }}" method="GET">
 
     <div class="row d-flex mb-4">
         <div class="col-md-6">

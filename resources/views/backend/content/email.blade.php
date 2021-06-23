@@ -12,9 +12,10 @@
 <body>
     <div class="border shadow w-75">
         <h1 style="background-color: green; width: 350px">Congratualations!...</h1>
-        <h3>Your Employee Registertion is successfully done in Bit-Map Limited</h3>
-        <h4>Please collect your Id and Password from your department</h4>
-        <!-- <h4>{{$employeeData->employee->name}}</h4> -->
+        <h4>Dear {{$employeeData->employeeDetail->name}},</h4>
+        <h3>Your Employee Registertion is successfully done in Kodeeo Limited.</h3>
+        <h4>Please collect your Id and Password form department.</h4>
+        
         <h5>Thank you. Keep up with us.</h5>
     </div>
 </body>
