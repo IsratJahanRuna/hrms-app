@@ -18,7 +18,7 @@
   @endif
     @if ($errors->any())
         @foreach ($errors->all() as $error)
-            <div class="alert alert-danger d-flex justify-content-between">{{ $error }}
+            <div class="alert alert-danger mt-4 d-flex justify-content-between">{{ $error }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
             </div>

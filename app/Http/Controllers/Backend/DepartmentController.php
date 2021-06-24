@@ -22,7 +22,7 @@ class DepartmentController extends Controller
         $request->validate([
             'department' => 'required | unique:departments',
             'email' => 'required | email | unique:departments',
-            'contact' => 'required | unique:departments',
+            'contact' => 'required | min:11| max:11 | unique:departments',
         ]);
 
 

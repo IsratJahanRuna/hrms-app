@@ -70,6 +70,7 @@ class EmployeeManageController extends Controller
             'email' => 'required | email | unique:users',
             'department_id' => 'required',
             'designation_id' => 'required',
+            'contact' => 'required | min:11| max:11 | unique:employees',
 
         ]);
 

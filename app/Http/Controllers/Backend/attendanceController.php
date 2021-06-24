@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
+use App\Models\Employee;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class attendanceController extends Controller
     {
 
         $user = User::where('email',$request->input('email'))->first();
+        $employee = Employee::where('user_id',$user->id)->first();
 
 
 
@@ -29,6 +31,10 @@ class attendanceController extends Controller
         if(!$user)
         {
             return redirect()->route('logIn')->with('error','Email does not match.');
+        }
+        if($employee->status != 'Active')
+        {
+            return redirect()->route('logIn')->with('error','You are not applicable for attendance.');
         }
         if(!Hash::check($request->input('password'), $user->password))
         {
@@ -55,13 +61,19 @@ class attendanceController extends Controller
 
                 //8
                 // 10  6
-
-                $totalLate =  $entryTime->diff($in_time)->format('%H:%i:%s');
-                // dd( $totalLate);
-
+                if ($in_time >=  $entryTime) {
+                    $totalLate =  $entryTime->diff($in_time)->format('%H:%i:%s');
+                    // dd( $totalLate);
+                }
+                else{
+                    $totalLate = 0;
+                }
                 $totalOver =  $outTime->diff($out_time)->format('%H:%i:%s');
                 // dd($totalOver);
+
                 $totalDuration =  $in_time->diff($out_time)->format('%H');
+
+
             Attendance::where('user_id',$user->id)->whereDate('in_time',now()->format('Y-m-d'))->update([
                 'out_time' => now(),
                 'status' => 'Present',

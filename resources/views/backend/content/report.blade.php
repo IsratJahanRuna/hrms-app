@@ -3,7 +3,7 @@
 
 @section('contents')
 
-    <h2 class="m-4 text-center text-decoration-underline">Employee Attendance Report</h2>
+    <h2 class="m-3 text-center text-decoration-underline">Employee Attendance Report</h2>
 
     @if (session()->has('message'))
         <div class="alert alert-danger d-flex justify-content-between">
@@ -31,7 +31,7 @@
 
                     <div class="col-md-4">
                         <label for="to">Date To:</label>
-                        <input id="to" type="date" value="{{date('Y-m-d')}}" max="{{date('Y-m-d')}}" class="form-control" name="to_date" required>
+                        <input id="to" type="date" value="{{date('Y-m-d')}}" class="form-control" name="to_date" required>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 
         <div style="overflow-x:auto;">
 
-        <table class="table my-4 rounded shadow table-bordered" style="margin-right: 200px;">
+        <table class="table  rounded shadow table-bordered" style="margin-right: 200px;">
             <thead>
                 <tr>
                     <th class="py-4" scope="col">#</th>
@@ -66,7 +66,7 @@
                 </tr>
             </thead>
             <tbody>
-
+{{-- @dd($attendance) --}}
                 @if ($attendance->count() > 0)
 
                     @foreach ($attendance as $key => $request)
@@ -95,7 +95,7 @@
         </table>
         </div>
     </div>
-    {{$attendance->links()}}
+    {{-- {{$attendance->links()}} --}}
 
     <script type="text/javascript">
         function printDiv() {

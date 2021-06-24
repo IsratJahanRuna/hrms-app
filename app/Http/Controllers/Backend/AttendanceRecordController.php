@@ -68,7 +68,8 @@ class AttendanceRecordController extends Controller
 
     public function report()
     {
-        $attendance = Attendance::where('status', '!=', 'holiday')->paginate(6);
+        $attendance = Attendance::where('status', '!=', 'holiday')->get();
+        // dd($attendance->created_at  date('Y-m-d H:m:s', strtotime($_GET['from_date'])));
 
         // $allAttendance = Attendance::all();
         // foreach( $attendance as $request){
@@ -85,7 +86,7 @@ class AttendanceRecordController extends Controller
         else{
             $user_id = 1234567;
         }
-        if (isset($_GET['from_date'])) {
+        // if (isset($_GET['from_date'])) {
                 $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
                 $toDate = date('Y-m-d', strtotime($_GET['to_date']));
 
@@ -97,17 +98,21 @@ class AttendanceRecordController extends Controller
                 // dd($toDate);
 
                 // dd($attendance );
-                $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->whereBetween('created_at', [$fromDate, $toDate])->paginate(6);
+
+                    $attendance = Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->whereBetween('in_time', [$fromDate, $toDate])->get();
+                    // dd(Attendance::where('status', '!=', 'holiday')->where('user_id', $user_id)->whereBetween('created_at', [$fromDate, $toDate])->get());
+
+                    // $attendance = Attendance::where('created_at','>=',$fromDate)->where('status', '!=', 'holiday')->where('user_id', $user_id)->where('created_at','<=',$toDate)->get();
+                    // dd($attendance);
+                    // }
 
 
-        }
 
 
 
+                    // dd($attendance);
+                    return view('backend.content.report', compact('attendance', 'fromDate', 'toDate'));
 
-
-        // dd($attendance);
-        return view('backend.content.report', compact('attendance','fromDate','toDate'));
     }
 
     return view('backend.content.report',compact('attendance'));

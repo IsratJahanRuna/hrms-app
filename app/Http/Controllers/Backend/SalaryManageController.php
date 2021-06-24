@@ -62,7 +62,7 @@ class SalaryManageController extends Controller
         }
 
 
-       
+
         $alreadyExist = Salary::where('employee_id',$request->employee_id)
         ->where('month',now()->subMonth()->format('Y-m'))->exists();
 // dd($request->employee_id);
@@ -76,12 +76,12 @@ class SalaryManageController extends Controller
             $employee = Employee::where('user_id',$request->employee_id)->first();
             //  dd($employee->total_sick_leave);
 
-            $totalLeave= 36 - ($employee->total_sick_leave + $employee->total_annual_leave + $employee->total_casual_leave);
+            // $totalLeave= $employee->total_sick_leave + $employee->total_annual_leave + $employee->total_casual_leave;
 
             $salary = $employee->salary;
 
             $attendance = Attendance::where('user_id',$request->employee_id)->first();
-           
+
 
 
             $attendanceCount = Attendance::where('user_id',$request->employee_id)
@@ -91,13 +91,14 @@ class SalaryManageController extends Controller
             })->whereMonth('created_at',now()->subMonth()->format('m'))
             ->count('id');
             // dd($attendanceCount);
-            $attendanceCount =  $attendanceCount + $totalLeave;
+            // $attendanceCount =  $attendanceCount + $totalLeave;
             $totalAbsent = 30 - $attendanceCount;
 
             $per_day_salary =  $salary / 30;
 
 
             $payable_salary = $salary - ($per_day_salary * $totalAbsent);
+            // dd( $payable_salary);
             $request->validate([
                 'employee_id' => 'required',
                 'employment' => 'required',

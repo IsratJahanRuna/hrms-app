@@ -3,13 +3,13 @@
 
 @section('contents')
 
-<h2 class="m-4 text-center text-decoration-underline">Attendance Record</h2>
+<h2 class="m-2 text-center text-decoration-underline">Attendance Record</h2>
 
 <form method="GET" action="{{route('employeeAttendance')}}">
 
     {{-- @csrf --}}
 
-    <div class="row  my-4" style="margin-left: 100px;">
+    <div class="row  my-3" style="margin-left: 100px;">
         <div class="col-md-8">
             <div class=" row">
                 <div class="col-md-6">
@@ -33,7 +33,7 @@
 <div id="printArea">
     <div class="d-flex justify-content-center" style="overflow-x:auto;">
 
-<table  style="margin-left: 100px;" class="table my-3 rounded shadow table-bordered" >
+<table  style="margin-left: 100px;" class="table  rounded shadow table-bordered" >
     <thead>
       <tr>
         <th class="py-4" scope="col">#</th>
